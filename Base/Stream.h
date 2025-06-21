@@ -6,8 +6,6 @@
 extern "C" {
 #endif
 
-typedef struct CTStream_ CTStream_;
-
 #ifdef __cplusplus
 }
 #endif
