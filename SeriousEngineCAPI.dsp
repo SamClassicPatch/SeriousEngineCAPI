@@ -127,6 +127,22 @@ SOURCE=.\Base\Stream.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\Translation.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Translation.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\TranslationPair.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\TranslationPair.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\Types.h
 # End Source File
 # End Group
@@ -152,6 +168,22 @@ SOURCE=.\Math\Vector.cpp
 # Begin Source File
 
 SOURCE=.\Math\Vector.h
+# End Source File
+# End Group
+# Begin Group "Templates"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Templates\DynamicArray.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\DynamicArray.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\StaticArray.h
 # End Source File
 # End Group
 # Begin Source File
