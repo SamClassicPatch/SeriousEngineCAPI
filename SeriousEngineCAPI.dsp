@@ -111,6 +111,10 @@ SOURCE=.\Base\Exception.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\FileName.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\FileName.h
 # End Source File
 # Begin Source File
