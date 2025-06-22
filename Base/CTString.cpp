@@ -285,16 +285,3 @@ CTString_* CTString_RemoveSpecialCodes(const CTString_* p)
   CTString result = RemoveSpecialCodes(*((const CTString*)p));
   return (CTString_*)(new CTString(result));
 }
-
-char** CTString_access_string(CTString_* p)
-{
-  CTString& s = *((CTString*)p);
-  return &s.str_String;
-}
-
-char* const* CTString_access_string_const(const CTString_* p)
-{
-  const CTString& s = *((const CTString*)p);
-  return &s.str_String;
-}
-

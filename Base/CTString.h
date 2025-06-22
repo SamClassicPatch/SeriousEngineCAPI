@@ -57,8 +57,6 @@ SECAPI void CTString_SaveStringVar(const CTFileName_* a, CTString_* b);
 SECAPI void CTString_LoadIntVar(const CTFileName_* a, INDEX* i);
 SECAPI void CTString_SaveIntVar(const CTFileName_* a, INDEX i);
 SECAPI CTString_* CTString_RemoveSpecialCodes(const CTString_* p);
-SECAPI char** CTString_access_string(CTString_* p);
-SECAPI char* const* CTString_access_string_const(const CTString_* p);
 
 #ifdef __cplusplus
 }
