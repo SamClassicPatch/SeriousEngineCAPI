@@ -49,6 +49,8 @@ typedef struct INDEXmatrix4D_ INDEXmatrix4D_;
 typedef INDEXmatrix2D_ PIXmatrix2D_;
 typedef INDEXmatrix2D_ MEXmatrix2D_;
 
+typedef struct CListNode_ CListNode_;
+typedef struct CListHead_ CListHead_;
 typedef struct CTStream_ CTStream_;
 typedef struct CTString_ CTString_;
 typedef struct CTFileName_ CTFileName_;
