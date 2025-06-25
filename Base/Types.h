@@ -55,8 +55,15 @@ typedef struct CTStream_ CTStream_;
 typedef struct CTString_ CTString_;
 typedef struct CTFileName_ CTFileName_;
 typedef struct CTranslationPair_ CTranslationPair_;
+
+typedef struct CDynamicArray_FLOAT_ CDynamicArray_FLOAT_;
+typedef struct CDynamicArray_CTString_ CDynamicArray_CTString_;
 typedef struct CDynamicArray_CTFileName_ CDynamicArray_CTFileName_;
 typedef struct CDynamicArray_CTranslationPair_ CDynamicArray_CTranslationPair_;
+
+typedef struct CDynamicStackArray_FLOAT_ CDynamicStackArray_FLOAT_;
+typedef struct CDynamicStackArray_CTString_ CDynamicStackArray_CTString_;
+typedef struct CDynamicStackArray_CTFileName_ CDynamicStackArray_CTFileName_;
 
 SECAPI BOOL HasException();
 SECAPI char* GrabException();

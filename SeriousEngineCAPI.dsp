@@ -187,6 +187,14 @@ SOURCE=.\Templates\DynamicArray.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Templates\DynamicStackArray.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\DynamicStackArray.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Templates\StaticArray.h
 # End Source File
 # End Group
