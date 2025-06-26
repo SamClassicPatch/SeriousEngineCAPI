@@ -127,6 +127,10 @@ SOURCE=.\Base\Lists.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\Stream.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\Stream.h
 # End Source File
 # Begin Source File

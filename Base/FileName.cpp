@@ -147,11 +147,15 @@ void CTFileName_ReadFromText_t(CTFileName_* p, CTStream_* s, const char* keyword
 
 void CTFileName_extract(CTStream_* s, CTFileName_* p)
 {
+  SECAPI_TRY
   (*((CTStream*)s)) >> (*((CTFileName*)p));
+  SECAPI_CATCH
 }
 
 void CTFileName_insert(CTStream_* s, const CTFileName_* p)
 {
+  SECAPI_TRY
   (*((CTStream*)s)) << (*((const CTFileName*)p));
+  SECAPI_CATCH
 }
 
