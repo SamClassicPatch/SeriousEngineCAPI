@@ -171,6 +171,14 @@ SOURCE=.\Math\Object3D.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Math\Placement.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Math\Placement.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Math\Vector.cpp
 # End Source File
 # Begin Source File

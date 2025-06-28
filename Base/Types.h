@@ -50,6 +50,7 @@ typedef struct INDEXmatrix3D_ INDEXmatrix3D_;
 typedef struct INDEXmatrix4D_ INDEXmatrix4D_;
 typedef INDEXmatrix2D_ PIXmatrix2D_;
 typedef INDEXmatrix2D_ MEXmatrix2D_;
+typedef struct CPlacement3D_ CPlacement3D_;
 
 typedef struct CChunkID_ CChunkID_;
 typedef struct CListNode_ CListNode_;
