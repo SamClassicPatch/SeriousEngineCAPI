@@ -50,6 +50,15 @@ typedef struct INDEXmatrix3D_ INDEXmatrix3D_;
 typedef struct INDEXmatrix4D_ INDEXmatrix4D_;
 typedef INDEXmatrix2D_ PIXmatrix2D_;
 typedef INDEXmatrix2D_ MEXmatrix2D_;
+
+typedef struct INDEXaabbox2D_ INDEXaabbox2D_;
+typedef INDEXaabbox2D_ PIXaabbox2D_;
+typedef INDEXaabbox2D_ MEXaabbox2D_;
+typedef struct FLOATaabbox2D_ FLOATaabbox2D_;
+typedef struct FLOATaabbox3D_ FLOATaabbox3D_;
+typedef struct DOUBLEaabbox2D_ DOUBLEaabbox2D_;
+typedef struct DOUBLEaabbox3D_ DOUBLEaabbox3D_;
+
 typedef struct CPlacement3D_ CPlacement3D_;
 typedef struct FLOATquat3D_ FLOATquat3D_;
 typedef struct DOUBLEquat3D_ DOUBLEquat3D_;

@@ -159,6 +159,14 @@ SOURCE=.\Base\Types.h
 # PROP Default_Filter "h"
 # Begin Source File
 
+SOURCE=.\Math\AABBox.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Math\AABBox.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Math\Matrix.cpp
 # End Source File
 # Begin Source File
