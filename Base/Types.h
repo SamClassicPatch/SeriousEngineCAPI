@@ -53,6 +53,8 @@ typedef INDEXmatrix2D_ MEXmatrix2D_;
 typedef struct CPlacement3D_ CPlacement3D_;
 typedef struct FLOATquat3D_ FLOATquat3D_;
 typedef struct DOUBLEquat3D_ DOUBLEquat3D_;
+typedef struct FLOATplane3D_ FLOATplane3D_;
+typedef struct DOUBLEplane3D_ DOUBLEplane3D_;
 
 typedef struct CChunkID_ CChunkID_;
 typedef struct CListNode_ CListNode_;
@@ -72,27 +74,6 @@ typedef struct CDynamicArray_CTranslationPair_ CDynamicArray_CTranslationPair_;
 typedef struct CDynamicStackArray_FLOAT_ CDynamicStackArray_FLOAT_;
 typedef struct CDynamicStackArray_CTString_ CDynamicStackArray_CTString_;
 typedef struct CDynamicStackArray_CTFileName_ CDynamicStackArray_CTFileName_;
-
-// enums for open mode
-#define CTStream_OM_READ 1
-#define CTStream_OM_WRITE 2
-// enums for seek dir
-#define CTStream_SD_BEG 0
-#define CTStream_SD_END 2
-#define CTStream_SD_CUR 1
-// flags for ExpandFilePath_
-#define CTStream_EFP_READ   (1UL<<0)  // will open for reading
-#define CTStream_EFP_WRITE  (1UL<<1)  // will open for writing
-#define CTStream_EFP_NOZIPS (1UL<<31) // add this flag to forbid searching in zips
-#define CTStream_EFP_NODISK (1UL<<30) // add this flag to forbid searching on disk
-// these are return values 
-#define CTStream_EFP_NONE       0  // doesn't exist
-#define CTStream_EFP_FILE       1  // generic file on disk
-#define CTStream_EFP_BASEZIP    2  // file in one of base zips
-#define CTStream_EFP_MODZIP     3  // file in one of mod zips
-// these are input flags for directory reading
-#define CTStream_DLI_RECURSIVE  (1UL<<0)  // recurse into subdirs
-#define CTStream_DLI_SEARCHCD   (1UL<<1)  // search the CD path also
 
 SECAPI BOOL HasException();
 SECAPI char* GrabException();

@@ -179,6 +179,14 @@ SOURCE=.\Math\Placement.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Math\Plane.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Math\Plane.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Math\Quaternion.cpp
 # End Source File
 # Begin Source File
