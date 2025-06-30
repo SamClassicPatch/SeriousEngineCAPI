@@ -211,6 +211,14 @@ SOURCE=.\Math\Quaternion.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Math\TextureMapping.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Math\TextureMapping.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Math\Vector.cpp
 # End Source File
 # Begin Source File

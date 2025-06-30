@@ -22,6 +22,7 @@ typedef uint32_t COLOR;
 typedef signed char SBYTE;
 typedef unsigned char UBYTE;
 typedef float FLOAT;
+typedef float ANGLE;
 typedef double DOUBLE;
 #endif
 
@@ -69,6 +70,11 @@ typedef struct DOUBLEquat3D_ DOUBLEquat3D_;
 
 typedef struct FLOATplane3D_ FLOATplane3D_;
 typedef struct DOUBLEplane3D_ DOUBLEplane3D_;
+
+typedef struct CPlanarGradients_ CPlanarGradients_;
+typedef struct CMappingDefinitionUI_ CMappingDefinitionUI_;
+typedef struct CMappingVectors_ CMappingVectors_;
+typedef struct CMappingDefinition_ CMappingDefinition_;
 
 typedef struct CChunkID_ CChunkID_;
 typedef struct CListNode_ CListNode_;
