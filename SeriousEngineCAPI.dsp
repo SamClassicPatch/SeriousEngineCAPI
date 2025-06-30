@@ -175,6 +175,14 @@ SOURCE=.\Math\Matrix.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Math\OBBox.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Math\OBBox.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Math\Object3D.h
 # End Source File
 # Begin Source File

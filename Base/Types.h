@@ -59,9 +59,14 @@ typedef struct FLOATaabbox3D_ FLOATaabbox3D_;
 typedef struct DOUBLEaabbox2D_ DOUBLEaabbox2D_;
 typedef struct DOUBLEaabbox3D_ DOUBLEaabbox3D_;
 
+typedef struct FLOATobbox3D_ FLOATobbox3D_;
+typedef struct DOUBLEobbox3D_ DOUBLEobbox3D_;
+
 typedef struct CPlacement3D_ CPlacement3D_;
+
 typedef struct FLOATquat3D_ FLOATquat3D_;
 typedef struct DOUBLEquat3D_ DOUBLEquat3D_;
+
 typedef struct FLOATplane3D_ FLOATplane3D_;
 typedef struct DOUBLEplane3D_ DOUBLEplane3D_;
 
