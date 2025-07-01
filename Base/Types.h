@@ -23,6 +23,7 @@ typedef signed char SBYTE;
 typedef unsigned char UBYTE;
 typedef float FLOAT;
 typedef float ANGLE;
+typedef float TIME;
 typedef double DOUBLE;
 #endif
 
@@ -83,6 +84,9 @@ typedef struct CMappingDefinitionUI_ CMappingDefinitionUI_;
 typedef struct CMappingVectors_ CMappingVectors_;
 typedef struct CMappingDefinition_ CMappingDefinition_;
 
+typedef struct CUpdateable_ CUpdateable_;
+typedef struct CChangeable_ CChangeable_;
+typedef struct CSerial_ CSerial_;
 typedef struct CChunkID_ CChunkID_;
 typedef struct CListNode_ CListNode_;
 typedef struct CListHead_ CListHead_;

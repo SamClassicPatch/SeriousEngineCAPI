@@ -99,6 +99,14 @@ LINK32=link.exe
 # PROP Default_Filter "h"
 # Begin Source File
 
+SOURCE=.\Base\Changeable.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Changeable.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\CTString.cpp
 # End Source File
 # Begin Source File
@@ -127,6 +135,14 @@ SOURCE=.\Base\Lists.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\Serial.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Serial.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\Stream.cpp
 # End Source File
 # Begin Source File
@@ -152,6 +168,14 @@ SOURCE=.\Base\TranslationPair.h
 # Begin Source File
 
 SOURCE=.\Base\Types.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Updateable.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Updateable.h
 # End Source File
 # End Group
 # Begin Group "Math"
