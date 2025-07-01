@@ -203,6 +203,14 @@ SOURCE=.\Math\Plane.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Math\Projection.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Math\Projection.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Math\Quaternion.cpp
 # End Source File
 # Begin Source File

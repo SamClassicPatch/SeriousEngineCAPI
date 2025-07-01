@@ -71,6 +71,13 @@ typedef struct DOUBLEquat3D_ DOUBLEquat3D_;
 typedef struct FLOATplane3D_ FLOATplane3D_;
 typedef struct DOUBLEplane3D_ DOUBLEplane3D_;
 
+typedef struct CProjection3D_ CProjection3D_;
+typedef struct CPerspectiveProjection3D_ CPerspectiveProjection3D_;
+typedef struct CIsometricProjection3D_ CIsometricProjection3D_;
+typedef struct CParallelProjection3D_ CParallelProjection3D_;
+typedef struct CSimpleProjection3D_ CSimpleProjection3D_;
+typedef struct CAnyProjection3D_ CAnyProjection3D_;
+
 typedef struct CPlanarGradients_ CPlanarGradients_;
 typedef struct CMappingDefinitionUI_ CMappingDefinitionUI_;
 typedef struct CMappingVectors_ CMappingVectors_;
