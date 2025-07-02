@@ -99,6 +99,14 @@ LINK32=link.exe
 # PROP Default_Filter "h"
 # Begin Source File
 
+SOURCE=.\Base\Anim.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Anim.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\Changeable.cpp
 # End Source File
 # Begin Source File
