@@ -159,6 +159,14 @@ SOURCE=.\Base\Stream.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\Synchronization.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Synchronization.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\Translation.cpp
 # End Source File
 # Begin Source File

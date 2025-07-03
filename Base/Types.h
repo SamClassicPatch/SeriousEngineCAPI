@@ -84,6 +84,8 @@ typedef struct CMappingDefinitionUI_ CMappingDefinitionUI_;
 typedef struct CMappingVectors_ CMappingVectors_;
 typedef struct CMappingDefinition_ CMappingDefinition_;
 
+typedef struct CTCriticalSection_ CTCriticalSection_;
+typedef struct CTSingleLock_ CTSingleLock_;
 typedef struct CUpdateable_ CUpdateable_;
 typedef struct CChangeable_ CChangeable_;
 typedef struct CSerial_ CSerial_;
