@@ -13,7 +13,7 @@ SECAPI BOOL CChunkID_notequal(const CChunkID_* a, const CChunkID_* b);
 SECAPI const char* CChunkID_str_const(const CChunkID_* p);
 SECAPI char* CChunkID_str(CChunkID_* p);
 
-SECAPI void CTStream_ExecuteWithStreamHandling(void (*func)(void));
+SECAPI void CTStream_ExecuteWithStreamHandling(void (__cdecl *func)(void));
 
 SECAPI void CTStream_Read_t(CTStream_* p, void* buffer, SLONG size);
 SECAPI void CTStream_Write_t(CTStream_* p, const void* buffer, SLONG size);
