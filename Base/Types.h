@@ -4,6 +4,7 @@
 #ifdef SERIOUSENGINECAPI_EXPORTS
 #define SECAPI __declspec(dllexport)
 #include <Engine/Engine.h>
+typedef __int64 int64_t;
 #else
 #define SECAPI __declspec(dllimport)
 #include <stdint.h>
@@ -86,6 +87,9 @@ typedef struct CMappingDefinition_ CMappingDefinition_;
 
 typedef struct CTCriticalSection_ CTCriticalSection_;
 typedef struct CTSingleLock_ CTSingleLock_;
+typedef struct CTimerValue_ CTimerValue_;
+typedef struct CTimerHandler_ CTimerHandler_;
+typedef struct CTimer_ CTimer_;
 typedef struct CUpdateable_ CUpdateable_;
 typedef struct CChangeable_ CChangeable_;
 typedef struct CSerial_ CSerial_;
