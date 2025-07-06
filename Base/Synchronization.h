@@ -1,6 +1,6 @@
 #ifndef SECAPI_BASE_SYNCHRONIZATION_H
 #define SECAPI_BASE_SYNCHRONIZATION_H
-#include "../Base/Types.h"
+#include "Types.h"
 
 #ifdef __cplusplus
 extern "C" {

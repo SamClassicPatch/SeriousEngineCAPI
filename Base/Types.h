@@ -116,6 +116,10 @@ typedef struct CDynamicStackArray_FLOAT_ CDynamicStackArray_FLOAT_;
 typedef struct CDynamicStackArray_CTString_ CDynamicStackArray_CTString_;
 typedef struct CDynamicStackArray_CTFileName_ CDynamicStackArray_CTFileName_;
 
+typedef struct CImageInfo_ CImageInfo_;
+typedef struct CTextureData_ CTextureData_;
+typedef struct CTextureObject_ CTextureObject_;
+
 SECAPI BOOL HasException();
 SECAPI char* GrabException();
 void SetException(char* s);

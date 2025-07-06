@@ -306,6 +306,26 @@ SOURCE=.\Templates\DynamicStackArray.h
 SOURCE=.\Templates\StaticArray.h
 # End Source File
 # End Group
+# Begin Group "Graphics"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Graphics\ImageInfo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\ImageInfo.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\Texture.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\Texture.h
+# End Source File
+# End Group
 # Begin Source File
 
 SOURCE=.\EngineGUI.h

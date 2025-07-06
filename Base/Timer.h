@@ -1,6 +1,6 @@
 #ifndef SECAPI_BASE_TIMER_H
 #define SECAPI_BASE_TIMER_H
-#include "../Base/Types.h"
+#include "Types.h"
 
 #ifdef __cplusplus
 extern "C" {

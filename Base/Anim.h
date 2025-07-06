@@ -1,6 +1,6 @@
 #ifndef SECAPI_BASE_ANIM_H
 #define SECAPI_BASE_ANIM_H
-#include "../Base/Types.h"
+#include "Types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -40,16 +40,10 @@ SECAPI void CAnimData_AddAnimation(CAnimData_* p);
 SECAPI void CAnimData_DeleteAnimation(CAnimData_* p, INDEX ianim);
 SECAPI INDEX CAnimData_GetAnimsCt(const CAnimData_* p);
 
-#ifndef AOF_PAUSED
+#ifndef SERIOUSENGINECAPI_EXPORTS
 #define AOF_PAUSED        (1L<<0)     // current animation is paused
-#endif
-#ifndef AOF_LOOPING
 #define AOF_LOOPING       (1L<<1)     // anim object is playing a looping animation
-#endif
-#ifndef AOF_NORESTART
 #define AOF_NORESTART     (1L<<2)     // don't restart anim (used for PlayAnim())
-#endif
-#ifndef AOF_SMOOTHCHANGE
 #define AOF_SMOOTHCHANGE  (1L<<3)     // smoothly change between anims
 #endif
 
