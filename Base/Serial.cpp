@@ -27,7 +27,9 @@ void CSerial_Save_t(CSerial_* p, const CTFileName_* f)
 
 void CSerial_Reload(CSerial_* p)
 {
+  SECAPI_TRY
   ((CSerial*)p)->Reload();
+  SECAPI_CATCH
 }
 
 void CSerial_MarkUsed(CSerial_* p)
@@ -52,7 +54,9 @@ INDEX CSerial_GetUsedCount(CSerial_* p)
 
 void CSerial_Clear(CSerial_* p)
 {
+  SECAPI_TRY
   ((CSerial*)p)->Clear();
+  SECAPI_CATCH
 }
 
 void CSerial_Read_t(CSerial_* p, CTStream_* s)
@@ -81,5 +85,7 @@ SLONG CSerial_GetUsedMemory(CSerial_* p)
 
 void CSerial_AddToCRCTable(CSerial_* p)
 {
+  SECAPI_TRY
   ((CSerial*)p)->AddToCRCTable();
+  SECAPI_CATCH
 }
