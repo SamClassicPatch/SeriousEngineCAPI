@@ -26,6 +26,8 @@ extern "C" {
 DECLARE_CDynamicArray(CTString)
 DECLARE_CDynamicArray(CTFileName)
 DECLARE_CDynamicArray(CTranslationPair)
+DECLARE_CDynamicArray(CModelCollisionBox)
+DECLARE_CDynamicArray(CAttachedModelPosition)
 
 #undef DECLARE_CDynamicArray
 

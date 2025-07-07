@@ -67,6 +67,8 @@
 IMPL_CDynamicArray(CTString)
 IMPL_CDynamicArray(CTFileName)
 IMPL_CDynamicArray(CTranslationPair)
+IMPL_CDynamicArray(CModelCollisionBox)
+IMPL_CDynamicArray(CAttachedModelPosition)
 
 #undef IMPL_CDynamicArray
 

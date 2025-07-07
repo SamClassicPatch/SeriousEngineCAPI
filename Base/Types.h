@@ -40,6 +40,10 @@ typedef struct INDEX3D_ INDEX3D_;
 typedef struct INDEX4D_ INDEX4D_;
 typedef INDEX2D_ PIX2D_;
 typedef INDEX2D_ MEX2D_;
+typedef struct SWORD3D_ SWORD3D_;
+typedef struct SBYTE3D_ SBYTE3D_;
+typedef SWORD3D_ SWPOINT3D_;
+typedef SBYTE3D_ SBPOINT3D_;
 
 typedef struct FLOATmatrix2D_ FLOATmatrix2D_;
 typedef struct FLOATmatrix3D_ FLOATmatrix3D_;
@@ -111,14 +115,55 @@ typedef struct CDynamicArray_FLOAT_ CDynamicArray_FLOAT_;
 typedef struct CDynamicArray_CTString_ CDynamicArray_CTString_;
 typedef struct CDynamicArray_CTFileName_ CDynamicArray_CTFileName_;
 typedef struct CDynamicArray_CTranslationPair_ CDynamicArray_CTranslationPair_;
+typedef struct CDynamicArray_CModelCollisionBox_ CDynamicArray_CModelCollisionBox_;
+typedef struct CDynamicArray_CAttachedModelPosition_ CDynamicArray_CAttachedModelPosition_;
 
 typedef struct CDynamicStackArray_FLOAT_ CDynamicStackArray_FLOAT_;
 typedef struct CDynamicStackArray_CTString_ CDynamicStackArray_CTString_;
 typedef struct CDynamicStackArray_CTFileName_ CDynamicStackArray_CTFileName_;
 
+typedef struct CStaticArray_PolygonsPerPatch_ CStaticArray_PolygonsPerPatch_;
+typedef struct CStaticArray_ModelPolygon_ CStaticArray_ModelPolygon_;
+typedef struct CStaticArray_ModelTextureVertex_ CStaticArray_ModelTextureVertex_;
+typedef struct CStaticArray_MappingSurface_ CStaticArray_MappingSurface_;
+typedef struct CStaticArray_ModelFrameVertex8_ CStaticArray_ModelFrameVertex8_;
+typedef struct CStaticArray_ModelFrameVertex16_ CStaticArray_ModelFrameVertex16_;
+typedef struct CStaticArray_ModelFrameInfo_ CStaticArray_ModelFrameInfo_;
+typedef struct CStaticArray_TransformedVertexData_ CStaticArray_TransformedVertexData_;
+typedef struct CStaticArray_ModelPolygonVertex_ CStaticArray_ModelPolygonVertex_;
+typedef struct CStaticArray_UWORD_ CStaticArray_UWORD_;
+typedef struct CStaticArray_ULONG_ CStaticArray_ULONG_;
+typedef struct CStaticArray_SLONG_ CStaticArray_SLONG_;
+typedef struct CStaticArray_INDEX_ CStaticArray_INDEX_;
+typedef struct CStaticArray_FLOAT2D_ CStaticArray_FLOAT2D_;
+typedef struct CStaticArray_FLOAT3D_ CStaticArray_FLOAT3D_;
+typedef struct CStaticArray_PIX2D_ CStaticArray_PIX2D_;
+
+typedef struct CStaticStackArray_PIX2D_ CStaticStackArray_PIX2D_;
+typedef struct CStaticStackArray_FLOAT3D_ CStaticStackArray_FLOAT3D_;
+typedef struct CStaticStackArray_SLONG_ CStaticStackArray_SLONG_;
+typedef struct CStaticStackArray_INDEX_ CStaticStackArray_INDEX_;
+
 typedef struct CImageInfo_ CImageInfo_;
 typedef struct CTextureData_ CTextureData_;
 typedef struct CTextureObject_ CTextureObject_;
+
+typedef struct ModelPolygonVertex_ ModelPolygonVertex_;
+typedef struct PolygonsPerPatch_ PolygonsPerPatch_;
+typedef struct ModelPolygon_ ModelPolygon_;
+typedef struct ModelTextureVertex_ ModelTextureVertex_;
+typedef struct MappingSurface_ MappingSurface_;
+typedef struct ModelFrameVertex8_ ModelFrameVertex8_;
+typedef struct ModelFrameVertex16_ ModelFrameVertex16_;
+typedef struct ModelFrameInfo_ ModelFrameInfo_;
+typedef struct TransformedVertexData_ TransformedVertexData_;
+typedef struct CModelCollisionBox_ CModelCollisionBox_;
+typedef struct CAttachedModelPosition_ CAttachedModelPosition_;
+typedef struct CMipInfo_ CMipInfo_;
+typedef struct CModelInfo_ CModelInfo_;
+typedef struct CModelPatch_ CModelPatch_;
+typedef struct ModelMipInfo_ ModelMipInfo_;
+typedef struct CModelData_ CModelData_;
 
 SECAPI BOOL HasException();
 SECAPI char* GrabException();

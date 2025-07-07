@@ -303,7 +303,19 @@ SOURCE=.\Templates\DynamicStackArray.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Templates\StaticArray.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\Templates\StaticArray.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\StaticStackArray.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\StaticStackArray.h
 # End Source File
 # End Group
 # Begin Group "Graphics"
@@ -324,6 +336,26 @@ SOURCE=.\Graphics\Texture.cpp
 # Begin Source File
 
 SOURCE=.\Graphics\Texture.h
+# End Source File
+# End Group
+# Begin Group "Models"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Models\Model_internal.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Models\Model_internal.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Models\ModelData.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Models\ModelData.h
 # End Source File
 # End Group
 # Begin Source File
