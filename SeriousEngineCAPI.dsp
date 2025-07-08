@@ -357,6 +357,22 @@ SOURCE=.\Models\ModelData.cpp
 
 SOURCE=.\Models\ModelData.h
 # End Source File
+# Begin Source File
+
+SOURCE=.\Models\ModelObject.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Models\ModelObject.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Models\RenderModel.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Models\RenderModel.h
+# End Source File
 # End Group
 # Begin Source File
 

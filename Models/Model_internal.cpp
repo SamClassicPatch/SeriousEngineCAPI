@@ -334,16 +334,16 @@ ULONG* MappingSurface_ms_ulRenderingFlags(MappingSurface_* p)
   return &(s.ms_ulRenderingFlags);
 }
 
-INDEX* MappingSurface_ms_sstShadingType(MappingSurface_* p)
+SurfaceShadingType_* MappingSurface_ms_sstShadingType(MappingSurface_* p)
 {
   MappingSurface& s = *((MappingSurface*)p);
-  return (INDEX*)(&(s.ms_sstShadingType));
+  return (SurfaceShadingType_*)(&(s.ms_sstShadingType));
 }
 
-INDEX* MappingSurface_ms_sttTranslucencyType(MappingSurface_* p)
+SurfaceTranslucencyType_* MappingSurface_ms_sttTranslucencyType(MappingSurface_* p)
 {
   MappingSurface& s = *((MappingSurface*)p);
-  return (INDEX*)(&(s.ms_sttTranslucencyType));
+  return (SurfaceTranslucencyType_*)(&(s.ms_sttTranslucencyType));
 }
 
 CStaticArray_INDEX_* MappingSurface_ms_aiPolygons(MappingSurface_* p)

@@ -28,6 +28,9 @@ typedef float TIME;
 typedef double DOUBLE;
 #endif
 
+typedef INDEX SurfaceShadingType_;
+typedef INDEX SurfaceTranslucencyType_;
+
 typedef struct FLOAT2D_ FLOAT2D_;
 typedef struct FLOAT3D_ FLOAT3D_;
 typedef struct FLOAT4D_ FLOAT4D_;
@@ -164,6 +167,12 @@ typedef struct CModelInfo_ CModelInfo_;
 typedef struct CModelPatch_ CModelPatch_;
 typedef struct ModelMipInfo_ ModelMipInfo_;
 typedef struct CModelData_ CModelData_;
+typedef struct CModelRenderPrefs_ CModelRenderPrefs_;
+typedef struct CRenderModel_ CRenderModel_;
+typedef struct CModelObject_ CModelObject_;
+typedef struct CAttachmentModelObject_ CAttachmentModelObject_;
+
+typedef struct CDrawPort_ CDrawPort_;
 
 SECAPI BOOL HasException();
 SECAPI char* GrabException();
