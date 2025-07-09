@@ -54,7 +54,6 @@ SECAPI void CModelObject_SetPatchesMask(CModelObject_* p, ULONG new_patches_mask
 SECAPI void CModelObject_UnpackVertex_rm(CModelObject_* p, CRenderModel_* rm, const INDEX iVertex, FLOAT3D_* vVertex);
 SECAPI BOOL CModelObject_CreateAttachment(CModelObject_* p, CRenderModel_* rmMain, CAttachmentModelObject_* amo);
 SECAPI void CModelObject_ResetAttachmentModelPosition(CModelObject_* p, INDEX iAttachedPosition);
-SECAPI CAttachmentModelObject_* CModelObject_GetAttachmentModelList(CModelObject_* p, INDEX iAttachedPosition, va_list arg);
 SECAPI CAttachmentModelObject_* CModelObject_GetAttachmentModel(CModelObject_* p, INDEX iAttachedPosition);
 SECAPI CAttachmentModelObject_* CModelObject_AddAttachmentModel(CModelObject_* p, INDEX iAttachedPosition);
 SECAPI void CModelObject_RemoveAttachmentModel(CModelObject_* p, INDEX iAttachedPosition);

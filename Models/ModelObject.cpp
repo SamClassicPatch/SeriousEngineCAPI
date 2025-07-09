@@ -253,24 +253,6 @@ void CModelObject_ResetAttachmentModelPosition(CModelObject_* p, INDEX iAttached
   ((CModelObject*)p)->ResetAttachmentModelPosition(iAttachedPosition);
 }
 
-CAttachmentModelObject_* CModelObject_GetAttachmentModelList(CModelObject_* p, INDEX iAttachedPosition, va_list arg)
-{
-  CAttachmentModelObject* pamo = NULL;
-  CModelObject* pmo = (CModelObject*)p;
-
-  while (iAttachedPosition >= 0)
-  {
-    pamo = pmo->GetAttachmentModel(iAttachedPosition);
-    if (pamo == NULL) {
-      return NULL;
-    }
-    pmo = &pamo->amo_moModelObject;
-    iAttachedPosition = va_arg(arg, INDEX);
-  }
-
-  return (CAttachmentModelObject_*)pamo;
-}
-
 CAttachmentModelObject_* CModelObject_GetAttachmentModel(CModelObject_* p, INDEX iAttachedPosition)
 {
   return (CAttachmentModelObject_*)(((CModelObject*)p)->GetAttachmentModel(iAttachedPosition));
