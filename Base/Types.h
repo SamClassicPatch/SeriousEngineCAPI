@@ -172,6 +172,8 @@ typedef struct CRenderModel_ CRenderModel_;
 typedef struct CModelObject_ CModelObject_;
 typedef struct CAttachmentModelObject_ CAttachmentModelObject_;
 
+typedef struct CFontCharData_ CFontCharData_;
+typedef struct CFontData_ CFontData_;
 typedef struct CDrawPort_ CDrawPort_;
 
 SECAPI BOOL HasException();

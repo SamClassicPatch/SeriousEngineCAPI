@@ -323,6 +323,14 @@ SOURCE=.\Templates\StaticStackArray.h
 # PROP Default_Filter ""
 # Begin Source File
 
+SOURCE=.\Graphics\Font.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\Font.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Graphics\ImageInfo.cpp
 # End Source File
 # Begin Source File
