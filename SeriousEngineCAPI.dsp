@@ -339,11 +339,27 @@ SOURCE=.\Graphics\ImageInfo.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Graphics\Raster.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\Raster.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Graphics\Texture.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\Graphics\Texture.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\ViewPort.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\ViewPort.h
 # End Source File
 # End Group
 # Begin Group "Models"
