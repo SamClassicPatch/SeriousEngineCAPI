@@ -25,16 +25,16 @@ void CDrawPort_delete(CDrawPort_* p)
   delete ((CDrawPort*)p);
 }
 
-CRaster_** CDrawPort_dp_Raster(CDrawPort_* p)
+CRaster_* CDrawPort_dp_Raster(CDrawPort_* p)
 {
   CDrawPort& d = *((CDrawPort*)p);
-  return (CRaster_**)(&(d.dp_Raster));
+  return (CRaster_*)(d.dp_Raster);
 }
 
-CFontData_** CDrawPort_dp_FontData(CDrawPort_* p)
+CFontData_* CDrawPort_dp_FontData(CDrawPort_* p)
 {
   CDrawPort& d = *((CDrawPort*)p);
-  return (CFontData_**)(&(d.dp_FontData));
+  return (CFontData_*)(d.dp_FontData);
 }
 
 PIX* CDrawPort_dp_Width(CDrawPort_* p)

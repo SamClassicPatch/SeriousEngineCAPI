@@ -11,8 +11,8 @@ SECAPI CDrawPort_* CDrawPort_new_cloned(CDrawPort_* p, DOUBLE minI, DOUBLE minJ,
 SECAPI CDrawPort_* CDrawPort_new_cloned_box(CDrawPort_* p, const PIXaabbox2D_* b);
 SECAPI CDrawPort_* CDrawPort_new_cloned_dualhead(CDrawPort_* p, BOOL left);
 SECAPI void CDrawPort_delete(CDrawPort_* p);
-SECAPI CRaster_** CDrawPort_dp_Raster(CDrawPort_* p);
-SECAPI CFontData_** CDrawPort_dp_FontData(CDrawPort_* p);
+SECAPI CRaster_* CDrawPort_dp_Raster(CDrawPort_* p);
+SECAPI CFontData_* CDrawPort_dp_FontData(CDrawPort_* p);
 SECAPI PIX* CDrawPort_dp_Width(CDrawPort_* p);
 SECAPI PIX* CDrawPort_dp_Height(CDrawPort_* p);
 SECAPI PIX* CDrawPort_dp_MinI(CDrawPort_* p);

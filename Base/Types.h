@@ -26,6 +26,33 @@ typedef float FLOAT;
 typedef float ANGLE;
 typedef float TIME;
 typedef double DOUBLE;
+
+// z-buffer depth constants
+#define ZBUF_FRONT  (0.0f)
+#define ZBUF_BACK   (1.0f)
+
+// alpha factor constants
+#define CT_OPAQUE      MAX_UBYTE
+#define CT_TRANSPARENT MIN_UBYTE
+
+// line types (masks)
+#define _FULL_	   0xFFFFFFFF
+#define _SYMMET16_ 0xFF88FF88
+#define _SYMMET32_ 0xFFFF0180
+#define _POINT_    0xAAAAAAAA
+
+#define _DOT2_	   0xCCCCCCCC
+#define _DOT4_	   0xF0F0F0F0
+#define _DOT8_	   0xFF00FF00
+#define _DOT16_    0xFFFF0000
+
+#define _TY31_	   0xEEEEEEEE
+#define _TY62_	   0xFCFCFCFC
+#define _TY124_    0xFFF0FFF0
+#define _TY13_	   0x88888888
+#define _TY26_	   0xC0C0C0C0
+#define _TY412_    0xF000F000
+
 #endif
 
 typedef INDEX SurfaceShadingType_;
