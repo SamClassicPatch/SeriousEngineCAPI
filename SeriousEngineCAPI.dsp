@@ -317,6 +317,38 @@ SOURCE=.\Templates\StaticStackArray.cpp
 
 SOURCE=.\Templates\StaticStackArray.h
 # End Source File
+# Begin Source File
+
+SOURCE=.\Templates\Stock_CAnimData.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\Stock_CAnimData.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\Stock_CModelData.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\Stock_CModelData.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\Stock_CSoundData.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\Stock_CSoundData.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\Stock_CTextureData.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\Stock_CTextureData.h
+# End Source File
 # End Group
 # Begin Group "Graphics"
 
