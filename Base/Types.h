@@ -206,6 +206,9 @@ typedef struct CRaster_ CRaster_;
 typedef struct CViewPort_ CViewPort_;
 typedef struct CDrawPort_ CDrawPort_;
 
+typedef struct CSoundData_ CSoundData_;
+typedef struct CSoundObject_ CSoundObject_;
+
 typedef struct CEntity_ CEntity_;
 
 SECAPI BOOL HasException();

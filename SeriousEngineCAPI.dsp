@@ -406,6 +406,26 @@ SOURCE=.\Models\RenderModel.cpp
 SOURCE=.\Models\RenderModel.h
 # End Source File
 # End Group
+# Begin Group "Sound"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Sound\SoundData.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sound\SoundData.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sound\SoundObject.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sound\SoundObject.h
+# End Source File
+# End Group
 # Begin Source File
 
 SOURCE=.\EngineGUI.h
