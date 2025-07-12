@@ -30,6 +30,7 @@ typedef double DOUBLE;
 
 typedef INDEX SurfaceShadingType_;
 typedef INDEX SurfaceTranslucencyType_;
+typedef INDEX ParticleBlendType_;
 
 typedef struct FLOAT2D_ FLOAT2D_;
 typedef struct FLOAT3D_ FLOAT3D_;
@@ -177,6 +178,8 @@ typedef struct CFontData_ CFontData_;
 typedef struct CRaster_ CRaster_;
 typedef struct CViewPort_ CViewPort_;
 typedef struct CDrawPort_ CDrawPort_;
+
+typedef struct CEntity_ CEntity_;
 
 SECAPI BOOL HasException();
 SECAPI char* GrabException();
