@@ -123,6 +123,14 @@ SOURCE=.\Base\CTString.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\ErrorReporting.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\ErrorReporting.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\Exception.cpp
 # End Source File
 # Begin Source File
