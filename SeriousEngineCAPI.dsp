@@ -151,6 +151,14 @@ SOURCE=.\Base\Serial.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\Shell.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Shell.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\Stream.cpp
 # End Source File
 # Begin Source File
@@ -368,6 +376,14 @@ SOURCE=.\Graphics\Font.cpp
 # Begin Source File
 
 SOURCE=.\Graphics\Font.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\GfxLibrary.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\GfxLibrary.h
 # End Source File
 # Begin Source File
 

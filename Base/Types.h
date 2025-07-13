@@ -58,6 +58,8 @@ typedef double DOUBLE;
 typedef INDEX SurfaceShadingType_;
 typedef INDEX SurfaceTranslucencyType_;
 typedef INDEX ParticleBlendType_;
+typedef INDEX GfxAPIType_;
+typedef INDEX DisplayDepth_;
 
 typedef struct FLOAT2D_ FLOAT2D_;
 typedef struct FLOAT3D_ FLOAT3D_;
