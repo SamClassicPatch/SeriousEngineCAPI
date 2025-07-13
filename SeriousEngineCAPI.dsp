@@ -143,6 +143,14 @@ SOURCE=.\Base\Lists.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\Memory.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Memory.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\Serial.cpp
 # End Source File
 # Begin Source File

@@ -68,6 +68,15 @@ void CImageInfo_ExpandEdges(CImageInfo_* p, INDEX passes)
   ((CImageInfo*)p)->ExpandEdges(passes);
 }
 
+INDEX CImageInfo_GetGfxFileInfo_t(CImageInfo_* p, const CTFileName_* f)
+{
+  INDEX res;
+  SECAPI_TRY
+  res = ((CImageInfo*)p)->GetGfxFileInfo_t(*((const CTFileName*)f));
+  SECAPI_CATCH
+  return res;
+}
+
 void CImageInfo_LoadAnyGfxFormat_t(CImageInfo_* p, const CTFileName_* f)
 {
   SECAPI_TRY
