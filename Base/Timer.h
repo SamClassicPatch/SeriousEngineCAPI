@@ -20,25 +20,23 @@ SECAPI int64_t CTimerValue_GetMilliseconds(CTimerValue_* p);
 SECAPI CTimerHandler_* CTimerHandler_new(void (__cdecl *cb)(void));
 SECAPI void CTimerHandler_delete(CTimerHandler_* p);
 
-SECAPI CTimer_* CTimer_new(BOOL interrupt);
-SECAPI void CTimer_delete(CTimer_* p);
-SECAPI CTCriticalSection_* CTimer_tm_csHooks(CTimer_* p);
-SECAPI void CTimer_AddHandler(CTimer_* p, CTimerHandler_* h);
-SECAPI void CTimer_RemHandler(CTimer_* p, CTimerHandler_* h);
-SECAPI void CTimer_HandleTimerHandlers(CTimer_* p);
-SECAPI void CTimer_SetRealTimeTick(CTimer_* p, TIME t);
-SECAPI TIME CTimer_GetRealTimeTick(const CTimer_* p);
-SECAPI void CTimer_SetCurrentTick(CTimer_* p, TIME t);
-SECAPI TIME CTimer_CurrentTick(const CTimer_* p);
-SECAPI TIME CTimer_GetLerpedCurrentTick(const CTimer_* p);
-SECAPI void CTimer_SetLerp(CTimer_* p, FLOAT l);
-SECAPI void CTimer_SetLerp2(CTimer_* p, FLOAT l);
-SECAPI void CTimer_DisableLerp(CTimer_* p);
-SECAPI FLOAT CTimer_GetLerpFactor(const CTimer_* p);
-SECAPI FLOAT CTimer_GetLerpFactor2(const CTimer_* p);
-SECAPI CTimerValue_* CTimer_GetHighPrecisionTimer(CTimer_* p);
-SECAPI CTimer_* _pTimer_();
+SECAPI CTCriticalSection_* _pTimer_tm_csHooks_();
+SECAPI void _pTimer_AddHandler(CTimerHandler_* h);
+SECAPI void _pTimer_RemHandler(CTimerHandler_* h);
+SECAPI void _pTimer_HandleTimerHandlers();
+SECAPI void _pTimer_SetRealTimeTick(TIME t);
+SECAPI TIME _pTimer_GetRealTimeTick();
+SECAPI void _pTimer_SetCurrentTick(TIME t);
+SECAPI TIME _pTimer_CurrentTick();
+SECAPI TIME _pTimer_GetLerpedCurrentTick();
+SECAPI void _pTimer_SetLerp(FLOAT l);
+SECAPI void _pTimer_SetLerp2(FLOAT l);
+SECAPI void _pTimer_DisableLerp();
+SECAPI FLOAT _pTimer_GetLerpFactor();
+SECAPI FLOAT _pTimer_GetLerpFactor2();
+SECAPI CTimerValue_* _pTimer_GetHighPrecisionTimer_();
 SECAPI CTString_* TimeToString_(FLOAT t);
+SECAPI BOOL _pTimerExists();
 
 #define CTimer_TickQuantum TIME(1/20.0)
 

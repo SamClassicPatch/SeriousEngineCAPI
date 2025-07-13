@@ -79,97 +79,85 @@ void CTimerHandler_delete(CTimerHandler_* p)
   delete ((CTimerHandlerImpl*)p);
 }
 
-
-CTimer_* CTimer_new(BOOL interrupt)
+CTCriticalSection_* _pTimer_tm_csHooks_()
 {
-  return (CTimer_*)(new CTimer(interrupt));
+  return (CTCriticalSection_*)(&(_pTimer->tm_csHooks));
 }
 
-void CTimer_delete(CTimer_* p)
+void _pTimer_AddHandler(CTimerHandler_* h)
 {
-  delete ((CTimer*)p);
+  _pTimer->AddHandler((CTimerHandlerImpl*)h);
 }
 
-CTCriticalSection_* CTimer_tm_csHooks(CTimer_* p)
+void _pTimer_RemHandler(CTimerHandler_* h)
 {
-  CTimer& t = *((CTimer*)p);
-  return (CTCriticalSection_*)(&(t.tm_csHooks));
+  _pTimer->RemHandler((CTimerHandlerImpl*)h);
 }
 
-void CTimer_AddHandler(CTimer_* p, CTimerHandler_* h)
+void _pTimer_HandleTimerHandlers()
 {
-  ((CTimer*)p)->AddHandler((CTimerHandlerImpl*)h);
+  _pTimer->HandleTimerHandlers();
 }
 
-void CTimer_RemHandler(CTimer_* p, CTimerHandler_* h)
+void _pTimer_SetRealTimeTick(TIME t)
 {
-  ((CTimer*)p)->RemHandler((CTimerHandlerImpl*)h);
+  _pTimer->SetRealTimeTick(t);
 }
 
-void CTimer_HandleTimerHandlers(CTimer_* p)
+TIME _pTimer_GetRealTimeTick()
 {
-  ((CTimer*)p)->HandleTimerHandlers();
+  return _pTimer->GetRealTimeTick();
 }
 
-void CTimer_SetRealTimeTick(CTimer_* p, TIME t)
+void _pTimer_SetCurrentTick(TIME t)
 {
-  ((CTimer*)p)->SetRealTimeTick(t);
+  _pTimer->SetCurrentTick(t);
 }
 
-TIME CTimer_GetRealTimeTick(const CTimer_* p)
+TIME _pTimer_CurrentTick()
 {
-  return ((const CTimer*)p)->GetRealTimeTick();
+  return _pTimer->CurrentTick();
 }
 
-void CTimer_SetCurrentTick(CTimer_* p, TIME t)
+TIME _pTimer_GetLerpedCurrentTick()
 {
-  ((CTimer*)p)->SetCurrentTick(t);
+  return _pTimer->GetLerpedCurrentTick();
 }
 
-TIME CTimer_CurrentTick(const CTimer_* p)
+void _pTimer_SetLerp(FLOAT l)
 {
-  return ((const CTimer*)p)->CurrentTick();
+  _pTimer->SetLerp(l);
 }
 
-TIME CTimer_GetLerpedCurrentTick(const CTimer_* p)
+void _pTimer_SetLerp2(FLOAT l)
 {
-  return ((const CTimer*)p)->GetLerpedCurrentTick();
+  _pTimer->SetLerp2(l);
 }
 
-void CTimer_SetLerp(CTimer_* p, FLOAT l)
+void _pTimer_DisableLerp()
 {
-  ((CTimer*)p)->SetLerp(l);
+  _pTimer->DisableLerp();
 }
 
-void CTimer_SetLerp2(CTimer_* p, FLOAT l)
+FLOAT _pTimer_GetLerpFactor()
 {
-  ((CTimer*)p)->SetLerp2(l);
+  return _pTimer->GetLerpFactor();
 }
 
-void CTimer_DisableLerp(CTimer_* p)
+FLOAT _pTimer_GetLerpFactor2()
 {
-  ((CTimer*)p)->DisableLerp();
+  return _pTimer->GetLerpFactor2();
 }
 
-FLOAT CTimer_GetLerpFactor(const CTimer_* p)
+CTimerValue_* _pTimer_GetHighPrecisionTimer_()
 {
-  return ((const CTimer*)p)->GetLerpFactor();
-}
-
-FLOAT CTimer_GetLerpFactor2(const CTimer_* p)
-{
-  return ((const CTimer*)p)->GetLerpFactor2();
-}
-
-CTimerValue_* CTimer_GetHighPrecisionTimer(CTimer_* p)
-{
-  CTimerValue res = ((CTimer*)p)->GetHighPrecisionTimer();
+  CTimerValue res = _pTimer->GetHighPrecisionTimer();
   return (CTimerValue_*)(new CTimerValue(res));
 }
 
-CTimer_* _pTimer_()
+BOOL _pTimerExists()
 {
-  return (CTimer_*)(_pTimer);
+  return _pTimer != NULL;
 }
 
 CTString_* TimeToString_(FLOAT t)
