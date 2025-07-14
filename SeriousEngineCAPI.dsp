@@ -526,10 +526,6 @@ SOURCE=.\Engine.cpp
 
 SOURCE=.\Engine.h
 # End Source File
-# Begin Source File
-
-SOURCE=.\EngineGUI.h
-# End Source File
 # End Group
 # End Target
 # End Project
