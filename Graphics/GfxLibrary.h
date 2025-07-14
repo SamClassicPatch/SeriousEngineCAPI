@@ -17,12 +17,15 @@ SECAPI BOOL _pGfx_SetDisplayMode_(GfxAPIType_ eAPI, INDEX iAdapter, PIX pixSizeI
 SECAPI BOOL _pGfx_ResetDisplayMode_(GfxAPIType_ eAPI);
 SECAPI GfxAPIType_ _pGfx_GetCurrentAPI_();
 SECAPI INDEX _pGfx_GetCurrentAdapter_();
+SECAPI void _pGfx_GetCurrentDisplayMode_(CDisplayMode_* dmCurrent);
 SECAPI BOOL _pGfx_IsCurrentModeAccelerated_();
 SECAPI BOOL _pGfx_HasAPI_(GfxAPIType_ eAPI);
 SECAPI void _pGfx_CreateWindowCanvas_(void* hWnd, CViewPort_** ppvpNew, CDrawPort_** ppdpNew);
 SECAPI void _pGfx_DestroyWindowCanvas_(CViewPort_* pvpOld);
 SECAPI void _pGfx_CreateWorkCanvas_(PIX pixWidth, PIX pixHeight, CDrawPort_** ppdpNew);
 SECAPI void _pGfx_DestroyWorkCanvas_(CDrawPort_* pdpOld);
+
+SECAPI INDEX* _iTexForcedQuality_();
 
 #ifdef __cplusplus
 }

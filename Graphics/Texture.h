@@ -38,6 +38,11 @@ SECAPI DOUBLE CTextureData_td_ptegEffect_GetRenderingTime(CTextureData_* p);
 SECAPI ULONG* CTextureData_td_ulFlags(CTextureData_* p);
 SECAPI PIX* CTextureData_td_pixBufferWidth(CTextureData_* p);
 SECAPI PIX* CTextureData_td_pixBufferHeight(CTextureData_* p);
+SECAPI CTextureData_** CTextureData_td_ptdBaseTexture(CTextureData_* p);
+SECAPI void CTextureData_td_ptegEffect_AddEffectSource(CTextureData_* p, ULONG ulEffectSourceType, PIX pixU0, PIX pixV0, PIX pixU1, PIX pixV1);
+SECAPI ULONG CTextureData_td_ptegEffect_teg_ulEffectType(CTextureData_* p);
+SECAPI INDEX* CTextureData_td_iFirstMipLevel(CTextureData_* p);
+SECAPI INDEX* CTextureData_td_ctFineMipLevels(CTextureData_* p);
 SECAPI MEX* CTextureData_td_mexWidth(CTextureData_* p);
 SECAPI MEX* CTextureData_td_mexHeight(CTextureData_* p);
 SECAPI INDEX* CTextureData_td_ctFrames(CTextureData_* p);
@@ -53,6 +58,7 @@ SECAPI ULONG CTextureData_GetNoOfMips(const CTextureData_* p);
 SECAPI ULONG CTextureData_GetNoOfFineMips(const CTextureData_* p);
 SECAPI BOOL CTextureData_IsModified(CTextureData_* p);
 SECAPI void CTextureData_Export_t(CTextureData_* p, CImageInfo_* i, INDEX frame);
+SECAPI void CTextureData_CreateEffectTexture(CTextureData_* p, PIX pixWidth, PIX pixHeight, MEX mexWidth, CTextureData_* ptdBaseTexture, ULONG ulGlobalEffect);
 SECAPI void CTextureData_Create_t(CTextureData_* p, const CImageInfo_* i, MEX wanted, INDEX fineMips, BOOL force32bit);
 SECAPI void CTextureData_Clear(CTextureData_* p);
 SECAPI void CTextureData_Force(CTextureData_* p, ULONG flags);
@@ -71,6 +77,11 @@ SECAPI const CTFileName_* CTextureObject_GetName(CTextureObject_* p);
 SECAPI void CreateTexture_t_(const CTFileName_* f, MEX mex, INDEX mips, BOOL force32bit);
 SECAPI void CreateTexture_t_o(const CTFileName_* f, const CTFileName_* of, MEX mex, INDEX mips, BOOL force32bit);
 SECAPI void ProcessScript_t_(const CTFileName_* f);
+
+SECAPI INDEX _ctTextureEffectGlobalPresets_();
+SECAPI const char* _ategtTextureEffectGlobalPresets_tegt_strName(INDEX iClass);
+SECAPI INDEX _ategtTextureEffectGlobalPresets_tet_ctEffectSourceTypes(INDEX iClass);
+SECAPI const char* _ategtTextureEffectGlobalPresets_tet_atestEffectSourceTypes_test_strName(INDEX iClass, INDEX iEffect);
 
 #ifdef __cplusplus
 }

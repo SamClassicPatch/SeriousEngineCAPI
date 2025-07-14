@@ -247,6 +247,14 @@ SOURCE=.\Math\AABBox.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Math\Functions.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Math\Functions.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Math\Matrix.cpp
 # End Source File
 # Begin Source File

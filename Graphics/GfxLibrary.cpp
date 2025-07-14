@@ -33,6 +33,11 @@ INDEX _pGfx_GetCurrentAdapter_()
   return _pGfx->GetCurrentAdapter();
 }
 
+void _pGfx_GetCurrentDisplayMode_(CDisplayMode_* dmCurrent)
+{
+  _pGfx->GetCurrentDisplayMode(*((CDisplayMode*)dmCurrent));
+}
+
 BOOL _pGfx_IsCurrentModeAccelerated_()
 {
   return _pGfx->IsCurrentModeAccelerated();
@@ -61,4 +66,9 @@ void _pGfx_CreateWorkCanvas_(PIX pixWidth, PIX pixHeight, CDrawPort_** ppdpNew)
 void _pGfx_DestroyWorkCanvas_(CDrawPort_* pdpOld)
 {
   _pGfx->DestroyWorkCanvas((CDrawPort*)pdpOld);
+}
+
+INDEX* _iTexForcedQuality_()
+{
+  return &_iTexForcedQuality;
 }

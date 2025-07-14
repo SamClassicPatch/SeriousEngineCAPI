@@ -69,6 +69,16 @@ typedef double DOUBLE;
 #define _TY26_	   0xC0C0C0C0
 #define _TY412_    0xF000F000
 
+// some mexels constants
+#define MAX_MEX_LOG2 10
+#define MIN_MEX_LOG2  0
+#define MAX_MEX     (1L<<MAX_MEX_LOG2)
+#define MIN_MEX     (1L<<MIN_MEX_LOG2)
+
+// macro for converting mexels to meters
+#define METERS_MEX(mex)    ((FLOAT)(((FLOAT)mex)/MAX_MEX))
+#define MEX_METERS(meters) ((MEX)(meters*MAX_MEX))
+
 #endif
 
 typedef INDEX SurfaceShadingType_;

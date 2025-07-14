@@ -35,6 +35,34 @@ PIX* CTextureData_td_pixBufferHeight(CTextureData_* p)
   return &(d.td_pixBufferHeight);
 }
 
+CTextureData_** CTextureData_td_ptdBaseTexture(CTextureData_* p)
+{
+  CTextureData& d = *((CTextureData*)p);
+  return (CTextureData_**)(&(d.td_ptdBaseTexture));
+}
+
+void CTextureData_td_ptegEffect_AddEffectSource(CTextureData_* p, ULONG ulEffectSourceType, PIX pixU0, PIX pixV0, PIX pixU1, PIX pixV1)
+{
+  ((CTextureData*)p)->td_ptegEffect->AddEffectSource(ulEffectSourceType, pixU0, pixV0, pixU1, pixV1);
+}
+
+ULONG CTextureData_td_ptegEffect_teg_ulEffectType(CTextureData_* p)
+{
+  return ((CTextureData*)p)->td_ptegEffect->teg_ulEffectType;
+}
+
+INDEX* CTextureData_td_iFirstMipLevel(CTextureData_* p)
+{
+  CTextureData& d = *((CTextureData*)p);
+  return &(d.td_iFirstMipLevel);
+}
+
+INDEX* CTextureData_td_ctFineMipLevels(CTextureData_* p)
+{
+  CTextureData& d = *((CTextureData*)p);
+  return &(d.td_ctFineMipLevels);
+}
+
 MEX* CTextureData_td_mexWidth(CTextureData_* p)
 {
   CTextureData& d = *((CTextureData*)p);
@@ -114,6 +142,11 @@ void CTextureData_Export_t(CTextureData_* p, CImageInfo_* i, INDEX frame)
   SECAPI_TRY
   ((CTextureData*)p)->Export_t(*((CImageInfo*)i), frame);
   SECAPI_CATCH
+}
+
+void CTextureData_CreateEffectTexture(CTextureData_* p, PIX pixWidth, PIX pixHeight, MEX mexWidth, CTextureData_* ptdBaseTexture, ULONG ulGlobalEffect)
+{
+  ((CTextureData*)p)->CreateEffectTexture(pixWidth, pixHeight, mexWidth, (CTextureData*)ptdBaseTexture, ulGlobalEffect);
 }
 
 void CTextureData_Create_t(CTextureData_* p, const CImageInfo_* i, MEX wanted, INDEX fineMips, BOOL force32bit)
@@ -208,4 +241,24 @@ void ProcessScript_t_(const CTFileName_* f)
   SECAPI_TRY
   ProcessScript_t(*((const CTFileName*)f));
   SECAPI_CATCH
+}
+
+INDEX _ctTextureEffectGlobalPresets_()
+{
+  return _ctTextureEffectGlobalPresets;
+}
+
+const char* _ategtTextureEffectGlobalPresets_tegt_strName(INDEX iClass)
+{
+  return _ategtTextureEffectGlobalPresets[iClass].tegt_strName;
+}
+
+INDEX _ategtTextureEffectGlobalPresets_tet_ctEffectSourceTypes(INDEX iClass)
+{
+  return _ategtTextureEffectGlobalPresets[iClass].tet_ctEffectSourceTypes;
+}
+
+const char* _ategtTextureEffectGlobalPresets_tet_atestEffectSourceTypes_test_strName(INDEX iClass, INDEX iEffect)
+{
+  return _ategtTextureEffectGlobalPresets[iClass].tet_atestEffectSourceTypes[iEffect].test_strName;
 }
