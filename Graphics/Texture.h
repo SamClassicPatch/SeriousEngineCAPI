@@ -34,7 +34,10 @@ extern "C" {
 
 SECAPI CTextureData_* CTextureData_new();
 SECAPI void CTextureData_delete(CTextureData_* p);
+SECAPI DOUBLE CTextureData_td_ptegEffect_GetRenderingTime(CTextureData_* p);
 SECAPI ULONG* CTextureData_td_ulFlags(CTextureData_* p);
+SECAPI PIX* CTextureData_td_pixBufferWidth(CTextureData_* p);
+SECAPI PIX* CTextureData_td_pixBufferHeight(CTextureData_* p);
 SECAPI MEX* CTextureData_td_mexWidth(CTextureData_* p);
 SECAPI MEX* CTextureData_td_mexHeight(CTextureData_* p);
 SECAPI INDEX* CTextureData_td_ctFrames(CTextureData_* p);

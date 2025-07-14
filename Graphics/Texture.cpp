@@ -1,4 +1,5 @@
 #include "Texture.h"
+#include <Engine/Graphics/TextureEffects.h>
 
 CTextureData_* CTextureData_new()
 {
@@ -10,10 +11,28 @@ void CTextureData_delete(CTextureData_* p)
   delete ((CTextureData*)p);
 }
 
+DOUBLE CTextureData_td_ptegEffect_GetRenderingTime(CTextureData_* p)
+{
+  CTextureData& d = *((CTextureData*)p);
+  return d.td_ptegEffect->GetRenderingTime();
+}
+
 ULONG* CTextureData_td_ulFlags(CTextureData_* p)
 {
   CTextureData& d = *((CTextureData*)p);
   return &(d.td_ulFlags);
+}
+
+PIX* CTextureData_td_pixBufferWidth(CTextureData_* p)
+{
+  CTextureData& d = *((CTextureData*)p);
+  return &(d.td_pixBufferWidth);
+}
+
+PIX* CTextureData_td_pixBufferHeight(CTextureData_* p)
+{
+  CTextureData& d = *((CTextureData*)p);
+  return &(d.td_pixBufferHeight);
 }
 
 MEX* CTextureData_td_mexWidth(CTextureData_* p)

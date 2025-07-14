@@ -27,6 +27,22 @@ typedef float ANGLE;
 typedef float TIME;
 typedef double DOUBLE;
 
+#define MAX_SLONG ((SLONG)0x7FFFFFFFL)
+#define MAX_SWORD ((UWORD)0x7FFF)
+#define MAX_SBYTE ((SBYTE)0x7F)
+
+#define MIN_SLONG ((SLONG)0x80000000L)
+#define MIN_SWORD ((SWORD)0x8000)
+#define MIN_SBYTE ((SBYTE)0x80)
+
+#define MIN_ULONG ((ULONG)0x00000000L)
+#define MIN_UWORD ((UWORD)0x0000)
+#define MIN_UBYTE ((UBYTE)0x00)
+
+#define MAX_ULONG ((ULONG)0xFFFFFFFFL)
+#define MAX_UWORD ((UWORD)0xFFFF)
+#define MAX_UBYTE ((UBYTE)0xFF)
+
 // z-buffer depth constants
 #define ZBUF_FRONT  (0.0f)
 #define ZBUF_BACK   (1.0f)
@@ -206,6 +222,8 @@ typedef struct CFontData_ CFontData_;
 typedef struct CRaster_ CRaster_;
 typedef struct CViewPort_ CViewPort_;
 typedef struct CDrawPort_ CDrawPort_;
+typedef struct CDisplayMode_ CDisplayMode_;
+typedef struct CDisplayModeEnumerator_ CDisplayModeEnumerator_;
 
 typedef struct CSoundData_ CSoundData_;
 typedef struct CSoundObject_ CSoundObject_;

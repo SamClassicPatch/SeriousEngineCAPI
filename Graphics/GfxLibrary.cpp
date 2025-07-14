@@ -1,5 +1,18 @@
 #include "GfxLibrary.h"
 
+CDisplayMode_* _pGfx_GetEnumeratedDisplayMode_(CDisplayModeEnumerator_* p, INDEX i)
+{
+  CDisplayMode* arr = (CDisplayMode*)p;
+  CDisplayMode& res = arr[i];
+  return ((CDisplayMode_*)(&res));
+}
+
+CDisplayModeEnumerator_* _pGfx_EnumDisplayModes_(INDEX* ctModes, GfxAPIType_ eAPI, INDEX iAdapter)
+{
+  CDisplayMode* arr = _pGfx->EnumDisplayModes(*ctModes, (GfxAPIType)eAPI, iAdapter);
+  return (CDisplayModeEnumerator_*)arr;
+}
+
 BOOL _pGfx_SetDisplayMode_(GfxAPIType_ eAPI, INDEX iAdapter, PIX pixSizeI, PIX pixSizeJ, DisplayDepth_ eColorDepth)
 {
   return _pGfx->SetDisplayMode((GfxAPIType)eAPI, iAdapter, pixSizeI, pixSizeJ, (DisplayDepth)eColorDepth);

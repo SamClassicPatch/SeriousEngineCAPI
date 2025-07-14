@@ -10,13 +10,9 @@ extern "C" {
 #define GAT_OGL_ 0
 #define GAT_D3D_ 1
 #define GAT_CURRENT_ 9
-  
-#define DD_NODEPTH_ -1
-#define DD_DEFAULT_ 0
-#define DD_16BIT_ 1
-#define DD_32BIT_ 2
-#define DD_24BIT_ 3
 
+SECAPI CDisplayMode_* _pGfx_GetEnumeratedDisplayMode_(CDisplayModeEnumerator_* p, INDEX i);
+SECAPI CDisplayModeEnumerator_* _pGfx_EnumDisplayModes_(INDEX* ctModes, GfxAPIType_ eAPI, INDEX iAdapter);
 SECAPI BOOL _pGfx_SetDisplayMode_(GfxAPIType_ eAPI, INDEX iAdapter, PIX pixSizeI, PIX pixSizeJ, DisplayDepth_ eColorDepth);
 SECAPI BOOL _pGfx_ResetDisplayMode_(GfxAPIType_ eAPI);
 SECAPI GfxAPIType_ _pGfx_GetCurrentAPI_();

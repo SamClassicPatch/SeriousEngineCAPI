@@ -175,6 +175,14 @@ SOURCE=.\Base\Shell.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\Statistics.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Statistics.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\Stream.cpp
 # End Source File
 # Begin Source File
@@ -377,6 +385,18 @@ SOURCE=.\Templates\Stock_CTextureData.h
 # Begin Group "Graphics"
 
 # PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Graphics\Color.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\DisplayMode.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\DisplayMode.h
+# End Source File
 # Begin Source File
 
 SOURCE=.\Graphics\DrawPort.cpp

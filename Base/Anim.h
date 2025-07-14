@@ -6,6 +6,10 @@
 extern "C" {
 #endif
 
+#ifndef SERIOUSENGINECAPI_EXPORTS
+#define PATH_MAX 260
+#endif
+
 SECAPI CAnimInfo_* CAnimInfo_new();
 SECAPI CAnimInfo_* CAnimInfo_clone(const CAnimInfo_* p);
 SECAPI void CAnimInfo_delete(CAnimInfo_* p);
