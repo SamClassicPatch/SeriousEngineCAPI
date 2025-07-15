@@ -104,6 +104,8 @@ SECAPI CPlacement3D_* CAttachmentModelObject_amo_plRelative(CAttachmentModelObje
 SECAPI CModelObject_* CAttachmentModelObject_amo_moModelObject(CAttachmentModelObject_* p);
 SECAPI CRenderModel_** CAttachmentModelObject_amo_prm(CAttachmentModelObject_* p);
 
+SECAPI CAttachmentModelObject_* CAttachmentModelObject_from_amo_lnInMain(CListNode_* p);
+
 #ifdef __cplusplus
 }
 #endif

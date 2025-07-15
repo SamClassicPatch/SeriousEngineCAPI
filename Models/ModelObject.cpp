@@ -505,3 +505,10 @@ CRenderModel_** CAttachmentModelObject_amo_prm(CAttachmentModelObject_* p)
   CAttachmentModelObject& m = *((CAttachmentModelObject*)p);
   return (CRenderModel_**)(&(m.amo_prm));
 }
+
+CAttachmentModelObject_* CAttachmentModelObject_from_amo_lnInMain(CListNode_* p)
+{
+  CListNode& node = *((CListNode*)p);
+  CAttachmentModelObject* res = ((CAttachmentModelObject*)(((UBYTE*)(&node)) - offsetof(CAttachmentModelObject, amo_lnInMain)));
+  return (CAttachmentModelObject_*)res;
+}
