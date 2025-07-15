@@ -72,3 +72,8 @@ INDEX* _iTexForcedQuality_()
 {
   return &_iTexForcedQuality;
 }
+
+INDEX _pGfx_gl_iMaxTessellationLevel()
+{
+  return _pGfx->gl_iMaxTessellationLevel;
+}

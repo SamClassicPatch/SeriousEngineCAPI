@@ -24,6 +24,7 @@ SECAPI void _pGfx_CreateWindowCanvas_(void* hWnd, CViewPort_** ppvpNew, CDrawPor
 SECAPI void _pGfx_DestroyWindowCanvas_(CViewPort_* pvpOld);
 SECAPI void _pGfx_CreateWorkCanvas_(PIX pixWidth, PIX pixHeight, CDrawPort_** ppdpNew);
 SECAPI void _pGfx_DestroyWorkCanvas_(CDrawPort_* pdpOld);
+SECAPI INDEX _pGfx_gl_iMaxTessellationLevel();
 
 SECAPI INDEX* _iTexForcedQuality_();
 
