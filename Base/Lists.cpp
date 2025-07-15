@@ -1,25 +1,5 @@
 #include "Lists.h"
 
-CListNode_* CListNode_new()
-{
-  return (CListNode_*)(new CListNode());
-}
-
-CListNode_* CListNode_clone(const CListNode_* p)
-{
-  return (CListNode_*)(new CListNode(*((const CListNode*)p)));
-}
-
-void CListNode_delete(CListNode_* p)
-{
-  delete ((CListNode*)p);
-}
-
-void CListNode_copy(CListNode_* a, const CListNode_* b)
-{
-  *((CListNode*)a) = *((const CListNode*)b);
-}
-
 BOOL CListNode_IsValid(const CListNode_* p)
 {
   return ((const CListNode*)p)->IsValid();
@@ -90,16 +70,6 @@ CListHead_* CListNode_GetHead(CListNode_* p)
   return (CListHead_*)(&(((CListNode*)p)->GetHead()));
 }
 
-
-CListHead_* CListHead_new()
-{
-  return (CListHead_*)(new CListHead());
-}
-
-void CListHead_delete(CListHead_* p)
-{
-  delete ((CListHead*)p);
-}
 
 BOOL CListHead_IsValid(const CListHead_* p)
 {

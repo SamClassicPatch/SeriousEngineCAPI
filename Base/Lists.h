@@ -6,10 +6,6 @@
 extern "C" {
 #endif
 
-SECAPI CListNode_* CListNode_new();
-SECAPI CListNode_* CListNode_clone(const CListNode_* p);
-SECAPI void CListNode_delete(CListNode_* p);
-SECAPI void CListNode_copy(CListNode_* a, const CListNode_* b);
 SECAPI BOOL CListNode_IsValid(const CListNode_* p);
 SECAPI BOOL CListNode_IsLinked(const CListNode_* p);
 SECAPI void CListNode_AddAfter(CListNode_* a, CListNode_* b);
@@ -25,8 +21,6 @@ SECAPI void CListNode_IterationInsertBefore(CListNode_* a, CListNode_* b);
 SECAPI void CListNode_IterationInsertAfter(CListNode_* a, CListNode_* b);
 SECAPI CListHead_* CListNode_GetHead(CListNode_* p);
 
-SECAPI CListHead_* CListHead_new();
-SECAPI void CListHead_delete(CListHead_* p);
 SECAPI BOOL CListHead_IsValid(const CListHead_* p);
 SECAPI void CListHead_Clear(CListHead_* p);
 SECAPI CListNode_* CListHead_Head(const CListHead_* p);
