@@ -143,6 +143,18 @@ SOURCE=.\Base\FileName.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\Input.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Input.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\KeyNames.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\Lists.cpp
 # End Source File
 # Begin Source File
@@ -520,6 +532,14 @@ SOURCE=.\Sound\SoundData.cpp
 # Begin Source File
 
 SOURCE=.\Sound\SoundData.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sound\SoundLibrary.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sound\SoundLibrary.h
 # End Source File
 # Begin Source File
 
