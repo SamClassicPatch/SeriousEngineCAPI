@@ -79,6 +79,10 @@ typedef double DOUBLE;
 #define METERS_MEX(mex)    ((FLOAT)(((FLOAT)mex)/MAX_MEX))
 #define MEX_METERS(meters) ((MEX)(meters*MAX_MEX))
 
+// sound volume constants
+#define SL_VOLUME_MIN (0.0f)
+#define SL_VOLUME_MAX (4.0f)
+
 #endif
 
 typedef INDEX SurfaceShadingType_;

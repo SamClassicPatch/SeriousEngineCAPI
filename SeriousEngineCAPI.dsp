@@ -247,11 +247,23 @@ SOURCE=.\Math\AABBox.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Math\Clipping.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Math\Functions.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\Math\Functions.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Math\Geometry.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Math\Geometry.h
 # End Source File
 # Begin Source File
 
