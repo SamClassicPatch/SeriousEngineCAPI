@@ -83,6 +83,7 @@ SECAPI ULONG CModelData_GetFlags(CModelData_* p);
 SECAPI void CModelData_Clear(CModelData_* p);
 SECAPI void CModelData_ClearAnimations(CModelData_* p);
 SECAPI void CModelData_LinkDataForSurfaces(CModelData_* p, BOOL bFirstMip);
+SECAPI void CModelData_CreateAnimationsRaw(CModelData_* p, INDEX ct);
 
 #ifdef __cplusplus
 }

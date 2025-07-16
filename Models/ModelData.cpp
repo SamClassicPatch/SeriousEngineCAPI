@@ -1,4 +1,5 @@
 #include "ModelData.h"
+#include "../Base/OneAnim.h"
 
 CModelPatch_* CModelPatch_new()
 {
@@ -435,4 +436,12 @@ void CModelData_ClearAnimations(CModelData_* p)
 void CModelData_LinkDataForSurfaces(CModelData_* p, BOOL bFirstMip)
 {
   ((CModelData*)p)->LinkDataForSurfaces(bFirstMip);
+}
+
+void CModelData_CreateAnimationsRaw(CModelData_* p, INDEX ct)
+{
+  CModelData& md = *((CModelData*)p);
+  md.CAnimData::Clear();
+  md.ad_NumberOfAnims = ct;
+  md.ad_Anims = new COneAnim[ct];
 }

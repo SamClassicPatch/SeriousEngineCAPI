@@ -7,6 +7,7 @@ extern "C" {
 #endif
 
 #ifndef SERIOUSENGINECAPI_EXPORTS
+#define NAME_SIZE 32
 #define PATH_MAX 260
 #endif
 

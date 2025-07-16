@@ -171,6 +171,10 @@ SOURCE=.\Base\Memory.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\OneAnim.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\Serial.cpp
 # End Source File
 # Begin Source File
@@ -512,6 +516,14 @@ SOURCE=.\Models\ModelObject.cpp
 # Begin Source File
 
 SOURCE=.\Models\ModelObject.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Models\Normals.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Models\Normals.h
 # End Source File
 # Begin Source File
 
