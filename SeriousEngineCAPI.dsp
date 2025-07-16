@@ -423,6 +423,10 @@ SOURCE=.\Templates\Stock_CTextureData.h
 # PROP Default_Filter ""
 # Begin Source File
 
+SOURCE=.\Graphics\Color.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\Graphics\Color.h
 # End Source File
 # Begin Source File

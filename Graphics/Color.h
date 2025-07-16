@@ -111,6 +111,28 @@ extern "C" {
 #define CT_rASHIFT 24
 #endif
 
+SECAPI COLOR RGBToColor_(UBYTE ubR, UBYTE ubG, UBYTE ubB);
+SECAPI void ColorToRGB_(COLOR col, UBYTE* ubR, UBYTE* ubG, UBYTE* ubB);
+SECAPI COLOR RGBAToColor_(UBYTE ubR, UBYTE ubG, UBYTE ubB, UBYTE ubA);
+SECAPI void ColorToRGBA_(COLOR col, UBYTE* ubR, UBYTE* ubG, UBYTE* ubB, UBYTE* ubA);
+SECAPI COLOR HSVToColor_(UBYTE ubH, UBYTE ubS, UBYTE ubV);
+SECAPI void ColorToHSV_(COLOR colSrc, UBYTE* ubH, UBYTE* ubS, UBYTE* ubV);
+SECAPI COLOR HSVAToColor_(UBYTE ubH, UBYTE ubS, UBYTE ubV, UBYTE ubA);
+SECAPI void ColorToHSVA_(COLOR colSrc, UBYTE* ubH, UBYTE* ubS, UBYTE* ubV, UBYTE* ubA);
+SECAPI BOOL IsGray_(COLOR col);
+SECAPI BOOL IsBlack_(COLOR col);
+SECAPI BOOL IsWhite_(COLOR col);
+SECAPI COLOR DesaturateColor_(COLOR col);
+SECAPI BOOL IsBigger_(COLOR col1, COLOR col2);
+SECAPI BOOL CompareChroma_(COLOR col1, COLOR col2);
+SECAPI COLOR AdjustColor_(COLOR col, SLONG slHueShift, SLONG slSaturation);
+SECAPI COLOR AdjustGamma_(COLOR col, FLOAT fGamma);
+SECAPI COLOR LerpColor_(COLOR col0, COLOR col1, FLOAT fRatio);
+SECAPI void  LerpColor_b(COLOR col0, COLOR col1, FLOAT fRatio, UBYTE* ubR, UBYTE* ubG, UBYTE* ubB);
+SECAPI COLOR MulColors_(COLOR col1, COLOR col2);
+SECAPI COLOR AddColors_(COLOR col1, COLOR col2);
+SECAPI ULONG ByteSwap_(ULONG ul);
+
 #ifdef __cplusplus
 }
 #endif
