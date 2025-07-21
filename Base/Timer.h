@@ -17,7 +17,7 @@ SECAPI void CTimerValue_Clear(CTimerValue_* p);
 SECAPI DOUBLE CTimerValue_GetSeconds(CTimerValue_* p);
 SECAPI int64_t CTimerValue_GetMilliseconds(CTimerValue_* p);
 
-SECAPI CTimerHandler_* CTimerHandler_new(void (__cdecl *cb)(void));
+SECAPI CTimerHandler_* CTimerHandler_new(void (*cb)(void));
 SECAPI void CTimerHandler_delete(CTimerHandler_* p);
 
 SECAPI CTCriticalSection_* _pTimer_tm_csHooks_();

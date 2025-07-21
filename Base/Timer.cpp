@@ -3,7 +3,7 @@
 class CTimerHandlerImpl : public CTimerHandler
 {
 public:
-  explicit CTimerHandlerImpl(void (__cdecl *cb)(void))
+  explicit CTimerHandlerImpl(void (*cb)(void))
     : m_callback(cb)
   {
   }
@@ -14,7 +14,7 @@ public:
   }
 
 private:
-  void (__cdecl *m_callback)(void);
+  void (*m_callback)(void);
 };
 
 CTimerValue_* CTimerValue_new()
@@ -69,7 +69,7 @@ int64_t CTimerValue_GetMilliseconds(CTimerValue_* p)
 }
 
 
-CTimerHandler_* CTimerHandler_new(void (__cdecl *cb)(void))
+CTimerHandler_* CTimerHandler_new(void (*cb)(void))
 {
   return (CTimerHandler_*)(new CTimerHandlerImpl(cb));
 }

@@ -30,7 +30,7 @@ char* CChunkID_str(CChunkID_* p)
   return ((CChunkID*)p)->operator char*();
 }
 
-void CTStream_ExecuteWithStreamHandling(void (__cdecl *func)(void))
+void CTStream_ExecuteWithStreamHandling(void (*func)(void))
 {
   CTSTREAM_BEGIN
   {
