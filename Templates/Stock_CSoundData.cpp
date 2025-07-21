@@ -1,7 +1,7 @@
 #include "Stock_CSoundData.h"
 #include <Engine/Templates/Stock_CSoundData.h>
 
-CSoundData_* _pSoundStock_Obtain_t(const CTFileName_* f)
+CSoundData_* _pSoundStock_Obtain_t_(const CTFileName_* f)
 {
   CSoundData* res = NULL;
   SECAPI_TRY

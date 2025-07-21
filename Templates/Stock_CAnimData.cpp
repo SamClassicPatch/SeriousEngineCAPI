@@ -1,7 +1,7 @@
 #include "Stock_CAnimData.h"
 #include <Engine/Templates/Stock_CAnimData.h>
 
-CAnimData_* _pAnimStock_Obtain_t(const CTFileName_* f)
+CAnimData_* _pAnimStock_Obtain_t_(const CTFileName_* f)
 {
   CAnimData* res = NULL;
   SECAPI_TRY

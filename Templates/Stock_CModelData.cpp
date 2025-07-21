@@ -1,7 +1,7 @@
 #include "Stock_CModelData.h"
 #include <Engine/Templates/Stock_CModelData.h>
 
-CModelData_* _pModelStock_Obtain_t(const CTFileName_* f)
+CModelData_* _pModelStock_Obtain_t_(const CTFileName_* f)
 {
   CModelData* res = NULL;
   SECAPI_TRY

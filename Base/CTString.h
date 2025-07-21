@@ -9,7 +9,6 @@ extern "C" {
 
 SECAPI CTString_* CTString_new();
 SECAPI CTString_* CTString_new_str(const char* s);
-SECAPI CTString_* CTString_new_fmt(INDEX i, const char* fmt, va_list arg);
 SECAPI CTString_* CTString_clone(const CTString_* p);
 SECAPI void CTString_delete(CTString_* p);
 SECAPI void CTString_Clear(CTString_* p);
@@ -49,7 +48,6 @@ SECAPI void CTString_LoadKeepCRLF_t(CTString_* a, const CTFileName_* b);
 SECAPI void CTString_ReadUntilEOF_t(CTString_* p, CTStream_* s);
 SECAPI void CTString_Save_t(CTString_* a, const CTFileName_* b);
 SECAPI void CTString_SaveKeepCRLF_t(CTString_* a, const CTFileName_* b);
-SECAPI INDEX CTString_VPrintF(CTString_* p, const char* f, va_list arg);
 SECAPI void CTString_LoadVar(CTString_* a, const CTFileName_* b);
 SECAPI void CTString_SaveVar(CTString_* a, const CTFileName_* b);
 SECAPI void CTString_LoadStringVar(const CTFileName_* a, CTString_* b);

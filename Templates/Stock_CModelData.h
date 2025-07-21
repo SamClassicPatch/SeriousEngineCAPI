@@ -6,7 +6,7 @@
 extern "C" {
 #endif
 
-SECAPI CModelData_* _pModelStock_Obtain_t(const CTFileName_* f);
+SECAPI CModelData_* _pModelStock_Obtain_t_(const CTFileName_* f);
 SECAPI void _pModelStock_Release(CModelData_* p);
 SECAPI void _pModelStock_FreeUnused();
 

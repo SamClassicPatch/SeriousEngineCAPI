@@ -6,7 +6,7 @@
 extern "C" {
 #endif
 
-SECAPI CAnimData_* _pAnimStock_Obtain_t(const CTFileName_* f);
+SECAPI CAnimData_* _pAnimStock_Obtain_t_(const CTFileName_* f);
 SECAPI void _pAnimStock_Release(CAnimData_* p);
 SECAPI void _pAnimStock_FreeUnused();
 

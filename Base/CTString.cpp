@@ -11,13 +11,6 @@ CTString_* CTString_new_str(const char* s)
   return (CTString_*)(new CTString(s));
 }
 
-CTString_* CTString_new_fmt(INDEX i, const char* fmt, va_list arg)
-{
-  CTString* str = new CTString();
-  str->VPrintF(fmt, arg);
-  return (CTString_*)str;
-}
-
 CTString_* CTString_clone(const CTString_* p)
 {
   return (CTString_*)(new CTString(*((const CTString*)p)));
@@ -231,11 +224,6 @@ void CTString_SaveKeepCRLF_t(CTString_* a, const CTFileName_* b)
   SECAPI_TRY
     ((CTString*)a)->SaveKeepCRLF_t(*((const CTFileName*)b));
   SECAPI_CATCH
-}
-
-INDEX CTString_VPrintF(CTString_* p, const char* f, va_list arg)
-{
-  return ((CTString*)p)->VPrintF(f, arg);
 }
 
 void CTString_LoadVar(CTString_* a, const CTFileName_* b)

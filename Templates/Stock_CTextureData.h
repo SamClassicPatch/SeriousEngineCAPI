@@ -6,7 +6,7 @@
 extern "C" {
 #endif
 
-SECAPI CTextureData_* _pTextureStock_Obtain_t(const CTFileName_* f);
+SECAPI CTextureData_* _pTextureStock_Obtain_t_(const CTFileName_* f);
 SECAPI void _pTextureStock_Release(CTextureData_* p);
 SECAPI void _pTextureStock_FreeUnused();
 

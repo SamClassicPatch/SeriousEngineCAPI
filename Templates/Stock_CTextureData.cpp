@@ -1,7 +1,7 @@
 #include "Stock_CTextureData.h"
 #include <Engine/Templates/Stock_CTextureData.h>
 
-CTextureData_* _pTextureStock_Obtain_t(const CTFileName_* f)
+CTextureData_* _pTextureStock_Obtain_t_(const CTFileName_* f)
 {
   CTextureData* res = NULL;
   SECAPI_TRY
