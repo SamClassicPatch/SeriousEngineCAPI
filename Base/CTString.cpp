@@ -170,102 +170,200 @@ void CTString_Throw_t(CTString_* p)
   SECAPI_CATCH
 }
 
-void CTString_ReadFromText_t(CTString_* p, CTStream_* s, const CTString_* k)
+static void sehReadFromText_t(CTString_* p, CTStream_* s, const CTString_* k)
 {
   SECAPI_TRY
     ((CTString*)p)->ReadFromText_t(*((CTStream*)s), *((const CTString*)k));
   SECAPI_CATCH
 }
 
-void CTString_extract(CTStream_* s, CTString_* p)
+void CTString_ReadFromText_t(CTString_* p, CTStream_* s, const CTString_* k)
+{
+  STREAM_TRY
+  sehReadFromText_t(p, s, k);
+  STREAM_CATCH
+}
+
+static void sehCTString_extract(CTStream_* s, CTString_* p)
 {
   SECAPI_TRY
     *((CTStream*)s) >> *((CTString*)s);
   SECAPI_CATCH
 }
 
-void CTString_insert(CTStream_* s, const CTString_* p)
+void CTString_extract(CTStream_* s, CTString_* p)
+{
+  STREAM_TRY
+  sehCTString_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehCTString_insert(CTStream_* s, const CTString_* p)
 {
   SECAPI_TRY
     *((CTStream*)s) << *((const CTString*)s);
   SECAPI_CATCH
 }
 
-void CTString_Load_t(CTString_* a, const CTFileName_* b)
+void CTString_insert(CTStream_* s, const CTString_* p)
+{
+  STREAM_TRY
+  sehCTString_insert(s, p);
+  STREAM_CATCH
+}
+
+static void sehCTString_Load_t(CTString_* a, const CTFileName_* b)
 {
   SECAPI_TRY
     ((CTString*)a)->Load_t(*((const CTFileName*)b));
   SECAPI_CATCH
 }
 
-void CTString_LoadKeepCRLF_t(CTString_* a, const CTFileName_* b)
+void CTString_Load_t(CTString_* a, const CTFileName_* b)
+{
+  STREAM_TRY
+  sehCTString_Load_t(a, b);
+  STREAM_CATCH
+}
+
+static void sehCTString_LoadKeepCRLF_t(CTString_* a, const CTFileName_* b)
 {
   SECAPI_TRY
     ((CTString*)a)->LoadKeepCRLF_t(*((const CTFileName*)b));
   SECAPI_CATCH
 }
 
-void CTString_ReadUntilEOF_t(CTString_* p, CTStream_* s)
+void CTString_LoadKeepCRLF_t(CTString_* a, const CTFileName_* b)
+{
+  STREAM_TRY
+  sehCTString_LoadKeepCRLF_t(a, b);
+  STREAM_CATCH
+}
+
+static void sehCTString_ReadUntilEOF_t(CTString_* p, CTStream_* s)
 {
   SECAPI_TRY
     ((CTString*)p)->ReadUntilEOF_t(*((CTStream*)s));
   SECAPI_CATCH
 }
 
-void CTString_Save_t(CTString_* a, const CTFileName_* b)
+void CTString_ReadUntilEOF_t(CTString_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCTString_ReadUntilEOF_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehCTString_Save_t(CTString_* a, const CTFileName_* b)
 {
   SECAPI_TRY
     ((CTString*)a)->Save_t(*((const CTFileName*)b));
   SECAPI_CATCH
 }
 
-void CTString_SaveKeepCRLF_t(CTString_* a, const CTFileName_* b)
+void CTString_Save_t(CTString_* a, const CTFileName_* b)
+{
+  STREAM_TRY
+  sehCTString_Save_t(a, b);
+  STREAM_CATCH
+}
+
+static void sehCTString_SaveKeepCRLF_t(CTString_* a, const CTFileName_* b)
 {
   SECAPI_TRY
     ((CTString*)a)->SaveKeepCRLF_t(*((const CTFileName*)b));
   SECAPI_CATCH
 }
 
-void CTString_LoadVar(CTString_* a, const CTFileName_* b)
+void CTString_SaveKeepCRLF_t(CTString_* a, const CTFileName_* b)
+{
+  STREAM_TRY
+  sehCTString_SaveKeepCRLF_t(a, b);
+  STREAM_CATCH
+}
+
+static void sehCTString_LoadVar(CTString_* a, const CTFileName_* b)
 {
   SECAPI_TRY
   ((CTString*)a)->LoadVar(*((const CTFileName*)b));
   SECAPI_CATCH
 }
 
-void CTString_SaveVar(CTString_* a, const CTFileName_* b)
+void CTString_LoadVar(CTString_* a, const CTFileName_* b)
+{
+  STREAM_TRY
+  sehCTString_LoadVar(a, b);
+  STREAM_CATCH
+}
+
+static void sehCTString_SaveVar(CTString_* a, const CTFileName_* b)
 {
   SECAPI_TRY
   ((CTString*)a)->SaveVar(*((const CTFileName*)b));
   SECAPI_CATCH
 }
 
-void CTString_LoadStringVar(const CTFileName_* a, CTString_* b)
+void CTString_SaveVar(CTString_* a, const CTFileName_* b)
+{
+  STREAM_TRY
+  sehCTString_SaveVar(a, b);
+  STREAM_CATCH
+}
+
+static void sehCTString_LoadStringVar(const CTFileName_* a, CTString_* b)
 {
   SECAPI_TRY
   LoadStringVar(*((const CTFileName*)a), *((CTString*)b));
   SECAPI_CATCH
 }
 
-void CTString_SaveStringVar(const CTFileName_* a, CTString_* b)
+void CTString_LoadStringVar(const CTFileName_* a, CTString_* b)
+{
+  STREAM_TRY
+  sehCTString_LoadStringVar(a, b);
+  STREAM_CATCH
+}
+
+static void sehCTString_SaveStringVar(const CTFileName_* a, CTString_* b)
 {
   SECAPI_TRY
   SaveStringVar(*((const CTFileName*)a), *((CTString*)b));
   SECAPI_CATCH
 }
 
-void CTString_LoadIntVar(const CTFileName_* a, INDEX* i)
+void CTString_SaveStringVar(const CTFileName_* a, CTString_* b)
+{
+  STREAM_TRY
+  sehCTString_SaveStringVar(a, b);
+  STREAM_CATCH
+}
+
+static void sehCTString_LoadIntVar(const CTFileName_* a, INDEX* i)
 {
   SECAPI_TRY
   LoadIntVar(*((const CTFileName*)a), *i);
   SECAPI_CATCH
 }
 
-void CTString_SaveIntVar(const CTFileName_* a, INDEX i)
+void CTString_LoadIntVar(const CTFileName_* a, INDEX* i)
+{
+  STREAM_TRY
+  sehCTString_LoadIntVar(a, i);
+  STREAM_CATCH
+}
+
+static void sehCTString_SaveIntVar(const CTFileName_* a, INDEX i)
 {
   SECAPI_TRY
   SaveIntVar(*((const CTFileName*)a), i);
   SECAPI_CATCH
+}
+
+void CTString_SaveIntVar(const CTFileName_* a, INDEX i)
+{
+  STREAM_TRY
+  sehCTString_SaveIntVar(a, i);
+  STREAM_CATCH
 }
 
 CTString_* CTString_RemoveSpecialCodes(const CTString_* p)

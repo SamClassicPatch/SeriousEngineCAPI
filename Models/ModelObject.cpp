@@ -290,22 +290,30 @@ void CModelObject_StretchSingleModel(CModelObject_* p, const FLOAT3D_* vStretch)
 
 void CModelObject_SetupModelRendering(CModelObject_* p, CRenderModel_* rm)
 {
+  STREAM_TRY
   ((CModelObject*)p)->SetupModelRendering(*((CRenderModel*)rm));
+  STREAM_CATCH
 }
 
 void CModelObject_RenderModel(CModelObject_* p, CRenderModel_* rm)
 {
+  STREAM_TRY
   ((CModelObject*)p)->RenderModel(*((CRenderModel*)rm));
+  STREAM_CATCH
 }
 
 void CModelObject_AddSimpleShadow(CModelObject_* p, CRenderModel_* rm, const FLOAT fIntensity,  const FLOATplane3D_* plShadowPlane)
 {
+  STREAM_TRY
   ((CModelObject*)p)->AddSimpleShadow(*((CRenderModel*)rm), fIntensity, *((const FLOATplane3D*)plShadowPlane));
+  STREAM_CATCH
 }
 
 void CModelObject_RenderShadow(CModelObject_* p, CRenderModel_* rm, const CPlacement3D_* plLight, const FLOAT fFallOff, const FLOAT fHotSpot, const FLOAT fIntensity, const FLOATplane3D_* plShadowPlane)
 {
+  STREAM_TRY
   ((CModelObject*)p)->RenderShadow(*((CRenderModel*)rm), *((const CPlacement3D*)plLight), fFallOff, fHotSpot, fIntensity, *((const FLOATplane3D*)plShadowPlane));
+  STREAM_CATCH
 }
 
 void CModelObject_GetModelVertices(CModelObject_* p, CStaticStackArray_FLOAT3D_* avVertices, FLOATmatrix3D_* mRotation, FLOAT3D_* vPosition, FLOAT fNormalOffset, FLOAT fMipFactor)
@@ -394,23 +402,39 @@ void CModelObject_HidePatch(CModelObject_* p, INDEX iMaskBit)
   ((CModelObject*)p)->HidePatch(iMaskBit);
 }
 
-void CModelObject_Read_t(CModelObject_* p, CTStream_* istrFile)
+static void sehCModelObject_Read_t(CModelObject_* p, CTStream_* istrFile)
 {
   SECAPI_TRY
   ((CModelObject*)p)->Read_t((CTStream*)istrFile);
   SECAPI_CATCH
 }
 
-void CModelObject_Write_t(CModelObject_* p, CTStream_* ostrFile)
+void CModelObject_Read_t(CModelObject_* p, CTStream_* istrFile)
+{
+  STREAM_TRY
+  sehCModelObject_Read_t(p, istrFile);
+  STREAM_CATCH
+}
+
+static void sehCModelObject_Write_t(CModelObject_* p, CTStream_* ostrFile)
 {
   SECAPI_TRY
   ((CModelObject*)p)->Write_t((CTStream*)ostrFile);
   SECAPI_CATCH
 }
 
+void CModelObject_Write_t(CModelObject_* p, CTStream_* ostrFile)
+{
+  STREAM_TRY
+  sehCModelObject_Write_t(p, ostrFile);
+  STREAM_CATCH
+}
+
 void CModelObject_SetTextureData(CModelObject_* p, CTextureData_* ptdNewMainTexture)
 {
+  STREAM_TRY
   ((CModelObject*)p)->SetTextureData((CTextureData*)ptdNewMainTexture);
+  STREAM_CATCH
 }
 
 CTFileName_* CModelObject_GetName(CModelObject_* p)
@@ -421,24 +445,37 @@ CTFileName_* CModelObject_GetName(CModelObject_* p)
 
 void CModelObject_AutoSetTextures(CModelObject_* p)
 {
+  STREAM_TRY
   ((CModelObject*)p)->AutoSetTextures();
+  STREAM_CATCH
 }
 
 void CModelObject_AutoSetAttachments(CModelObject_* p)
 {
+  STREAM_TRY
   ((CModelObject*)p)->AutoSetAttachments();
+  STREAM_CATCH
 }
 
-void CModelObject_SetData_t(CModelObject_* p, const CTFileName_* fnmModel)
+static void SetData_t(CModelObject_* p, const CTFileName_* fnmModel)
 {
   SECAPI_TRY
   ((CModelObject*)p)->SetData_t(*((const CTFileName*)fnmModel));
   SECAPI_CATCH
 }
 
+void CModelObject_SetData_t(CModelObject_* p, const CTFileName_* fnmModel)
+{
+  STREAM_TRY
+  SetData_t(p, fnmModel);
+  STREAM_CATCH
+}
+
 void CModelObject_SetData(CModelObject_* p, CModelData_* pmd)
 {
+  STREAM_TRY
   ((CModelObject*)p)->SetData((CModelData*)pmd);
+  STREAM_CATCH
 }
 
 CModelData_* CModelObject_GetData(CModelObject_* p)

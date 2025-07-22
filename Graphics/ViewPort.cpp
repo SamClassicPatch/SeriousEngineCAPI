@@ -31,7 +31,9 @@ CRaster_* CViewPort_vp_Raster(CViewPort_* p)
 
 void CViewPort_OpenCanvas(CViewPort_* p)
 {
+  STREAM_TRY
   ((CViewPort*)p)->OpenCanvas();
+  STREAM_CATCH
 }
 
 void CViewPort_CloseCanvas(CViewPort_* p, BOOL release)
@@ -41,7 +43,9 @@ void CViewPort_CloseCanvas(CViewPort_* p, BOOL release)
 
 void CViewPort_SwapBuffers(CViewPort_* p)
 {
+  STREAM_TRY
   ((CViewPort*)p)->SwapBuffers();
+  STREAM_CATCH
 }
 
 void CViewPort_Resize(CViewPort_* p)

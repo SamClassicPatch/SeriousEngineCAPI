@@ -54,18 +54,32 @@ PIX* CFontCharData_fcd_pixEnd(CFontCharData_* p)
   return &(d.fcd_pixEnd);
 }
 
-void CFontCharData_Read_t(CFontCharData_* p, CTStream_* s)
+static void Read_t(CFontCharData_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((CFontCharData*)p)->Read_t((CTStream*)s);
   SECAPI_CATCH
 }
 
-void CFontCharData_Write_t(CFontCharData_* p, CTStream_* s)
+void CFontCharData_Read_t(CFontCharData_* p, CTStream_* s)
+{
+  STREAM_TRY
+  Read_t(p, s);
+  STREAM_CATCH
+}
+
+static void Write_t(CFontCharData_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((CFontCharData*)p)->Write_t((CTStream*)s);
   SECAPI_CATCH
+}
+
+void CFontCharData_Write_t(CFontCharData_* p, CTStream_* s)
+{
+  STREAM_TRY
+  Write_t(p, s);
+  STREAM_CATCH
 }
 
 CFontData_* CFontData_new()
@@ -141,25 +155,46 @@ void CFontData_SetSpaceWidth(CFontData_* p, FLOAT fWidthRatio)
   ((CFontData*)p)->SetSpaceWidth(fWidthRatio);
 }
 
-void CFontData_Read_t(CFontData_* p, CTStream_* inFile)
+static void sehCFontData_Read_t(CFontData_* p, CTStream_* inFile)
 {
   SECAPI_TRY
   ((CFontData*)p)->Read_t((CTStream*)inFile);
   SECAPI_CATCH
 }
 
-void CFontData_Write_t(CFontData_* p, CTStream_* outFile)
+void CFontData_Read_t(CFontData_* p, CTStream_* inFile)
+{
+  STREAM_TRY
+  sehCFontData_Read_t(p, inFile);
+  STREAM_CATCH
+}
+
+static void sehCFontData_Write_t(CFontData_* p, CTStream_* outFile)
 {
   SECAPI_TRY
   ((CFontData*)p)->Write_t((CTStream*)outFile);
   SECAPI_CATCH
 }
 
-void CFontData_Make_t(CFontData_* p, const CTFileName_* fnTexture, PIX pixCharWidth, PIX pixCharHeight, CTFileName_* fnOrderFile, BOOL bUseAlpha)
+void CFontData_Write_t(CFontData_* p, CTStream_* outFile)
+{
+  STREAM_TRY
+  sehCFontData_Write_t(p, outFile);
+  STREAM_CATCH
+}
+
+static void sehCFontData_Make_t(CFontData_* p, const CTFileName_* fnTexture, PIX pixCharWidth, PIX pixCharHeight, CTFileName_* fnOrderFile, BOOL bUseAlpha)
 {
   SECAPI_TRY
   ((CFontData*)p)->Make_t(*((const CTFileName*)fnTexture), pixCharWidth, pixCharHeight, *((CTFileName*)fnOrderFile), bUseAlpha);
   SECAPI_CATCH
+}
+
+void CFontData_Make_t(CFontData_* p, const CTFileName_* fnTexture, PIX pixCharWidth, PIX pixCharHeight, CTFileName_* fnOrderFile, BOOL bUseAlpha)
+{
+  STREAM_TRY
+  sehCFontData_Make_t(p, fnTexture, pixCharWidth, pixCharHeight, fnOrderFile, bUseAlpha);
+  STREAM_CATCH
 }
 
 void CFontData_Clear(CFontData_* p)

@@ -11,25 +11,46 @@ CTString_* CSerial_GetDescription(CSerial_* p)
   return (CTString_*)(new CTString(res));
 }
 
-void CSerial_Load_t(CSerial_* p, const CTFileName_* f)
+static void Load_t(CSerial_* p, const CTFileName_* f)
 {
   SECAPI_TRY
   ((CSerial*)p)->Load_t(*((const CTFileName*)f));
   SECAPI_CATCH
 }
 
-void CSerial_Save_t(CSerial_* p, const CTFileName_* f)
+void CSerial_Load_t(CSerial_* p, const CTFileName_* f)
+{
+  STREAM_TRY
+  Load_t(p, f);
+  STREAM_CATCH
+}
+
+static void Save_t(CSerial_* p, const CTFileName_* f)
 {
   SECAPI_TRY
   ((CSerial*)p)->Save_t(*((const CTFileName*)f));
   SECAPI_CATCH
 }
 
-void CSerial_Reload(CSerial_* p)
+void CSerial_Save_t(CSerial_* p, const CTFileName_* f)
+{
+  STREAM_TRY
+  Save_t(p, f);
+  STREAM_CATCH
+}
+
+static void Reload(CSerial_* p)
 {
   SECAPI_TRY
   ((CSerial*)p)->Reload();
   SECAPI_CATCH
+}
+
+void CSerial_Reload(CSerial_* p)
+{
+  STREAM_TRY
+  Reload(p);
+  STREAM_CATCH
 }
 
 void CSerial_MarkUsed(CSerial_* p)
@@ -52,25 +73,46 @@ INDEX CSerial_GetUsedCount(CSerial_* p)
   return ((CSerial*)p)->GetUsedCount();
 }
 
-void CSerial_Clear(CSerial_* p)
+static void Clear(CSerial_* p)
 {
   SECAPI_TRY
   ((CSerial*)p)->Clear();
   SECAPI_CATCH
 }
 
-void CSerial_Read_t(CSerial_* p, CTStream_* s)
+void CSerial_Clear(CSerial_* p)
+{
+  STREAM_TRY
+  Clear(p);
+  STREAM_CATCH
+}
+
+static void Read_t(CSerial_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((CSerial*)p)->Read_t((CTStream*)s);
   SECAPI_CATCH
 }
 
-void CSerial_Write_t(CSerial_* p, CTStream_* s)
+void CSerial_Read_t(CSerial_* p, CTStream_* s)
+{
+  STREAM_TRY
+  Read_t(p, s);
+  STREAM_CATCH
+}
+
+static void Write_t(CSerial_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((CSerial*)p)->Write_t((CTStream*)s);
   SECAPI_CATCH
+}
+
+void CSerial_Write_t(CSerial_* p, CTStream_* s)
+{
+  STREAM_TRY
+  Write_t(p, s);
+  STREAM_CATCH
 }
 
 BOOL CSerial_IsAutoFreed(CSerial_* p)

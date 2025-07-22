@@ -255,8 +255,10 @@ void CDrawPort_PutTexture_box_cols(const CDrawPort_* p, CTextureObject_* pTO, co
 
 void CDrawPort_InitTexture(const CDrawPort_* p, CTextureObject_* pTO, const BOOL bClamp)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.InitTexture((CTextureObject*)pTO, bClamp);
+  STREAM_CATCH
 }
 
 void CDrawPort_AddTexture_1(const CDrawPort_* p, const FLOAT fI0, const FLOAT fJ0, const FLOAT fI1, const FLOAT fJ1, const COLOR col)
@@ -291,8 +293,12 @@ void CDrawPort_FlushRenderingQueue(const CDrawPort_* p)
 
 BOOL CDrawPort_Lock(CDrawPort_* p)
 {
+  BOOL res = FALSE;
+  STREAM_TRY
   CDrawPort& d = *((CDrawPort*)p);
-  return d.Lock();
+  res = d.Lock();
+  STREAM_CATCH
+  return res;
 }
 
 void CDrawPort_Unlock(CDrawPort_* p)
@@ -375,8 +381,10 @@ BOOL CDrawPort_IsPointVisible(const CDrawPort_* p, PIX pixI, PIX pixJ, FLOAT fOo
 
 void CDrawPort_RenderLensFlare(const CDrawPort_* p, CTextureObject_* pto, FLOAT fI, FLOAT fJ, FLOAT fSizeI, FLOAT fSizeJ, ANGLE aRotation, COLOR colLight)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.RenderLensFlare((CTextureObject*)pto, fI, fJ, fSizeI, fSizeJ, aRotation, colLight);
+  STREAM_CATCH
 }
 
 void CDrawPort_BlendScreen(CDrawPort_* p)
@@ -387,12 +395,16 @@ void CDrawPort_BlendScreen(CDrawPort_* p)
 
 void Particle_PrepareSystem_(CDrawPort_* pdpDrawPort, CAnyProjection3D_* prProjection)
 {
+  STREAM_TRY
   Particle_PrepareSystem((CDrawPort*)pdpDrawPort, *((CAnyProjection3D*)prProjection));
+  STREAM_CATCH
 }
 
 void Particle_PrepareEntity_(FLOAT fMipFactor, BOOL bHasFog, BOOL bHasHaze, CEntity_* penViewer)
 {
+  STREAM_TRY
   Particle_PrepareEntity(fMipFactor, bHasFog, bHasHaze, (CEntity*)penViewer);
+  STREAM_CATCH
 }
 
 void Particle_EndSystem_(BOOL bRestoreOrtho)
@@ -424,7 +436,9 @@ CProjection3D_* Particle_GetProjection_()
 
 void Particle_PrepareTexture_(CTextureObject_* pto, ParticleBlendType_ pbt)
 {
+  STREAM_TRY
   Particle_PrepareTexture((CTextureObject*)pto, (ParticleBlendType)pbt);
+  STREAM_CATCH
 }
 
 void Particle_SetTexturePart_(MEX mexWidth, MEX mexHeight, INDEX iCol, INDEX iRow)

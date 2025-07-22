@@ -165,18 +165,32 @@ ModelTextureVertex_** ModelPolygonVertex_mpv_ptvTextureVertex(ModelPolygonVertex
   return (ModelTextureVertex_**)(&(m.mpv_ptvTextureVertex));
 }
 
-void ModelPolygonVertex_Read_t(ModelPolygonVertex_* p, CTStream_* s)
+static void sehModelPolygonVertex_Read_t(ModelPolygonVertex_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((ModelPolygonVertex*)p)->Read_t((CTStream*)s);
   SECAPI_CATCH
 }
 
-void ModelPolygonVertex_Write_t(ModelPolygonVertex_* p, CTStream_* s)
+void ModelPolygonVertex_Read_t(ModelPolygonVertex_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehModelPolygonVertex_Read_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehModelPolygonVertex_Write_t(ModelPolygonVertex_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((ModelPolygonVertex*)p)->Write_t((CTStream*)s);
   SECAPI_CATCH
+}
+
+void ModelPolygonVertex_Write_t(ModelPolygonVertex_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehModelPolygonVertex_Write_t(p, s);
+  STREAM_CATCH
 }
 
 ModelPolygon_* ModelPolygon_new()
@@ -235,18 +249,32 @@ BOOL* ModelPolygon_mp_bClipped(ModelPolygon_* p)
   return &(m.mp_bClipped);
 }
 
-void ModelPolygon_Read_t(ModelPolygon_* p, CTStream_* s)
+static void sehModelPolygon_Read_t(ModelPolygon_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((ModelPolygon*)p)->Read_t((CTStream*)s);
   SECAPI_CATCH
 }
 
-void ModelPolygon_Write_t(ModelPolygon_* p, CTStream_* s)
+void ModelPolygon_Read_t(ModelPolygon_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehModelPolygon_Read_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehModelPolygon_Write_t(ModelPolygon_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((ModelPolygon*)p)->Write_t((CTStream*)s);
   SECAPI_CATCH
+}
+
+void ModelPolygon_Write_t(ModelPolygon_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehModelPolygon_Write_t(p, s);
+  STREAM_CATCH
 }
 
 MappingSurface_* MappingSurface_new()
@@ -376,32 +404,60 @@ INDEX* MappingSurface_ms_ctSrfEl(MappingSurface_* p)
   return &(s.ms_ctSrfEl);
 }
 
-void MappingSurface_Read_t(MappingSurface_* p, CTStream_* s, BOOL readPolygonsPerSurface, BOOL readSurfaceColors)
+static void sehMappingSurface_Read_t(MappingSurface_* p, CTStream_* s, BOOL readPolygonsPerSurface, BOOL readSurfaceColors)
 {
   SECAPI_TRY
   ((MappingSurface*)p)->Read_t((CTStream*)s, readPolygonsPerSurface, readSurfaceColors);
   SECAPI_CATCH
 }
 
-void MappingSurface_Write_t(MappingSurface_* p, CTStream_* s)
+void MappingSurface_Read_t(MappingSurface_* p, CTStream_* s, BOOL readPolygonsPerSurface, BOOL readSurfaceColors)
+{
+  STREAM_TRY
+  sehMappingSurface_Read_t(p, s, readPolygonsPerSurface, readSurfaceColors);
+  STREAM_CATCH
+}
+
+static void sehMappingSurface_Write_t(MappingSurface_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((MappingSurface*)p)->Write_t((CTStream*)s);
   SECAPI_CATCH
 }
 
-void MappingSurface_ReadSettings_t(MappingSurface_* p, CTStream_* s)
+void MappingSurface_Write_t(MappingSurface_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehMappingSurface_Write_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehMappingSurface_ReadSettings_t(MappingSurface_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((MappingSurface*)p)->ReadSettings_t((CTStream*)s);
   SECAPI_CATCH
 }
 
-void MappingSurface_WriteSettings_t(MappingSurface_* p, CTStream_* s)
+void MappingSurface_ReadSettings_t(MappingSurface_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehMappingSurface_ReadSettings_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehMappingSurface_WriteSettings_t(MappingSurface_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((MappingSurface*)p)->WriteSettings_t((CTStream*)s);
   SECAPI_CATCH
+}
+
+void MappingSurface_WriteSettings_t(MappingSurface_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehMappingSurface_WriteSettings_t(p, s);
+  STREAM_CATCH
 }
 
 PolygonsPerPatch_* PolygonsPerPatch_new()
@@ -547,25 +603,46 @@ CTString_* CModelCollisionBox_mcb_strName(CModelCollisionBox_* p)
   return (CTString_*)(&(o.mcb_strName));
 }
 
-void CModelCollisionBox_Read_t(CModelCollisionBox_* p, CTStream_* s)
+static void sehCModelCollisionBox_Read_t(CModelCollisionBox_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((CModelCollisionBox*)p)->Read_t((CTStream*)s);
   SECAPI_CATCH
 }
 
-void CModelCollisionBox_ReadName_t(CModelCollisionBox_* p, CTStream_* s)
+void CModelCollisionBox_Read_t(CModelCollisionBox_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCModelCollisionBox_Read_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehCModelCollisionBox_ReadName_t(CModelCollisionBox_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((CModelCollisionBox*)p)->ReadName_t((CTStream*)s);
   SECAPI_CATCH
 }
 
-void CModelCollisionBox_Write_t(CModelCollisionBox_* p, CTStream_* s)
+void CModelCollisionBox_ReadName_t(CModelCollisionBox_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCModelCollisionBox_ReadName_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehCModelCollisionBox_Write_t(CModelCollisionBox_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((CModelCollisionBox*)p)->Write_t((CTStream*)s);
   SECAPI_CATCH
+}
+
+void CModelCollisionBox_Write_t(CModelCollisionBox_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCModelCollisionBox_Write_t(p, s);
+  STREAM_CATCH
 }
 
 CAttachedModelPosition_* CAttachedModelPosition_new()
@@ -612,18 +689,32 @@ CPlacement3D_* CAttachedModelPosition_amp_plRelativePlacement(CAttachedModelPosi
   return (CPlacement3D_*)(&(o.amp_plRelativePlacement));
 }
 
-void CAttachedModelPosition_Read_t(CAttachedModelPosition_* p, CTStream_* s)
+static void sehCAttachedModelPosition_Read_t(CAttachedModelPosition_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((CAttachedModelPosition*)p)->Read_t((CTStream*)s);
   SECAPI_CATCH
 }
 
-void CAttachedModelPosition_Write_t(CAttachedModelPosition_* p, CTStream_* s)
+void CAttachedModelPosition_Read_t(CAttachedModelPosition_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCAttachedModelPosition_Read_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehCAttachedModelPosition_Write_t(CAttachedModelPosition_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((CAttachedModelPosition*)p)->Write_t((CTStream*)s);
   SECAPI_CATCH
+}
+
+void CAttachedModelPosition_Write_t(CAttachedModelPosition_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCAttachedModelPosition_Write_t(p, s);
+  STREAM_CATCH
 }
 
 CMipInfo_* CMipInfo_new()

@@ -2,7 +2,11 @@
 
 SoundFormat_ _pSound_SetFormat_(SoundFormat_ EsfNew, BOOL bReport)
 {
-  return (SoundFormat_)(_pSound->SetFormat((CSoundLibrary::SoundFormat)EsfNew, bReport));
+  SoundFormat_ res;
+  STREAM_TRY
+  res = (SoundFormat_)(_pSound->SetFormat((CSoundLibrary::SoundFormat)EsfNew, bReport));
+  STREAM_CATCH
+  return res;
 }
 
 SoundFormat_ _pSound_GetFormat_()
@@ -12,12 +16,16 @@ SoundFormat_ _pSound_GetFormat_()
 
 void _pSound_UpdateSounds_()
 {
+  STREAM_TRY
   _pSound->UpdateSounds();
+  STREAM_CATCH
 }
 
 void _pSound_MixSounds_()
 {
+  STREAM_TRY
   _pSound->MixSounds();
+  STREAM_CATCH
 }
 
 void _pSound_Mute_()

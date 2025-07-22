@@ -266,11 +266,18 @@ void CAnimObject_SetData(CAnimObject_* p, CAnimData_* d)
   ((CAnimObject*)p)->SetData((CAnimData*)d);
 }
 
-void CAnimObject_SetData_t(CAnimObject_* p, const CTFileName_* f)
+static void SetData_t(CAnimObject_* p, const CTFileName_* f)
 {
   SECAPI_TRY
   ((CAnimObject*)p)->SetData_t(*((const CTFileName*)f));
   SECAPI_CATCH
+}
+
+void CAnimObject_SetData_t(CAnimObject_* p, const CTFileName_* f)
+{
+  STREAM_TRY
+  SetData_t(p, f);
+  STREAM_CATCH
 }
 
 FLOAT CAnimObject_GetCurrentAnimLength(const CAnimObject_* p)

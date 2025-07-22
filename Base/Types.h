@@ -253,5 +253,13 @@ void SetException(char* s);
   try {
 #define SECAPI_CATCH\
   } catch (char* e) { SetException(e); }
+#define STREAM_TRY\
+  __try {
+#define STREAM_CATCH\
+  }\
+  __except(CTStream::ExceptionFilter(GetExceptionCode(), GetExceptionInformation()))\
+  {\
+     CTStream::ExceptionFatalError();\
+  }
 
 #endif

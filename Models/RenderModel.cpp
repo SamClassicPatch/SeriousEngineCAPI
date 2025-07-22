@@ -132,22 +132,30 @@ CTextureObject_* _toSimpleModelShadow_()
 
 void BeginModelRenderingView_(CAnyProjection3D_* prProjection, CDrawPort_* pdp)
 {
+  STREAM_TRY
   BeginModelRenderingView(*((CAnyProjection3D*)prProjection), (CDrawPort*)pdp);
+  STREAM_CATCH
 }
 
 void EndModelRenderingView_(BOOL bRestoreOrtho)
 {
+  STREAM_TRY
   EndModelRenderingView(bRestoreOrtho);
+  STREAM_CATCH
 }
 
 void BeginModelRenderingMask_(CAnyProjection3D_* prProjection, UBYTE* pubMask, SLONG slMaskWidth, SLONG slMaskHeight)
 {
+  STREAM_TRY
   BeginModelRenderingMask(*((CAnyProjection3D*)prProjection), pubMask, slMaskWidth, slMaskHeight);
+  STREAM_CATCH
 }
 
 void EndModelRenderingMask_()
 {
+  STREAM_TRY
   EndModelRenderingMask();
+  STREAM_CATCH
 }
 
 CRenderModel_* CRenderModel_new()

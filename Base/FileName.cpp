@@ -135,7 +135,7 @@ void CTFileName_RemoveApplicationPath_t(CTFileName_* p)
   SECAPI_CATCH
 }
 
-void CTFileName_ReadFromText_t(CTFileName_* p, CTStream_* s, const char* keyword)
+static void sehCTFileName_ReadFromText_t(CTFileName_* p, CTStream_* s, const char* keyword)
 {
   SECAPI_TRY
   if (keyword)
@@ -145,17 +145,38 @@ void CTFileName_ReadFromText_t(CTFileName_* p, CTStream_* s, const char* keyword
   SECAPI_CATCH
 }
 
-void CTFileName_extract(CTStream_* s, CTFileName_* p)
+void CTFileName_ReadFromText_t(CTFileName_* p, CTStream_* s, const char* keyword)
+{
+  STREAM_TRY
+  sehCTFileName_ReadFromText_t(p, s, keyword);
+  STREAM_CATCH
+}
+
+static void sehCTFileName_extract(CTStream_* s, CTFileName_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((CTFileName*)p));
   SECAPI_CATCH
 }
 
-void CTFileName_insert(CTStream_* s, const CTFileName_* p)
+void CTFileName_extract(CTStream_* s, CTFileName_* p)
+{
+  STREAM_TRY
+  sehCTFileName_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehCTFileName_insert(CTStream_* s, const CTFileName_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((const CTFileName*)p));
   SECAPI_CATCH
+}
+
+void CTFileName_insert(CTStream_* s, const CTFileName_* p)
+{
+  STREAM_TRY
+  sehCTFileName_insert(s, p);
+  STREAM_CATCH
 }
 

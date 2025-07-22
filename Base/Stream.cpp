@@ -39,35 +39,63 @@ void CTStream_ExecuteWithStreamHandling(void (*func)(void))
   CTSTREAM_END
 }
 
-void CTStream_Read_t(CTStream_* p, void* buffer, SLONG size)
+static void Read_t(CTStream_* p, void* buffer, SLONG size)
 {
   SECAPI_TRY
   ((CTStream*)p)->Read_t(buffer, size);
   SECAPI_CATCH
 }
 
-void CTStream_Write_t(CTStream_* p, const void* buffer, SLONG size)
+void CTStream_Read_t(CTStream_* p, void* buffer, SLONG size)
+{
+  STREAM_TRY
+  Read_t(p, buffer, size);
+  STREAM_CATCH
+}
+
+static void Write_t(CTStream_* p, const void* buffer, SLONG size)
 {
   SECAPI_TRY
   ((CTStream*)p)->Write_t(buffer, size);
   SECAPI_CATCH
 }
 
-void CTStream_Seek_t(CTStream_* p, SLONG offset, INDEX seekdir)
+void CTStream_Write_t(CTStream_* p, const void* buffer, SLONG size)
+{
+  STREAM_TRY
+  Write_t(p, buffer, size);
+  STREAM_CATCH
+}
+
+static void Seek_t(CTStream_* p, SLONG offset, INDEX seekdir)
 {
   SECAPI_TRY
   ((CTStream*)p)->Seek_t(offset, (CTStream::SeekDir)seekdir);
   SECAPI_CATCH
 }
 
-void CTStream_SetPos_t(CTStream_* p, SLONG pos)
+void CTStream_Seek_t(CTStream_* p, SLONG offset, INDEX seekdir)
+{
+  STREAM_TRY
+  Seek_t(p, offset, seekdir);
+  STREAM_CATCH
+}
+
+static void SetPos_t(CTStream_* p, SLONG pos)
 {
   SECAPI_TRY
   ((CTStream*)p)->SetPos_t(pos);
   SECAPI_CATCH
 }
 
-SLONG CTStream_GetPos_t(CTStream_* p)
+void CTStream_SetPos_t(CTStream_* p, SLONG pos)
+{
+  STREAM_TRY
+  SetPos_t(p, pos);
+  STREAM_CATCH
+}
+
+static SLONG GetPos_t(CTStream_* p)
 {
   SLONG res;
   SECAPI_TRY
@@ -76,12 +104,21 @@ SLONG CTStream_GetPos_t(CTStream_* p)
   return res;
 }
 
+SLONG CTStream_GetPos_t(CTStream_* p)
+{
+  SLONG res;
+  STREAM_TRY
+  res = GetPos_t(p);
+  STREAM_CATCH
+  return res;
+}
+
 SLONG CTStream_GetStreamSize(CTStream_* p)
 {
   return ((CTStream*)p)->GetStreamSize();
 }
 
-ULONG CTStream_GetStreamCRC32_t(CTStream_* p)
+static ULONG GetStreamCRC32_t(CTStream_* p)
 {
   ULONG res;
   SECAPI_TRY
@@ -90,40 +127,77 @@ ULONG CTStream_GetStreamCRC32_t(CTStream_* p)
   return res;
 }
 
+ULONG CTStream_GetStreamCRC32_t(CTStream_* p)
+{
+  ULONG res;
+  STREAM_TRY
+  res = GetStreamCRC32_t(p);
+  STREAM_CATCH
+  return res;
+}
+
 BOOL CTStream_AtEOF(CTStream_* p)
 {
   return ((CTStream*)p)->AtEOF();
 }
 
-void CTStream_PutLine_t(CTStream_* p, const char* buffer)
+static void PutLine_t(CTStream_* p, const char* buffer)
 {
   SECAPI_TRY
   ((CTStream*)p)->PutLine_t(buffer);
   SECAPI_CATCH
 }
 
-void CTStream_PutString_t(CTStream_* p, const char* buffer)
+void CTStream_PutLine_t(CTStream_* p, const char* buffer)
+{
+  STREAM_TRY
+  PutLine_t(p, buffer);
+  STREAM_CATCH
+}
+
+static void PutString_t(CTStream_* p, const char* buffer)
 {
   SECAPI_TRY
   ((CTStream*)p)->PutString_t(buffer);
   SECAPI_CATCH
 }
 
-void CTStream_GetLine_t(CTStream_* p, char* buffer, SLONG size, char delim)
+void CTStream_PutString_t(CTStream_* p, const char* buffer)
+{
+  STREAM_TRY
+  PutString_t(p, buffer);
+  STREAM_CATCH
+}
+
+static void GetLine_t(CTStream_* p, char* buffer, SLONG size, char delim)
 {
   SECAPI_TRY
   ((CTStream*)p)->GetLine_t(buffer, size, delim);
   SECAPI_CATCH
 }
 
-void CTStream_GetLine_t_str(CTStream_* p, CTString_* s, char delim)
+void CTStream_GetLine_t(CTStream_* p, char* buffer, SLONG size, char delim)
+{
+  STREAM_TRY
+  GetLine_t(p, buffer, size, delim);
+  STREAM_CATCH
+}
+
+static void GetLine_t_str(CTStream_* p, CTString_* s, char delim)
 {
   SECAPI_TRY
   ((CTStream*)p)->GetLine_t(*((CTString*)s), delim);
   SECAPI_CATCH
 }
 
-CChunkID_* CTStream_GetID_t(CTStream_* p)
+void CTStream_GetLine_t_str(CTStream_* p, CTString_* s, char delim)
+{
+  STREAM_TRY
+  GetLine_t_str(p, s, delim);
+  STREAM_CATCH
+}
+
+static CChunkID_* GetID_t(CTStream_* p)
 {
   CChunkID* id = NULL;
   SECAPI_TRY
@@ -133,7 +207,16 @@ CChunkID_* CTStream_GetID_t(CTStream_* p)
   return (CChunkID_*)id;
 }
 
-CChunkID_* CTStream_PeekID_t(CTStream_* p)
+CChunkID_* CTStream_GetID_t(CTStream_* p)
+{
+  CChunkID_* id = NULL;
+  STREAM_TRY
+  id = GetID_t(p);
+  STREAM_CATCH
+  return id;
+}
+
+static CChunkID_* PeekID_t(CTStream_* p)
 {
   CChunkID* id = NULL;
   SECAPI_TRY
@@ -143,21 +226,44 @@ CChunkID_* CTStream_PeekID_t(CTStream_* p)
   return (CChunkID_*)id;
 }
 
-void CTStream_ExpectID_t(CTStream_* p, const CChunkID_* id)
+CChunkID_* CTStream_PeekID_t(CTStream_* p)
+{
+  CChunkID_* id = NULL;
+  STREAM_TRY
+  id = PeekID_t(p);
+  STREAM_CATCH
+  return id;
+}
+
+static void ExpectID_t(CTStream_* p, const CChunkID_* id)
 {
   SECAPI_TRY
   ((CTStream*)p)->ExpectID_t(*((const CChunkID*)id));
   SECAPI_CATCH
 }
 
-void CTStream_ExpectKeyword_t(CTStream_* p, const CTString_* s)
+void CTStream_ExpectID_t(CTStream_* p, const CChunkID_* id)
+{
+  STREAM_TRY
+  ExpectID_t(p, id);
+  STREAM_CATCH
+}
+
+static void ExpectKeyword_t(CTStream_* p, const CTString_* s)
 {
   SECAPI_TRY
   ((CTStream*)p)->ExpectKeyword_t(*((const CTString*)s));
   SECAPI_CATCH
 }
 
-SLONG CTStream_GetSize_t(CTStream_* p)
+void CTStream_ExpectKeyword_t(CTStream_* p, const CTString_* s)
+{
+  STREAM_TRY
+  ExpectKeyword_t(p, s);
+  STREAM_CATCH
+}
+
+static SLONG GetSize_t(CTStream_* p)
 {
   SLONG res;
   SECAPI_TRY
@@ -166,77 +272,156 @@ SLONG CTStream_GetSize_t(CTStream_* p)
   return res;
 }
 
-void CTStream_ReadRawChunk_t(CTStream_* p, void* buffer, SLONG size)
+SLONG CTStream_GetSize_t(CTStream_* p)
+{
+  SLONG res;
+  STREAM_TRY
+  res = GetSize_t(p);
+  STREAM_CATCH
+  return res;
+}
+
+static void ReadRawChunk_t(CTStream_* p, void* buffer, SLONG size)
 {
   SECAPI_TRY
   ((CTStream*)p)->ReadRawChunk_t(buffer, size);
   SECAPI_CATCH
 }
 
-void CTStream_ReadChunk_t(CTStream_* p, void* buffer, SLONG expsize)
+void CTStream_ReadRawChunk_t(CTStream_* p, void* buffer, SLONG size)
+{
+  STREAM_TRY
+  ReadRawChunk_t(p, buffer, size);
+  STREAM_CATCH
+}
+
+static void ReadChunk_t(CTStream_* p, void* buffer, SLONG expsize)
 {
   SECAPI_TRY
   ((CTStream*)p)->ReadChunk_t(buffer, expsize);
   SECAPI_CATCH
 }
 
-void CTStream_ReadFullChunk_t(CTStream_* p, const CChunkID_* id, void* buffer, SLONG size)
+void CTStream_ReadChunk_t(CTStream_* p, void* buffer, SLONG expsize)
+{
+  STREAM_TRY
+  ReadChunk_t(p, buffer, expsize);
+  STREAM_CATCH
+}
+
+static void ReadFullChunk_t(CTStream_* p, const CChunkID_* id, void* buffer, SLONG size)
 {
   SECAPI_TRY
   ((CTStream*)p)->ReadFullChunk_t(*((const CChunkID*)id), buffer, size);
   SECAPI_CATCH
 }
 
-void CTStream_WriteID_t(CTStream_* p, const CChunkID_* id)
+void CTStream_ReadFullChunk_t(CTStream_* p, const CChunkID_* id, void* buffer, SLONG size)
+{
+  STREAM_TRY
+  ReadFullChunk_t(p, id, buffer, size);
+  STREAM_CATCH
+}
+
+static void WriteID_t(CTStream_* p, const CChunkID_* id)
 {
   SECAPI_TRY
   ((CTStream*)p)->WriteID_t(*((const CChunkID*)id));
   SECAPI_CATCH
 }
 
-void CTStream_WriteSize_t(CTStream_* p, SLONG size)
+void CTStream_WriteID_t(CTStream_* p, const CChunkID_* id)
+{
+  STREAM_TRY
+  WriteID_t(p, id);
+  STREAM_CATCH
+}
+
+static void WriteSize_t(CTStream_* p, SLONG size)
 {
   SECAPI_TRY
   ((CTStream*)p)->WriteSize_t(size);
   SECAPI_CATCH
 }
 
-void CTStream_WriteRawChunk_t(CTStream_* p, void* buffer, SLONG size)
+void CTStream_WriteSize_t(CTStream_* p, SLONG size)
+{
+  STREAM_TRY
+  WriteSize_t(p, size);
+  STREAM_CATCH
+}
+
+static void WriteRawChunk_t(CTStream_* p, void* buffer, SLONG size)
 {
   SECAPI_TRY
   ((CTStream*)p)->WriteRawChunk_t(buffer, size);
   SECAPI_CATCH
 }
 
-void CTStream_WriteChunk_t(CTStream_* p, void* buffer, SLONG size)
+void CTStream_WriteRawChunk_t(CTStream_* p, void* buffer, SLONG size)
+{
+  STREAM_TRY
+  WriteRawChunk_t(p, buffer, size);
+  STREAM_CATCH
+}
+
+static void WriteChunk_t(CTStream_* p, void* buffer, SLONG size)
 {
   SECAPI_TRY
   ((CTStream*)p)->WriteChunk_t(buffer, size);
   SECAPI_CATCH
 }
 
-void CTStream_WriteFullChunk_t(CTStream_* p, const CChunkID_* id, void* buffer, SLONG size)
+void CTStream_WriteChunk_t(CTStream_* p, void* buffer, SLONG size)
+{
+  STREAM_TRY
+  WriteChunk_t(p, buffer, size);
+  STREAM_CATCH
+}
+
+static void WriteFullChunk_t(CTStream_* p, const CChunkID_* id, void* buffer, SLONG size)
 {
   SECAPI_TRY
   ((CTStream*)p)->WriteFullChunk_t(*((const CChunkID*)id), buffer, size);
   SECAPI_CATCH
 }
 
-void CTStream_DictionaryWriteBegin_t(CTStream_* p, const CTFileName_* f, SLONG offset)
+void CTStream_WriteFullChunk_t(CTStream_* p, const CChunkID_* id, void* buffer, SLONG size)
+{
+  STREAM_TRY
+  WriteFullChunk_t(p, id, buffer, size);
+  STREAM_CATCH
+}
+
+static void DictionaryWriteBegin_t(CTStream_* p, const CTFileName_* f, SLONG offset)
 {
   SECAPI_TRY
   ((CTStream*)p)->DictionaryWriteBegin_t(*((const CTFileName*)f), offset);
   SECAPI_CATCH
 }
 
-void CTStream_DictionaryWriteEnd_t(CTStream_* p)
+void CTStream_DictionaryWriteBegin_t(CTStream_* p, const CTFileName_* f, SLONG offset)
+{
+  STREAM_TRY
+  DictionaryWriteBegin_t(p, f, offset);
+  STREAM_CATCH
+}
+
+static void DictionaryWriteEnd_t(CTStream_* p)
 {
   SECAPI_TRY
   ((CTStream*)p)->DictionaryWriteEnd_t();
   SECAPI_CATCH
 }
 
-SLONG CTStream_DictionaryReadBegin_t(CTStream_* p)
+void CTStream_DictionaryWriteEnd_t(CTStream_* p)
+{
+  STREAM_TRY
+  DictionaryWriteEnd_t(p);
+  STREAM_CATCH
+}
+
+static SLONG DictionaryReadBegin_t(CTStream_* p)
 {
   SLONG res;
   SECAPI_TRY
@@ -245,18 +430,41 @@ SLONG CTStream_DictionaryReadBegin_t(CTStream_* p)
   return res;
 }
 
-void CTStream_DictionaryReadEnd_t(CTStream_* p)
+SLONG CTStream_DictionaryReadBegin_t(CTStream_* p)
+{
+  SLONG res;
+  STREAM_TRY
+  res = DictionaryReadBegin_t(p);
+  STREAM_CATCH
+  return res;
+}
+
+static void DictionaryReadEnd_t(CTStream_* p)
 {
   SECAPI_TRY
   ((CTStream*)p)->DictionaryReadEnd_t();
   SECAPI_CATCH
 }
 
-void CTStream_DictionaryPreload_t(CTStream_* p)
+void CTStream_DictionaryReadEnd_t(CTStream_* p)
+{
+  STREAM_TRY
+  DictionaryReadEnd_t(p);
+  STREAM_CATCH
+}
+
+static void DictionaryPreload_t(CTStream_* p)
 {
   SECAPI_TRY
   ((CTStream*)p)->DictionaryPreload_t();
   SECAPI_CATCH
+}
+
+void CTStream_DictionaryPreload_t(CTStream_* p)
+{
+  STREAM_TRY
+  DictionaryPreload_t(p);
+  STREAM_CATCH
 }
 
 CTFileStream_* CTFileStream_new()
@@ -269,18 +477,32 @@ void CTFileStream_delete(CTFileStream_* p)
   delete ((CTFileStream*)p);
 }
 
-void CTFileStream_Open_t(CTFileStream_* p, const CTFileName_* f, INDEX openmode)
+static void Open_t(CTFileStream_* p, const CTFileName_* f, INDEX openmode)
 {
   SECAPI_TRY
   ((CTFileStream*)p)->Open_t(*((const CTFileName*)f), (CTStream::OpenMode)openmode);
   SECAPI_CATCH
 }
 
-void CTFileStream_Create_t(CTFileStream_* p, const CTFileName_* f)
+void CTFileStream_Open_t(CTFileStream_* p, const CTFileName_* f, INDEX openmode)
+{
+  STREAM_TRY
+  Open_t(p, f, openmode);
+  STREAM_CATCH
+}
+
+static void Create_t(CTFileStream_* p, const CTFileName_* f)
 {
   SECAPI_TRY
   ((CTFileStream*)p)->Create_t(*((const CTFileName*)f));
   SECAPI_CATCH
+}
+
+void CTFileStream_Create_t(CTFileStream_* p, const CTFileName_* f)
+{
+  STREAM_TRY
+  Create_t(p, f);
+  STREAM_CATCH
 }
 
 void CTFileStream_Close(CTFileStream_* p)
@@ -315,15 +537,23 @@ void CTMemoryStream_UnlockBuffer(CTMemoryStream_* p)
 
 BOOL FileExists_(const CTFileName_* fnmFile)
 {
-  return FileExists(*((const CTFileName*)fnmFile));
+  BOOL res = FALSE;
+  STREAM_TRY
+  res = FileExists(*((const CTFileName*)fnmFile));
+  STREAM_CATCH
+  return res;
 }
 
 BOOL FileExistsForWriting_(const CTFileName_* fnmFile)
 {
-  return FileExistsForWriting(*((const CTFileName*)fnmFile));
+  BOOL res = FALSE;
+  STREAM_TRY
+  res = FileExistsForWriting(*((const CTFileName*)fnmFile));
+  STREAM_CATCH
+  return res;
 }
 
-SLONG GetFileTimeStamp_t_(const CTFileName_* fnmFile)
+static SLONG sehGetFileTimeStamp_t_(const CTFileName_* fnmFile)
 {
   SLONG res;
   SECAPI_TRY
@@ -332,7 +562,16 @@ SLONG GetFileTimeStamp_t_(const CTFileName_* fnmFile)
   return res;
 }
 
-ULONG GetFileCRC32_t_(const CTFileName_* fnmFile)
+SLONG GetFileTimeStamp_t_(const CTFileName_* fnmFile)
+{
+  SLONG res;
+  STREAM_TRY
+  res = sehGetFileTimeStamp_t_(fnmFile);
+  STREAM_CATCH
+  return res;
+}
+
+static ULONG sehGetFileCRC32_t_(const CTFileName_* fnmFile)
 {
   ULONG res;
   SECAPI_TRY
@@ -341,19 +580,40 @@ ULONG GetFileCRC32_t_(const CTFileName_* fnmFile)
   return res;
 }
 
+ULONG GetFileCRC32_t_(const CTFileName_* fnmFile)
+{
+  ULONG res;
+  STREAM_TRY
+  res = sehGetFileCRC32_t_(fnmFile);
+  STREAM_CATCH
+  return res;
+}
+
 BOOL IsFileReadOnly_(const CTFileName_* fnmFile)
 {
-  return IsFileReadOnly(*((const CTFileName*)fnmFile));
+  BOOL res = FALSE;
+  STREAM_TRY
+  res = IsFileReadOnly(*((const CTFileName*)fnmFile));
+  STREAM_CATCH
+  return res;
 }
 
 BOOL RemoveFile_(const CTFileName_* fnmFile)
 {
-  return RemoveFile(*((const CTFileName*)fnmFile));
+  BOOL res = FALSE;
+  STREAM_TRY
+  res = RemoveFile(*((const CTFileName*)fnmFile));
+  STREAM_CATCH
+  return res;
 }
 
 INDEX ExpandFilePath_(ULONG ulType, const CTFileName_* fnmFile, CTFileName_* fnmExpanded)
 {
-  return ExpandFilePath(ulType, *((const CTFileName*)fnmFile), *((CTFileName*)fnmExpanded));
+  INDEX res = 0;
+  STREAM_TRY
+  res = ExpandFilePath(ulType, *((const CTFileName*)fnmFile), *((CTFileName*)fnmExpanded));
+  STREAM_CATCH
+  return res;
 }
 
 void MakeDirList_(
@@ -363,7 +623,9 @@ void MakeDirList_(
   ULONG ulFlags                 // additional flags
 )
 {
+  STREAM_TRY
   MakeDirList(*((CDynamicStackArray<CTFileName>*)adeDir), *((const CTFileName*)fnmDir), *((const CTString*)strPattern), ulFlags);
+  STREAM_CATCH
 }
 
 CTFileName_* _fnmApplicationPath_()

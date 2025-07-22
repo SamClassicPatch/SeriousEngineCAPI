@@ -34,18 +34,32 @@ UBYTE** CImageInfo_ii_Picture(CImageInfo_* p)
   return &(i.ii_Picture);
 }
 
-void CImageInfo_Read_t(CImageInfo_* p, CTStream_* s)
+static void sehCImageInfo_Read_t(CImageInfo_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((CImageInfo*)p)->Read_t((CTStream*)s);
   SECAPI_CATCH
 }
 
-void CImageInfo_Write_t(const CImageInfo_* p, CTStream_* s)
+void CImageInfo_Read_t(CImageInfo_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCImageInfo_Read_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehCImageInfo_Write_t(const CImageInfo_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((const CImageInfo*)p)->Write_t((CTStream*)s);
   SECAPI_CATCH
+}
+
+void CImageInfo_Write_t(const CImageInfo_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCImageInfo_Write_t(p, s);
+  STREAM_CATCH
 }
 
 void CImageInfo_Attach(CImageInfo_* p, UBYTE* pic, PIX wid, PIX hei, SLONG bpp)
@@ -68,7 +82,7 @@ void CImageInfo_ExpandEdges(CImageInfo_* p, INDEX passes)
   ((CImageInfo*)p)->ExpandEdges(passes);
 }
 
-INDEX CImageInfo_GetGfxFileInfo_t(CImageInfo_* p, const CTFileName_* f)
+static INDEX sehCImageInfo_GetGfxFileInfo_t(CImageInfo_* p, const CTFileName_* f)
 {
   INDEX res;
   SECAPI_TRY
@@ -77,16 +91,39 @@ INDEX CImageInfo_GetGfxFileInfo_t(CImageInfo_* p, const CTFileName_* f)
   return res;
 }
 
-void CImageInfo_LoadAnyGfxFormat_t(CImageInfo_* p, const CTFileName_* f)
+INDEX CImageInfo_GetGfxFileInfo_t(CImageInfo_* p, const CTFileName_* f)
+{
+  INDEX res;
+  STREAM_TRY
+  res = sehCImageInfo_GetGfxFileInfo_t(p, f);
+  STREAM_CATCH
+  return res;
+}
+
+static void sehCImageInfo_LoadAnyGfxFormat_t(CImageInfo_* p, const CTFileName_* f)
 {
   SECAPI_TRY
   ((CImageInfo*)p)->LoadAnyGfxFormat_t(*((const CTFileName*)f));
   SECAPI_CATCH
 }
 
-void CImageInfo_SaveTGA_t(const CImageInfo_* p, const CTFileName_* f)
+void CImageInfo_LoadAnyGfxFormat_t(CImageInfo_* p, const CTFileName_* f)
+{
+  STREAM_TRY
+  sehCImageInfo_LoadAnyGfxFormat_t(p, f);
+  STREAM_CATCH
+}
+
+static void sehCImageInfo_SaveTGA_t(const CImageInfo_* p, const CTFileName_* f)
 {
   SECAPI_TRY
   ((const CImageInfo*)p)->SaveTGA_t(*((const CTFileName*)f));
   SECAPI_CATCH
+}
+
+void CImageInfo_SaveTGA_t(const CImageInfo_* p, const CTFileName_* f)
+{
+  STREAM_TRY
+  sehCImageInfo_SaveTGA_t(p, f);
+  STREAM_CATCH
 }

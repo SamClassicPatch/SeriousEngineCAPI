@@ -45,18 +45,32 @@ FLOAT* CModelPatch_mp_fStretch(CModelPatch_* p)
   return &(pt.mp_fStretch);
 }
 
-void CModelPatch_Read_t(CModelPatch_* p, CTStream_* s)
+static void sehCModelPatch_Read_t(CModelPatch_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((CModelPatch*)p)->Read_t((CTStream*)s);
   SECAPI_CATCH
 }
 
-void CModelPatch_Write_t(CModelPatch_* p, CTStream_* s)
+void CModelPatch_Read_t(CModelPatch_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCModelPatch_Read_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehCModelPatch_Write_t(CModelPatch_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((CModelPatch*)p)->Write_t((CTStream*)s);
   SECAPI_CATCH
+}
+
+void CModelPatch_Write_t(CModelPatch_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCModelPatch_Write_t(p, s);
+  STREAM_CATCH
 }
 
 
@@ -181,18 +195,32 @@ void ModelMipInfo_Clear(ModelMipInfo_* p)
   ((ModelMipInfo*)p)->Clear();
 }
 
-void ModelMipInfo_Read_t(ModelMipInfo_* p, CTStream_* s, BOOL readPolygonalPatches, BOOL readPolygonsPerSurface, BOOL readSurfaceColors)
+static void sehModelMipInfo_Read_t(ModelMipInfo_* p, CTStream_* s, BOOL readPolygonalPatches, BOOL readPolygonsPerSurface, BOOL readSurfaceColors)
 {
   SECAPI_TRY
   ((ModelMipInfo*)p)->Read_t((CTStream*)s, readPolygonalPatches, readPolygonsPerSurface, readSurfaceColors);
   SECAPI_CATCH
 }
 
-void ModelMipInfo_Write_t(ModelMipInfo_* p, CTStream_* s)
+void ModelMipInfo_Read_t(ModelMipInfo_* p, CTStream_* s, BOOL readPolygonalPatches, BOOL readPolygonsPerSurface, BOOL readSurfaceColors)
+{
+  STREAM_TRY
+  sehModelMipInfo_Read_t(p, s, readPolygonalPatches, readPolygonsPerSurface, readSurfaceColors);
+  STREAM_CATCH
+}
+
+static void sehModelMipInfo_Write_t(ModelMipInfo_* p, CTStream_* s)
 {
   SECAPI_TRY
   ((ModelMipInfo*)p)->Write_t((CTStream*)s);
   SECAPI_CATCH
+}
+
+void ModelMipInfo_Write_t(ModelMipInfo_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehModelMipInfo_Write_t(p, s);
+  STREAM_CATCH
 }
 
 

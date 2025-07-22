@@ -137,11 +137,18 @@ BOOL CTextureData_IsModified(CTextureData_* p)
   return ((CTextureData*)p)->IsModified();
 }
 
-void CTextureData_Export_t(CTextureData_* p, CImageInfo_* i, INDEX frame)
+static void Export_t(CTextureData_* p, CImageInfo_* i, INDEX frame)
 {
   SECAPI_TRY
   ((CTextureData*)p)->Export_t(*((CImageInfo*)i), frame);
   SECAPI_CATCH
+}
+
+void CTextureData_Export_t(CTextureData_* p, CImageInfo_* i, INDEX frame)
+{
+  STREAM_TRY
+  Export_t(p, i, frame);
+  STREAM_CATCH
 }
 
 void CTextureData_CreateEffectTexture(CTextureData_* p, PIX pixWidth, PIX pixHeight, MEX mexWidth, CTextureData_* ptdBaseTexture, ULONG ulGlobalEffect)
@@ -149,11 +156,18 @@ void CTextureData_CreateEffectTexture(CTextureData_* p, PIX pixWidth, PIX pixHei
   ((CTextureData*)p)->CreateEffectTexture(pixWidth, pixHeight, mexWidth, (CTextureData*)ptdBaseTexture, ulGlobalEffect);
 }
 
-void CTextureData_Create_t(CTextureData_* p, const CImageInfo_* i, MEX wanted, INDEX fineMips, BOOL force32bit)
+static void Create_t(CTextureData_* p, const CImageInfo_* i, MEX wanted, INDEX fineMips, BOOL force32bit)
 {
   SECAPI_TRY
   ((CTextureData*)p)->Create_t((const CImageInfo*)i, wanted, fineMips, force32bit);
   SECAPI_CATCH
+}
+
+void CTextureData_Create_t(CTextureData_* p, const CImageInfo_* i, MEX wanted, INDEX fineMips, BOOL force32bit)
+{
+  STREAM_TRY
+  Create_t(p, i, wanted, fineMips, force32bit);
+  STREAM_CATCH
 }
 
 void CTextureData_Clear(CTextureData_* p)
@@ -161,26 +175,43 @@ void CTextureData_Clear(CTextureData_* p)
   ((CTextureData*)p)->Clear();
 }
 
-void CTextureData_Force(CTextureData_* p, ULONG flags)
+static void Force(CTextureData_* p, ULONG flags)
 {
   SECAPI_TRY
   ((CTextureData*)p)->Force(flags);
   SECAPI_CATCH
 }
 
+void CTextureData_Force(CTextureData_* p, ULONG flags)
+{
+  STREAM_TRY
+  Force(p, flags);
+  STREAM_CATCH
+}
+
 COLOR CTextureData_GetTexel(CTextureData_* p, MEX u, MEX v)
 {
-  return ((CTextureData*)p)->GetTexel(u, v);
+  COLOR res = 0;
+  STREAM_TRY
+  res = ((CTextureData*)p)->GetTexel(u, v);
+  STREAM_CATCH
+  return res;
 }
 
 void CTextureData_FetchRow(CTextureData_* p, PIX row, void* dst, INDEX channel, BOOL convertToFloat)
 {
+  STREAM_TRY
   ((CTextureData*)p)->FetchRow(row, dst, channel, convertToFloat);
+  STREAM_CATCH
 }
 
 ULONG* CTextureData_GetRowPointer(CTextureData_* p, PIX row)
 {
-  return ((CTextureData*)p)->GetRowPointer(row);
+  ULONG* res = NULL;
+  STREAM_TRY
+  res = ((CTextureData*)p)->GetRowPointer(row);
+  STREAM_CATCH
+  return res;
 }
 
 
@@ -209,11 +240,18 @@ ULONG CTextureObject_GetFlags(const CTextureObject_* p)
   return ((const CTextureObject*)p)->GetFlags();
 }
 
-void CTextureObject_SetData_t(CTextureObject_* p, const CTFileName_* f)
+static void SetData_t(CTextureObject_* p, const CTFileName_* f)
 {
   SECAPI_TRY
   ((CTextureObject*)p)->SetData_t(*((const CTFileName*)f));
   SECAPI_CATCH
+}
+
+void CTextureObject_SetData_t(CTextureObject_* p, const CTFileName_* f)
+{
+  STREAM_TRY
+  SetData_t(p, f);
+  STREAM_CATCH
 }
 
 const CTFileName_* CTextureObject_GetName(CTextureObject_* p)
@@ -221,26 +259,46 @@ const CTFileName_* CTextureObject_GetName(CTextureObject_* p)
   return (const CTFileName_*)(&(((CTextureObject*)p)->GetName()));
 }
 
-
-void CreateTexture_t_(const CTFileName_* f, MEX mex, INDEX mips, BOOL force32bit)
+static void sehCreateTexture_t_(const CTFileName_* f, MEX mex, INDEX mips, BOOL force32bit)
 {
   SECAPI_TRY
   CreateTexture_t(*((const CTFileName*)f), mex, mips, force32bit);
   SECAPI_CATCH
 }
 
-void CreateTexture_t_o(const CTFileName_* f, const CTFileName_* of, MEX mex, INDEX mips, BOOL force32bit)
+void CreateTexture_t_(const CTFileName_* f, MEX mex, INDEX mips, BOOL force32bit)
+{
+  STREAM_TRY
+  sehCreateTexture_t_(f, mex, mips, force32bit);
+  STREAM_CATCH
+}
+
+static void sehCreateTexture_t_o(const CTFileName_* f, const CTFileName_* of, MEX mex, INDEX mips, BOOL force32bit)
 {
   SECAPI_TRY
   CreateTexture_t(*((const CTFileName*)f), *((const CTFileName*)of), mex, mips, force32bit);
   SECAPI_CATCH
 }
 
-void ProcessScript_t_(const CTFileName_* f)
+void CreateTexture_t_o(const CTFileName_* f, const CTFileName_* of, MEX mex, INDEX mips, BOOL force32bit)
+{
+  STREAM_TRY
+  sehCreateTexture_t_o(f, of, mex, mips, force32bit);
+  STREAM_CATCH
+}
+
+void sehProcessScript_t_(const CTFileName_* f)
 {
   SECAPI_TRY
   ProcessScript_t(*((const CTFileName*)f));
   SECAPI_CATCH
+}
+
+void ProcessScript_t_(const CTFileName_* f)
+{
+  STREAM_TRY
+  sehProcessScript_t_(f);
+  STREAM_CATCH
 }
 
 INDEX _ctTextureEffectGlobalPresets_()
