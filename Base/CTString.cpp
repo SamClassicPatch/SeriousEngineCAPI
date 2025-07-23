@@ -187,7 +187,7 @@ void CTString_ReadFromText_t(CTString_* p, CTStream_* s, const CTString_* k)
 static void sehCTString_extract(CTStream_* s, CTString_* p)
 {
   SECAPI_TRY
-    *((CTStream*)s) >> *((CTString*)s);
+  *((CTStream*)s) >> *((CTString*)p);
   SECAPI_CATCH
 }
 
