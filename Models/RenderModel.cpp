@@ -234,7 +234,7 @@ COLOR* CRenderModel_rm_colAmbient(CRenderModel_* p)
 
 void CRenderModel_SetObjectPlacement_pl(CRenderModel_* p, const CPlacement3D_* pl)
 {
-  ((CRenderModel*)p)->SetObjectPlacement(*((const CPlacement3D*)p));
+  ((CRenderModel*)p)->SetObjectPlacement(*((const CPlacement3D*)pl));
 }
 
 void CRenderModel_SetObjectPlacement(CRenderModel_* p, const FLOAT3D_* v, const FLOATmatrix3D_* m)
