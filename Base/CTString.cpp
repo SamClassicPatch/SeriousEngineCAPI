@@ -201,7 +201,7 @@ void CTString_extract(CTStream_* s, CTString_* p)
 static void sehCTString_insert(CTStream_* s, const CTString_* p)
 {
   SECAPI_TRY
-    *((CTStream*)s) << *((const CTString*)s);
+    *((CTStream*)s) << *((const CTString*)p);
   SECAPI_CATCH
 }
 

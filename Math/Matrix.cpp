@@ -233,18 +233,32 @@ FLOAT2D_* FLOATmatrix2D_GetColumn(const FLOATmatrix2D_* p, INDEX c)
   return (FLOAT2D_*)(new FLOAT2D(result));
 }
 
-void FLOATmatrix2D_extract(CTStream_* s, FLOATmatrix2D_* p)
+static void sehFLOATmatrix2D_extract(CTStream_* s, FLOATmatrix2D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((FLOATmatrix2D*)p));
   SECAPI_CATCH
 }
 
-void FLOATmatrix2D_insert(CTStream_* s, FLOATmatrix2D_* p)
+void FLOATmatrix2D_extract(CTStream_* s, FLOATmatrix2D_* p)
+{
+  STREAM_TRY
+  sehFLOATmatrix2D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehFLOATmatrix2D_insert(CTStream_* s, FLOATmatrix2D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((FLOATmatrix2D*)p));
   SECAPI_CATCH
+}
+
+void FLOATmatrix2D_insert(CTStream_* s, FLOATmatrix2D_* p)
+{
+  STREAM_TRY
+  sehFLOATmatrix2D_insert(s, p);
+  STREAM_CATCH
 }
 
 FLOATmatrix3D_* FLOATmatrix3D_new()
@@ -365,18 +379,32 @@ FLOAT3D_* FLOATmatrix3D_GetColumn(const FLOATmatrix3D_* p, INDEX c)
   return (FLOAT3D_*)(new FLOAT3D(result));
 }
 
-void FLOATmatrix3D_extract(CTStream_* s, FLOATmatrix3D_* p)
+static void sehFLOATmatrix3D_extract(CTStream_* s, FLOATmatrix3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((FLOATmatrix3D*)p));
   SECAPI_CATCH
 }
 
-void FLOATmatrix3D_insert(CTStream_* s, FLOATmatrix3D_* p)
+void FLOATmatrix3D_extract(CTStream_* s, FLOATmatrix3D_* p)
+{
+  STREAM_TRY
+  sehFLOATmatrix3D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehFLOATmatrix3D_insert(CTStream_* s, FLOATmatrix3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((FLOATmatrix3D*)p));
   SECAPI_CATCH
+}
+
+void FLOATmatrix3D_insert(CTStream_* s, FLOATmatrix3D_* p)
+{
+  STREAM_TRY
+  sehFLOATmatrix3D_insert(s, p);
+  STREAM_CATCH
 }
 
 FLOAT FLOATmatrix3D_Determinant(const FLOATmatrix3D_* p)
@@ -507,18 +535,32 @@ FLOAT4D_* FLOATmatrix4D_GetColumn(const FLOATmatrix4D_* p, INDEX c)
   return (FLOAT4D_*)(new FLOAT4D(result));
 }
 
-void FLOATmatrix4D_extract(CTStream_* s, FLOATmatrix4D_* p)
+static void sehFLOATmatrix4D_extract(CTStream_* s, FLOATmatrix4D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((FLOATmatrix4D*)p));
   SECAPI_CATCH
 }
 
-void FLOATmatrix4D_insert(CTStream_* s, FLOATmatrix4D_* p)
+void FLOATmatrix4D_extract(CTStream_* s, FLOATmatrix4D_* p)
+{
+  STREAM_TRY
+  sehFLOATmatrix4D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehFLOATmatrix4D_insert(CTStream_* s, FLOATmatrix4D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((FLOATmatrix4D*)p));
   SECAPI_CATCH
+}
+
+void FLOATmatrix4D_insert(CTStream_* s, FLOATmatrix4D_* p)
+{
+  STREAM_TRY
+  sehFLOATmatrix4D_insert(s, p);
+  STREAM_CATCH
 }
 
 FLOATmatrix4D_* FLOATmatrix4D_InverseMatrix(const FLOATmatrix4D_* p)
@@ -644,18 +686,32 @@ DOUBLE2D_* DOUBLEmatrix2D_GetColumn(const DOUBLEmatrix2D_* p, INDEX c)
   return (DOUBLE2D_*)(new DOUBLE2D(result));
 }
 
-void DOUBLEmatrix2D_extract(CTStream_* s, DOUBLEmatrix2D_* p)
+static void sehDOUBLEmatrix2D_extract(CTStream_* s, DOUBLEmatrix2D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((DOUBLEmatrix2D*)p));
   SECAPI_CATCH
 }
 
-void DOUBLEmatrix2D_insert(CTStream_* s, DOUBLEmatrix2D_* p)
+void DOUBLEmatrix2D_extract(CTStream_* s, DOUBLEmatrix2D_* p)
+{
+  STREAM_TRY
+  sehDOUBLEmatrix2D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehDOUBLEmatrix2D_insert(CTStream_* s, DOUBLEmatrix2D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((DOUBLEmatrix2D*)p));
   SECAPI_CATCH
+}
+
+void DOUBLEmatrix2D_insert(CTStream_* s, DOUBLEmatrix2D_* p)
+{
+  STREAM_TRY
+  sehDOUBLEmatrix2D_insert(s, p);
+  STREAM_CATCH
 }
 
 DOUBLEmatrix3D_* DOUBLEmatrix3D_new()
@@ -776,18 +832,32 @@ DOUBLE3D_* DOUBLEmatrix3D_GetColumn(const DOUBLEmatrix3D_* p, INDEX c)
   return (DOUBLE3D_*)(new DOUBLE3D(result));
 }
 
-void DOUBLEmatrix3D_extract(CTStream_* s, DOUBLEmatrix3D_* p)
+static void sehDOUBLEmatrix3D_extract(CTStream_* s, DOUBLEmatrix3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((DOUBLEmatrix3D*)p));
   SECAPI_CATCH
 }
 
-void DOUBLEmatrix3D_insert(CTStream_* s, DOUBLEmatrix3D_* p)
+void DOUBLEmatrix3D_extract(CTStream_* s, DOUBLEmatrix3D_* p)
+{
+  STREAM_TRY
+  sehDOUBLEmatrix3D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehDOUBLEmatrix3D_insert(CTStream_* s, DOUBLEmatrix3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((DOUBLEmatrix3D*)p));
   SECAPI_CATCH
+}
+
+void DOUBLEmatrix3D_insert(CTStream_* s, DOUBLEmatrix3D_* p)
+{
+  STREAM_TRY
+  sehDOUBLEmatrix3D_insert(s, p);
+  STREAM_CATCH
 }
 
 DOUBLE DOUBLEmatrix3D_Determinant(const DOUBLEmatrix3D_* p)
@@ -918,18 +988,32 @@ DOUBLE4D_* DOUBLEmatrix4D_GetColumn(const DOUBLEmatrix4D_* p, INDEX c)
   return (DOUBLE4D_*)(new DOUBLE4D(result));
 }
 
-void DOUBLEmatrix4D_extract(CTStream_* s, DOUBLEmatrix4D_* p)
+static void sehDOUBLEmatrix4D_extract(CTStream_* s, DOUBLEmatrix4D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((DOUBLEmatrix4D*)p));
   SECAPI_CATCH
 }
 
-void DOUBLEmatrix4D_insert(CTStream_* s, DOUBLEmatrix4D_* p)
+void DOUBLEmatrix4D_extract(CTStream_* s, DOUBLEmatrix4D_* p)
+{
+  STREAM_TRY
+  sehDOUBLEmatrix4D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehDOUBLEmatrix4D_insert(CTStream_* s, DOUBLEmatrix4D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((DOUBLEmatrix4D*)p));
   SECAPI_CATCH
+}
+
+void DOUBLEmatrix4D_insert(CTStream_* s, DOUBLEmatrix4D_* p)
+{
+  STREAM_TRY
+  sehDOUBLEmatrix4D_insert(s, p);
+  STREAM_CATCH
 }
 
 DOUBLEmatrix4D_* DOUBLEmatrix4D_InverseMatrix(const DOUBLEmatrix4D_* p)
@@ -1055,18 +1139,32 @@ INDEX2D_* INDEXmatrix2D_GetColumn(const INDEXmatrix2D_* p, INDEX c)
   return (INDEX2D_*)(new INDEX2D(result));
 }
 
-void INDEXmatrix2D_extract(CTStream_* s, INDEXmatrix2D_* p)
+static void sehINDEXmatrix2D_extract(CTStream_* s, INDEXmatrix2D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((INDEXmatrix2D*)p));
   SECAPI_CATCH
 }
 
-void INDEXmatrix2D_insert(CTStream_* s, INDEXmatrix2D_* p)
+void INDEXmatrix2D_extract(CTStream_* s, INDEXmatrix2D_* p)
+{
+  STREAM_TRY
+  sehINDEXmatrix2D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehINDEXmatrix2D_insert(CTStream_* s, INDEXmatrix2D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((INDEXmatrix2D*)p));
   SECAPI_CATCH
+}
+
+void INDEXmatrix2D_insert(CTStream_* s, INDEXmatrix2D_* p)
+{
+  STREAM_TRY
+  sehINDEXmatrix2D_insert(s, p);
+  STREAM_CATCH
 }
 
 INDEXmatrix3D_* INDEXmatrix3D_new()
@@ -1187,18 +1285,32 @@ INDEX3D_* INDEXmatrix3D_GetColumn(const INDEXmatrix3D_* p, INDEX c)
   return (INDEX3D_*)(new INDEX3D(result));
 }
 
-void INDEXmatrix3D_extract(CTStream_* s, INDEXmatrix3D_* p)
+static void sehINDEXmatrix3D_extract(CTStream_* s, INDEXmatrix3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((INDEXmatrix3D*)p));
   SECAPI_CATCH
 }
 
-void INDEXmatrix3D_insert(CTStream_* s, INDEXmatrix3D_* p)
+void INDEXmatrix3D_extract(CTStream_* s, INDEXmatrix3D_* p)
+{
+  STREAM_TRY
+  sehINDEXmatrix3D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehINDEXmatrix3D_insert(CTStream_* s, INDEXmatrix3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((INDEXmatrix3D*)p));
   SECAPI_CATCH
+}
+
+void INDEXmatrix3D_insert(CTStream_* s, INDEXmatrix3D_* p)
+{
+  STREAM_TRY
+  sehINDEXmatrix3D_insert(s, p);
+  STREAM_CATCH
 }
 
 INDEX INDEXmatrix3D_Determinant(const INDEXmatrix3D_* p)
@@ -1329,18 +1441,32 @@ INDEX4D_* INDEXmatrix4D_GetColumn(const INDEXmatrix4D_* p, INDEX c)
   return (INDEX4D_*)(new INDEX4D(result));
 }
 
-void INDEXmatrix4D_extract(CTStream_* s, INDEXmatrix4D_* p)
+static void sehINDEXmatrix4D_extract(CTStream_* s, INDEXmatrix4D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((INDEXmatrix4D*)p));
   SECAPI_CATCH
 }
 
-void INDEXmatrix4D_insert(CTStream_* s, INDEXmatrix4D_* p)
+void INDEXmatrix4D_extract(CTStream_* s, INDEXmatrix4D_* p)
+{
+  STREAM_TRY
+  sehINDEXmatrix4D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehINDEXmatrix4D_insert(CTStream_* s, INDEXmatrix4D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((INDEXmatrix4D*)p));
   SECAPI_CATCH
+}
+
+void INDEXmatrix4D_insert(CTStream_* s, INDEXmatrix4D_* p)
+{
+  STREAM_TRY
+  sehINDEXmatrix4D_insert(s, p);
+  STREAM_CATCH
 }
 
 INDEXmatrix4D_* INDEXmatrix4D_InverseMatrix(const INDEXmatrix4D_* p)

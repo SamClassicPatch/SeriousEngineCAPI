@@ -296,16 +296,30 @@ void CMappingDefinition_GetSpaceCoordinates(const CMappingDefinition_* p, const 
   ((const CMappingDefinition*)p)->GetSpaceCoordinates(*((const CMappingVectors*)d), *((const MEX2D*)t), *((FLOAT3D*)v));
 }
 
-void CMappingDefinition_extract(CTStream_* s, CMappingDefinition_* p)
+static void sehCMappingDefinition_extract(CTStream_* s, CMappingDefinition_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((CMappingDefinition*)p));
   SECAPI_CATCH
 }
 
-void CMappingDefinition_insert(CTStream_* s, const CMappingDefinition_* p)
+void CMappingDefinition_extract(CTStream_* s, CMappingDefinition_* p)
+{
+  STREAM_TRY
+  sehCMappingDefinition_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehCMappingDefinition_insert(CTStream_* s, const CMappingDefinition_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((const CMappingDefinition*)p));
   SECAPI_CATCH
+}
+
+void CMappingDefinition_insert(CTStream_* s, const CMappingDefinition_* p)
+{
+  STREAM_TRY
+  sehCMappingDefinition_insert(s, p);
+  STREAM_CATCH
 }

@@ -166,18 +166,32 @@ BOOL FLOAT2D_notequal(const FLOAT2D_* a, const FLOAT2D_* b)
   return (*((const FLOAT2D*)a)) != (*((const FLOAT2D*)b));
 }
 
-void FLOAT2D_extract(CTStream_* s, FLOAT2D_* p)
+static void sehFLOAT2D_extract(CTStream_* s, FLOAT2D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((FLOAT2D*)p));
   SECAPI_CATCH
 }
 
-void FLOAT2D_insert(CTStream_* s, FLOAT2D_* p)
+void FLOAT2D_extract(CTStream_* s, FLOAT2D_* p)
+{
+  STREAM_TRY
+  sehFLOAT2D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehFLOAT2D_insert(CTStream_* s, FLOAT2D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((FLOAT2D*)p));
   SECAPI_CATCH
+}
+
+void FLOAT2D_insert(CTStream_* s, FLOAT2D_* p)
+{
+  STREAM_TRY
+  sehFLOAT2D_insert(s, p);
+  STREAM_CATCH
 }
 
 // FLOAT3D
@@ -333,18 +347,32 @@ BOOL FLOAT3D_notequal(const FLOAT3D_* a, const FLOAT3D_* b)
   return (*((const FLOAT3D*)a)) != (*((const FLOAT3D*)b));
 }
 
-void FLOAT3D_extract(CTStream_* s, FLOAT3D_* p)
+static void sehFLOAT3D_extract(CTStream_* s, FLOAT3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((FLOAT3D*)p));
   SECAPI_CATCH
 }
 
-void FLOAT3D_insert(CTStream_* s, FLOAT3D_* p)
+void FLOAT3D_extract(CTStream_* s, FLOAT3D_* p)
+{
+  STREAM_TRY
+  sehFLOAT3D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehFLOAT3D_insert(CTStream_* s, FLOAT3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((FLOAT3D*)p));
   SECAPI_CATCH
+}
+
+void FLOAT3D_insert(CTStream_* s, FLOAT3D_* p)
+{
+  STREAM_TRY
+  sehFLOAT3D_insert(s, p);
+  STREAM_CATCH
 }
 
 // FLOAT4D
@@ -489,18 +517,32 @@ BOOL FLOAT4D_notequal(const FLOAT4D_* a, const FLOAT4D_* b)
   return (*((const FLOAT4D*)a)) != (*((const FLOAT4D*)b));
 }
 
-void FLOAT4D_extract(CTStream_* s, FLOAT4D_* p)
+static void sehFLOAT4D_extract(CTStream_* s, FLOAT4D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((FLOAT4D*)p));
   SECAPI_CATCH
 }
 
-void FLOAT4D_insert(CTStream_* s, FLOAT4D_* p)
+void FLOAT4D_extract(CTStream_* s, FLOAT4D_* p)
+{
+  STREAM_TRY
+  sehFLOAT4D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehFLOAT4D_insert(CTStream_* s, FLOAT4D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((FLOAT4D*)p));
   SECAPI_CATCH
+}
+
+void FLOAT4D_insert(CTStream_* s, FLOAT4D_* p)
+{
+  STREAM_TRY
+  sehFLOAT4D_insert(s, p);
+  STREAM_CATCH
 }
 
 // DOUBLE2D
@@ -645,18 +687,32 @@ BOOL DOUBLE2D_notequal(const DOUBLE2D_* a, const DOUBLE2D_* b)
   return (*((const DOUBLE2D*)a)) != (*((const DOUBLE2D*)b));
 }
 
-void DOUBLE2D_extract(CTStream_* s, DOUBLE2D_* p)
+static void sehDOUBLE2D_extract(CTStream_* s, DOUBLE2D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((DOUBLE2D*)p));
   SECAPI_CATCH
 }
 
-void DOUBLE2D_insert(CTStream_* s, DOUBLE2D_* p)
+void DOUBLE2D_extract(CTStream_* s, DOUBLE2D_* p)
+{
+  STREAM_TRY
+  sehDOUBLE2D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehDOUBLE2D_insert(CTStream_* s, DOUBLE2D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((DOUBLE2D*)p));
   SECAPI_CATCH
+}
+
+void DOUBLE2D_insert(CTStream_* s, DOUBLE2D_* p)
+{
+  STREAM_TRY
+  sehDOUBLE2D_insert(s, p);
+  STREAM_CATCH
 }
 
 // DOUBLE3D
@@ -812,18 +868,32 @@ BOOL DOUBLE3D_notequal(const DOUBLE3D_* a, const DOUBLE3D_* b)
   return (*((const DOUBLE3D*)a)) != (*((const DOUBLE3D*)b));
 }
 
-void DOUBLE3D_extract(CTStream_* s, DOUBLE3D_* p)
+static void sehDOUBLE3D_extract(CTStream_* s, DOUBLE3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((DOUBLE3D*)p));
   SECAPI_CATCH
 }
 
-void DOUBLE3D_insert(CTStream_* s, DOUBLE3D_* p)
+void DOUBLE3D_extract(CTStream_* s, DOUBLE3D_* p)
+{
+  STREAM_TRY
+  sehDOUBLE3D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehDOUBLE3D_insert(CTStream_* s, DOUBLE3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((DOUBLE3D*)p));
   SECAPI_CATCH
+}
+
+void DOUBLE3D_insert(CTStream_* s, DOUBLE3D_* p)
+{
+  STREAM_TRY
+  sehDOUBLE3D_insert(s, p);
+  STREAM_CATCH
 }
 
 // DOUBLE4D
@@ -968,18 +1038,32 @@ BOOL DOUBLE4D_notequal(const DOUBLE4D_* a, const DOUBLE4D_* b)
   return (*((const DOUBLE4D*)a)) != (*((const DOUBLE4D*)b));
 }
 
-void DOUBLE4D_extract(CTStream_* s, DOUBLE4D_* p)
+static void sehDOUBLE4D_extract(CTStream_* s, DOUBLE4D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((DOUBLE4D*)p));
   SECAPI_CATCH
 }
 
-void DOUBLE4D_insert(CTStream_* s, DOUBLE4D_* p)
+void DOUBLE4D_extract(CTStream_* s, DOUBLE4D_* p)
+{
+  STREAM_TRY
+  sehDOUBLE4D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehDOUBLE4D_insert(CTStream_* s, DOUBLE4D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((DOUBLE4D*)p));
   SECAPI_CATCH
+}
+
+void DOUBLE4D_insert(CTStream_* s, DOUBLE4D_* p)
+{
+  STREAM_TRY
+  sehDOUBLE4D_insert(s, p);
+  STREAM_CATCH
 }
 
 // INDEX2D
@@ -1124,18 +1208,32 @@ BOOL INDEX2D_notequal(const INDEX2D_* a, const INDEX2D_* b)
   return (*((const INDEX2D*)a)) != (*((const INDEX2D*)b));
 }
 
-void INDEX2D_extract(CTStream_* s, INDEX2D_* p)
+static void sehINDEX2D_extract(CTStream_* s, INDEX2D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((INDEX2D*)p));
   SECAPI_CATCH
 }
 
-void INDEX2D_insert(CTStream_* s, INDEX2D_* p)
+void INDEX2D_extract(CTStream_* s, INDEX2D_* p)
+{
+  STREAM_TRY
+  sehINDEX2D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehINDEX2D_insert(CTStream_* s, INDEX2D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((INDEX2D*)p));
   SECAPI_CATCH
+}
+
+void INDEX2D_insert(CTStream_* s, INDEX2D_* p)
+{
+  STREAM_TRY
+  sehINDEX2D_insert(s, p);
+  STREAM_CATCH
 }
 
 // INDEX3D
@@ -1291,18 +1389,32 @@ BOOL INDEX3D_notequal(const INDEX3D_* a, const INDEX3D_* b)
   return (*((const INDEX3D*)a)) != (*((const INDEX3D*)b));
 }
 
-void INDEX3D_extract(CTStream_* s, INDEX3D_* p)
+static void sehINDEX3D_extract(CTStream_* s, INDEX3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((INDEX3D*)p));
   SECAPI_CATCH
 }
 
-void INDEX3D_insert(CTStream_* s, INDEX3D_* p)
+void INDEX3D_extract(CTStream_* s, INDEX3D_* p)
+{
+  STREAM_TRY
+  sehINDEX3D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehINDEX3D_insert(CTStream_* s, INDEX3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((INDEX3D*)p));
   SECAPI_CATCH
+}
+
+void INDEX3D_insert(CTStream_* s, INDEX3D_* p)
+{
+  STREAM_TRY
+  sehINDEX3D_insert(s, p);
+  STREAM_CATCH
 }
 
 // INDEX4D
@@ -1447,18 +1559,32 @@ BOOL INDEX4D_notequal(const INDEX4D_* a, const INDEX4D_* b)
   return (*((const INDEX4D*)a)) != (*((const INDEX4D*)b));
 }
 
-void INDEX4D_extract(CTStream_* s, INDEX4D_* p)
+static void sehINDEX4D_extract(CTStream_* s, INDEX4D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((INDEX4D*)p));
   SECAPI_CATCH
 }
 
-void INDEX4D_insert(CTStream_* s, INDEX4D_* p)
+void INDEX4D_extract(CTStream_* s, INDEX4D_* p)
+{
+  STREAM_TRY
+  sehINDEX4D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehINDEX4D_insert(CTStream_* s, INDEX4D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((INDEX4D*)p));
   SECAPI_CATCH
+}
+
+void INDEX4D_insert(CTStream_* s, INDEX4D_* p)
+{
+  STREAM_TRY
+  sehINDEX4D_insert(s, p);
+  STREAM_CATCH
 }
 
 DOUBLE3D_* FLOAT2DOUBLE(const FLOAT3D_* p)
@@ -1705,18 +1831,32 @@ BOOL SWORD3D_notequal(const SWORD3D_* a, const SWORD3D_* b)
   return (*((const SWORD3D*)a)) != (*((const SWORD3D*)b));
 }
 
-void SWORD3D_extract(CTStream_* s, SWORD3D_* p)
+static void sehSWORD3D_extract(CTStream_* s, SWORD3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((SWORD3D*)p));
   SECAPI_CATCH
 }
 
-void SWORD3D_insert(CTStream_* s, SWORD3D_* p)
+void SWORD3D_extract(CTStream_* s, SWORD3D_* p)
+{
+  STREAM_TRY
+  sehSWORD3D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehSWORD3D_insert(CTStream_* s, SWORD3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((SWORD3D*)p));
   SECAPI_CATCH
+}
+
+void SWORD3D_insert(CTStream_* s, SWORD3D_* p)
+{
+  STREAM_TRY
+  sehSWORD3D_insert(s, p);
+  STREAM_CATCH
 }
 
 SWORD3D_* SWORD3D_ComponentProduct(const SWORD3D_* a, const SWORD3D_* b)
@@ -1871,18 +2011,32 @@ BOOL SBYTE3D_notequal(const SBYTE3D_* a, const SBYTE3D_* b)
   return (*((const SBYTE3D*)a)) != (*((const SBYTE3D*)b));
 }
 
-void SBYTE3D_extract(CTStream_* s, SBYTE3D_* p)
+static void sehSBYTE3D_extract(CTStream_* s, SBYTE3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((SBYTE3D*)p));
   SECAPI_CATCH
 }
 
-void SBYTE3D_insert(CTStream_* s, SBYTE3D_* p)
+void SBYTE3D_extract(CTStream_* s, SBYTE3D_* p)
+{
+  STREAM_TRY
+  sehSBYTE3D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehSBYTE3D_insert(CTStream_* s, SBYTE3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((SBYTE3D*)p));
   SECAPI_CATCH
+}
+
+void SBYTE3D_insert(CTStream_* s, SBYTE3D_* p)
+{
+  STREAM_TRY
+  sehSBYTE3D_insert(s, p);
+  STREAM_CATCH
 }
 
 SBYTE3D_* SBYTE3D_ComponentProduct(const SBYTE3D_* a, const SBYTE3D_* b)

@@ -106,18 +106,32 @@ void CPlacement3D_Lerp(CPlacement3D_* p, const CPlacement3D_* p0, const CPlaceme
   ((CPlacement3D*)p)->Lerp(*((const CPlacement3D*)p0), *((const CPlacement3D*)p1), factor);
 }
 
-void CPlacement3D_extract(CTStream_* s, CPlacement3D_* p)
+static void sehCPlacement3D_extract(CTStream_* s, CPlacement3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) >> (*((CPlacement3D*)p));
   SECAPI_CATCH
 }
 
-void CPlacement3D_insert(CTStream_* s, const CPlacement3D_* p)
+void CPlacement3D_extract(CTStream_* s, CPlacement3D_* p)
+{
+  STREAM_TRY
+  sehCPlacement3D_extract(s, p);
+  STREAM_CATCH
+}
+
+static void sehCPlacement3D_insert(CTStream_* s, const CPlacement3D_* p)
 {
   SECAPI_TRY
   (*((CTStream*)s)) << (*((const CPlacement3D*)p));
   SECAPI_CATCH
+}
+
+void CPlacement3D_insert(CTStream_* s, const CPlacement3D_* p)
+{
+  STREAM_TRY
+  sehCPlacement3D_insert(s, p);
+  STREAM_CATCH
 }
 
 FLOAT3D_* CPlacement3D_pl_PositionVector(CPlacement3D_* p)
