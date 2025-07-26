@@ -242,6 +242,7 @@ typedef struct CDisplayModeEnumerator_ CDisplayModeEnumerator_;
 
 typedef struct CSoundData_ CSoundData_;
 typedef struct CSoundObject_ CSoundObject_;
+typedef struct CSoundListener_ CSoundListener_;
 
 typedef struct CEntity_ CEntity_;
 

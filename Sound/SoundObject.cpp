@@ -90,25 +90,46 @@ void CSoundObject_Set3DParameters(CSoundObject_* p, FLOAT fMaxDistance, FLOAT fM
   ((CSoundObject*)p)->Set3DParameters(fMaxDistance, fMinDistance, fMaxVolume, fPitch);
 }
 
-void CSoundObject_Read_t(CSoundObject_* p, CTStream_* pistr)
+static void sehCSoundObject_Read_t(CSoundObject_* p, CTStream_* pistr)
 {
   SECAPI_TRY
   ((CSoundObject*)p)->Read_t((CTStream*)pistr);
   SECAPI_CATCH
 }
 
-void CSoundObject_Write_t(CSoundObject_* p, CTStream_* postr)
+void CSoundObject_Read_t(CSoundObject_* p, CTStream_* pistr)
+{
+  STREAM_TRY
+  sehCSoundObject_Read_t(p, pistr);
+  STREAM_CATCH
+}
+
+static void sehCSoundObject_Write_t(CSoundObject_* p, CTStream_* postr)
 {
   SECAPI_TRY
   ((CSoundObject*)p)->Write_t((CTStream*)postr);
   SECAPI_CATCH
 }
 
-void CSoundObject_Play_t(CSoundObject_* p, const CTFileName_* fnmSound, SLONG slFlags)
+void CSoundObject_Write_t(CSoundObject_* p, CTStream_* postr)
+{
+  STREAM_TRY
+  sehCSoundObject_Write_t(p, postr);
+  STREAM_CATCH
+}
+
+static void sehCSoundObject_Play_t(CSoundObject_* p, const CTFileName_* fnmSound, SLONG slFlags)
 {
   SECAPI_TRY
   ((CSoundObject*)p)->Play_t(*((const CTFileName*)fnmSound), slFlags);
   SECAPI_CATCH
+}
+
+void CSoundObject_Play_t(CSoundObject_* p, const CTFileName_* fnmSound, SLONG slFlags)
+{
+  STREAM_TRY
+  sehCSoundObject_Play_t(p, fnmSound, slFlags);
+  STREAM_CATCH
 }
 
 void CSoundObject_SetOffset(CSoundObject_* p, FLOAT fOffset)

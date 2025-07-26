@@ -20,6 +20,7 @@ SECAPI void _pSound_Mute_();
 SECAPI BOOL _pSound_SetEnvironment_(INDEX iEnvNo, FLOAT fEnvSize);
 SECAPI void _pSound_AddSoundAware_(CSoundData_* CsdAdd);
 SECAPI void _pSound_RemoveSoundAware_(CSoundData_* CsdRemove);
+SECAPI void _pSound_Listen_(CSoundListener_* sl);
 
 SECAPI INDEX* snd_iFormat_();
 

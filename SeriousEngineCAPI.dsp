@@ -559,6 +559,14 @@ SOURCE=.\Sound\SoundLibrary.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Sound\SoundListener.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sound\SoundListener.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Sound\SoundObject.cpp
 # End Source File
 # Begin Source File

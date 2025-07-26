@@ -48,6 +48,11 @@ void _pSound_RemoveSoundAware_(CSoundData_* CsdRemove)
   _pSound->RemoveSoundAware(*((CSoundData*)CsdRemove));
 }
 
+void _pSound_Listen_(CSoundListener_* sl)
+{
+  _pSound->Listen(*((CSoundListener*)sl));
+}
+
 ENGINE_API extern INDEX snd_iFormat;
 INDEX* snd_iFormat_()
 {
