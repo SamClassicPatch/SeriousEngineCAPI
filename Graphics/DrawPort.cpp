@@ -195,62 +195,84 @@ ULONG CDrawPort_GetID(CDrawPort_* p)
 
 void CDrawPort_SetFont(CDrawPort_* p, CFontData_* pfd)
 {
+  STREAM_TRY
   CDrawPort& d = *((CDrawPort*)p);
   d.SetFont((CFontData*)pfd);
+  STREAM_CATCH
 }
 
 ULONG CDrawPort_GetTextWidth(const CDrawPort_* p, const CTString_* strText)
 {
+  ULONG res = 0;
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
-  return d.GetTextWidth(*((const CTString*)strText));
+  res = d.GetTextWidth(*((const CTString*)strText));
+  STREAM_CATCH
+  return res;
 }
 
 void CDrawPort_PutText(const CDrawPort_* p, const CTString_* strText, PIX pixX0, PIX pixY0, const COLOR colBlend)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.PutText(*((const CTString*)strText), pixX0, pixY0, colBlend);
+  STREAM_CATCH
 }
 
 void CDrawPort_PutTextC(const CDrawPort_* p, const CTString_* strText, PIX pixX0, PIX pixY0, const COLOR colBlend)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.PutTextC(*((const CTString*)strText), pixX0, pixY0, colBlend);
+  STREAM_CATCH
 }
 
 void CDrawPort_PutTextCXY(const CDrawPort_* p, const CTString_* strText, PIX pixX0, PIX pixY0, const COLOR colBlend)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.PutTextCXY(*((const CTString*)strText), pixX0, pixY0, colBlend);
+  STREAM_CATCH
 }
 
 void CDrawPort_PutTextR(const CDrawPort_* p, const CTString_* strText, PIX pixX0, PIX pixY0, const COLOR colBlend)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.PutTextR(*((const CTString*)strText), pixX0, pixY0, colBlend);
+  STREAM_CATCH
 }
 
 void CDrawPort_PutTexture_b(const CDrawPort_* p, CTextureObject_* pTO, const PIXaabbox2D_* boxScreen, const COLOR colBlend)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.PutTexture((CTextureObject*)pTO, *((const PIXaabbox2D*)boxScreen), colBlend);
+  STREAM_CATCH
 }
 
 void CDrawPort_PutTexture_cols(const CDrawPort_* p, CTextureObject_* pTO, const PIXaabbox2D_* boxScreen, const COLOR colUL, const COLOR colUR, const COLOR colDL, const COLOR colDR)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.PutTexture((CTextureObject*)pTO, *((const PIXaabbox2D*)boxScreen), colUL, colUR, colDL, colDR);
+  STREAM_CATCH
 }
 
 void CDrawPort_PutTexture_box_b(const CDrawPort_* p, CTextureObject_* pTO, const PIXaabbox2D_* boxScreen, const MEXaabbox2D_* boxTexture, const COLOR colBlend)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.PutTexture((CTextureObject*)pTO, *((const PIXaabbox2D*)boxScreen), *((const MEXaabbox2D*)boxTexture), colBlend);
+  STREAM_CATCH
 }
 
 void CDrawPort_PutTexture_box_cols(const CDrawPort_* p, CTextureObject_* pTO, const PIXaabbox2D_* boxScreen, const MEXaabbox2D_* boxTexture, const COLOR colUL, const COLOR colUR, const COLOR colDL, const COLOR colDR)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.PutTexture((CTextureObject*)pTO, *((const PIXaabbox2D*)boxScreen), *((const MEXaabbox2D*)boxTexture), colUL, colUR, colDL, colDR);
+  STREAM_CATCH
 }
 
 void CDrawPort_InitTexture(const CDrawPort_* p, CTextureObject_* pTO, const BOOL bClamp)
@@ -263,32 +285,42 @@ void CDrawPort_InitTexture(const CDrawPort_* p, CTextureObject_* pTO, const BOOL
 
 void CDrawPort_AddTexture_1(const CDrawPort_* p, const FLOAT fI0, const FLOAT fJ0, const FLOAT fI1, const FLOAT fJ1, const COLOR col)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.AddTexture(fI0, fJ0, fI1, fJ1, col);
+  STREAM_CATCH
 }
  
 void CDrawPort_AddTexture_2(const CDrawPort_* p, const FLOAT fI0, const FLOAT fJ0, const FLOAT fI1, const FLOAT fJ1, const FLOAT fU0, const FLOAT fV0, const FLOAT fU1, const FLOAT fV1, const COLOR col)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.AddTexture(fI0, fJ0, fI1, fJ1, fU0, fV0, fU1, fV1, col);
+  STREAM_CATCH
 }
 
 void CDrawPort_AddTexture_3(const CDrawPort_* p, const FLOAT fI0, const FLOAT fJ0, const FLOAT fU0, const FLOAT fV0, const COLOR col0, const FLOAT fI1, const FLOAT fJ1, const FLOAT fU1, const FLOAT fV1, const COLOR col1, const FLOAT fI2, const FLOAT fJ2, const FLOAT fU2, const FLOAT fV2, const COLOR col2, const FLOAT fI3, const FLOAT fJ3, const FLOAT fU3, const FLOAT fV3, const COLOR col3)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.AddTexture(fI0, fJ0, fU0, fV0, col0, fI1, fJ1, fU1, fV1, col1, fI2, fJ2, fU2, fV2, col2, fI3, fJ3, fU3, fV3, col3);
+  STREAM_CATCH
 }
 
 void CDrawPort_AddTriangle(const CDrawPort_* p, const FLOAT fI0, const FLOAT fJ0, const FLOAT fI1, const FLOAT fJ1, const FLOAT fI2, const FLOAT fJ2, const COLOR col)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.AddTriangle(fI0, fJ0, fI1, fJ1, fI2, fJ2, col);
+  STREAM_CATCH
 }
 
 void CDrawPort_FlushRenderingQueue(const CDrawPort_* p)
 {
+  STREAM_TRY
   const CDrawPort& d = *((const CDrawPort*)p);
   d.FlushRenderingQueue();
+  STREAM_CATCH
 }
 
 BOOL CDrawPort_Lock(CDrawPort_* p)
