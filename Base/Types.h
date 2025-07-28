@@ -246,6 +246,8 @@ typedef struct CSoundListener_ CSoundListener_;
 
 typedef struct CEntity_ CEntity_;
 
+typedef struct GameGUI_interface_ GameGUI_interface_;
+
 SECAPI BOOL HasException();
 SECAPI char* GrabException();
 void SetException(char* s);

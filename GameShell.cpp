@@ -1,0 +1,109 @@
+#include "GameShell.h"
+#include <Engine/GameShell.h>
+
+namespace
+{
+  class GameGUIinterface
+  {
+  public:
+    GameGUIinterface()
+      : m_handle(NULL)
+      , mp_impl(NULL)
+    {
+      try {
+        #define GAMEDLL _fnmApplicationExe.FileDir()+"GameGUI"+_strModExt+".dll"
+        CTFileName fnmExpanded;
+        ExpandFilePath(EFP_READ, CTString(GAMEDLL), fnmExpanded);
+
+        m_handle = LoadLibraryA(fnmExpanded);
+        if (m_handle == NULL) {
+          ThrowF_t("%s", GetWindowsError(GetLastError()));
+        }
+        GameGUI_interface* (*GAMEGUI_Create)(void) = (GameGUI_interface* (*)(void))GetProcAddress(m_handle, "GAMEGUI_Create");
+        if (GAMEGUI_Create == NULL) {
+          ThrowF_t("%s", GetWindowsError(GetLastError()));
+        }
+        mp_impl = GAMEGUI_Create();
+
+      } catch (char* strError) {
+        FatalError("%s", strError);
+      }
+    }
+    ~GameGUIinterface()
+    {
+      FreeLibrary(m_handle);
+    }
+
+  public:
+    GameGUI_interface* mp_impl;
+
+  private:
+    HMODULE m_handle;
+  };
+} // anonymous namespace
+
+GameGUI_interface_* GameGUI_interface_new()
+{
+  return (GameGUI_interface_*)(new GameGUIinterface());
+}
+
+void GameGUI_interface_delete(GameGUI_interface_* p)
+{
+  delete ((GameGUIinterface*)p);
+}
+
+void GameGUI_interface_Initialize(GameGUI_interface_* p, const CTFileName_* f)
+{
+  STREAM_TRY
+  ((GameGUIinterface*)p)->mp_impl->Initialize(*((const CTFileName*)f));
+  STREAM_CATCH
+}
+
+void GameGUI_interface_End(GameGUI_interface_* p)
+{
+  STREAM_TRY
+  ((GameGUIinterface*)p)->mp_impl->End();
+  STREAM_CATCH
+}
+
+void GameGUI_interface_QuickTest(GameGUI_interface_* p, const CTFileName_* fnMapName, CDrawPort_* pdp, CViewPort_* pvp)
+{
+  STREAM_TRY
+  ((GameGUIinterface*)p)->mp_impl->QuickTest(*((const CTFileName*)fnMapName), (CDrawPort*)pdp, (CViewPort*)pvp);
+  STREAM_CATCH
+}
+
+void GameGUI_interface_OnInvokeConsole(GameGUI_interface_* p)
+{
+  STREAM_TRY
+  ((GameGUIinterface*)p)->mp_impl->OnInvokeConsole();
+  STREAM_CATCH
+}
+
+void GameGUI_interface_OnPlayerSettings(GameGUI_interface_* p)
+{
+  STREAM_TRY
+  ((GameGUIinterface*)p)->mp_impl->OnPlayerSettings();
+  STREAM_CATCH
+}
+
+void GameGUI_interface_OnAudioQuality(GameGUI_interface_* p)
+{
+  STREAM_TRY
+  ((GameGUIinterface*)p)->mp_impl->OnAudioQuality();
+  STREAM_CATCH
+}
+
+void GameGUI_interface_OnVideoQuality(GameGUI_interface_* p)
+{
+  STREAM_TRY
+  ((GameGUIinterface*)p)->mp_impl->OnVideoQuality();
+  STREAM_CATCH
+}
+
+void GameGUI_interface_OnSelectPlayerAndControls(GameGUI_interface_* p)
+{
+  STREAM_TRY
+  ((GameGUIinterface*)p)->mp_impl->OnSelectPlayerAndControls();
+  STREAM_CATCH
+}
