@@ -33,12 +33,56 @@ namespace
     {
       FreeLibrary(m_handle);
     }
+    void Initialize(const CTFileName& gmsFile)
+    {
+      m_gmsFile = gmsFile;
+      mp_impl->Initialize(m_gmsFile);
+    }
+    void OnPlayerSettings()
+    {
+      _CallGameShell("OnPlayerSettings");
+    }
+    void OnAudioQuality()
+    {
+      _CallGameShell("OnAudioQuality");
+    }
+    void OnVideoQuality()
+    {
+      _CallGameShell("OnVideoQuality");
+    }
+    void OnSelectPlayerAndControls()
+    {
+      _CallGameShell("OnSelectPlayerAndControls");
+    }
 
   public:
     GameGUI_interface* mp_impl;
 
   private:
+    void _CallGameShell(const char* funcName)
+    {
+      mp_impl->End();
+      const CTString currentDir = CTString(_fnmApplicationPath) + _fnmApplicationExe.FileDir();
+      const CTString gameShellExe = currentDir + "SeriousEngineCAPIGameShell.exe";
+      CTString arguments;
+      arguments.PrintF("\"%s\" %s %s", gameShellExe.str_String, funcName, CTString(m_gmsFile).str_String);
+      STARTUPINFO si;
+      PROCESS_INFORMATION pi;
+      ZeroMemory(&si, sizeof(si));
+      si.cb = sizeof(si);
+      ZeroMemory(&pi, sizeof(pi));
+      if (CreateProcess(NULL, arguments.str_String, NULL, NULL, FALSE, 0, NULL, currentDir.str_String, &si, &pi))
+      {
+        WaitForSingleObject(pi.hProcess, INFINITE);
+      }
+      CloseHandle(pi.hProcess);
+      CloseHandle(pi.hThread);
+      mp_impl->Initialize(m_gmsFile);
+    }
+
+  private:
     HMODULE m_handle;
+    CTFileName m_gmsFile;
   };
 } // anonymous namespace
 
@@ -55,7 +99,7 @@ void GameGUI_interface_delete(GameGUI_interface_* p)
 void GameGUI_interface_Initialize(GameGUI_interface_* p, const CTFileName_* f)
 {
   STREAM_TRY
-  ((GameGUIinterface*)p)->mp_impl->Initialize(*((const CTFileName*)f));
+  ((GameGUIinterface*)p)->Initialize(*((const CTFileName*)f));
   STREAM_CATCH
 }
 
@@ -83,27 +127,27 @@ void GameGUI_interface_OnInvokeConsole(GameGUI_interface_* p)
 void GameGUI_interface_OnPlayerSettings(GameGUI_interface_* p)
 {
   STREAM_TRY
-  ((GameGUIinterface*)p)->mp_impl->OnPlayerSettings();
+  ((GameGUIinterface*)p)->OnPlayerSettings();
   STREAM_CATCH
 }
 
 void GameGUI_interface_OnAudioQuality(GameGUI_interface_* p)
 {
   STREAM_TRY
-  ((GameGUIinterface*)p)->mp_impl->OnAudioQuality();
+  ((GameGUIinterface*)p)->OnAudioQuality();
   STREAM_CATCH
 }
 
 void GameGUI_interface_OnVideoQuality(GameGUI_interface_* p)
 {
   STREAM_TRY
-  ((GameGUIinterface*)p)->mp_impl->OnVideoQuality();
+  ((GameGUIinterface*)p)->OnVideoQuality();
   STREAM_CATCH
 }
 
 void GameGUI_interface_OnSelectPlayerAndControls(GameGUI_interface_* p)
 {
   STREAM_TRY
-  ((GameGUIinterface*)p)->mp_impl->OnSelectPlayerAndControls();
+  ((GameGUIinterface*)p)->OnSelectPlayerAndControls();
   STREAM_CATCH
 }
