@@ -590,6 +590,18 @@ SOURCE=.\Sound\SoundObject.cpp
 SOURCE=.\Sound\SoundObject.h
 # End Source File
 # End Group
+# Begin Group "Terrain"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Terrain\TerrainLayer.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Terrain\TerrainLayer.h
+# End Source File
+# End Group
 # Begin Source File
 
 SOURCE=.\Engine.cpp

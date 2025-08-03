@@ -91,6 +91,7 @@ typedef INDEX ParticleBlendType_;
 typedef INDEX GfxAPIType_;
 typedef INDEX DisplayDepth_;
 typedef INDEX SoundFormat_;
+typedef INDEX LayerType_;
 
 typedef struct FLOAT2D_ FLOAT2D_;
 typedef struct FLOAT3D_ FLOAT3D_;
@@ -249,6 +250,8 @@ typedef struct CSoundListener_ CSoundListener_;
 typedef struct CEntity_ CEntity_;
 
 typedef struct GameGUI_interface_ GameGUI_interface_;
+
+typedef struct CTerrainLayer_ CTerrainLayer_;
 
 SECAPI BOOL HasException();
 SECAPI char* GrabException();
