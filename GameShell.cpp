@@ -117,13 +117,6 @@ void GameGUI_interface_QuickTest(GameGUI_interface_* p, const CTFileName_* fnMap
   STREAM_CATCH
 }
 
-void GameGUI_interface_OnInvokeConsole(GameGUI_interface_* p)
-{
-  STREAM_TRY
-  ((GameGUIinterface*)p)->mp_impl->OnInvokeConsole();
-  STREAM_CATCH
-}
-
 void GameGUI_interface_OnPlayerSettings(GameGUI_interface_* p)
 {
   STREAM_TRY
