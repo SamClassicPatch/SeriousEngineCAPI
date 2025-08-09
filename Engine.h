@@ -7,6 +7,7 @@ extern "C" {
 #endif
 
 SECAPI void SE_InitEngine_(CTString_* strGameID);
+SECAPI void SE_InitEngineAtDirectory_(CTString_* strGameID, const CTFileName_* fnAppPath, const CTFileName_* fnExePath);
 SECAPI void SE_EndEngine_();
 SECAPI void SE_LoadDefaultFonts_();
 SECAPI void SE_UpdateWindowHandle_(HWND hwndWindowed);
