@@ -80,6 +80,9 @@
 
 IMPL_CStaticStackArray(PIX2D)
 IMPL_CStaticStackArray(FLOAT3D)
+IMPL_CStaticStackArray(GFXColor)
+IMPL_CStaticStackArray(GFXTexCoord)
+IMPL_CStaticStackArray(GFXVertex4)
 
 #undef IMPL_CStaticStackArray
 

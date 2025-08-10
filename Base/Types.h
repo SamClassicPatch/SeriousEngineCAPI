@@ -212,11 +212,17 @@ typedef struct CStaticArray_INDEX_ CStaticArray_INDEX_;
 typedef struct CStaticArray_FLOAT2D_ CStaticArray_FLOAT2D_;
 typedef struct CStaticArray_FLOAT3D_ CStaticArray_FLOAT3D_;
 typedef struct CStaticArray_PIX2D_ CStaticArray_PIX2D_;
+typedef struct CStaticArray_GFXColor_ CStaticArray_GFXColor_;
+typedef struct CStaticArray_GFXTexCoord_ CStaticArray_GFXTexCoord_;
+typedef struct CStaticArray_GFXVertex4_ CStaticArray_GFXVertex4_;
 
 typedef struct CStaticStackArray_PIX2D_ CStaticStackArray_PIX2D_;
 typedef struct CStaticStackArray_FLOAT3D_ CStaticStackArray_FLOAT3D_;
 typedef struct CStaticStackArray_SLONG_ CStaticStackArray_SLONG_;
 typedef struct CStaticStackArray_INDEX_ CStaticStackArray_INDEX_;
+typedef struct CStaticStackArray_GFXColor_ CStaticStackArray_GFXColor_;
+typedef struct CStaticStackArray_GFXTexCoord_ CStaticStackArray_GFXTexCoord_;
+typedef struct CStaticStackArray_GFXVertex4_ CStaticStackArray_GFXVertex4_;
 
 typedef struct CImageInfo_ CImageInfo_;
 typedef struct CTextureData_ CTextureData_;

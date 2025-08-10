@@ -27,6 +27,9 @@ extern "C" {
 
 DECLARE_CStaticStackArray(PIX2D)
 DECLARE_CStaticStackArray(FLOAT3D)
+DECLARE_CStaticStackArray(GFXColor)
+DECLARE_CStaticStackArray(GFXTexCoord)
+DECLARE_CStaticStackArray(GFXVertex4)
 
 #undef DECLARE_CStaticStackArray
 

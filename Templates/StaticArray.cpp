@@ -74,6 +74,9 @@ IMPL_CStaticArray(ModelPolygonVertex)
 IMPL_CStaticArray(PIX2D)
 IMPL_CStaticArray(FLOAT2D)
 IMPL_CStaticArray(FLOAT3D)
+IMPL_CStaticArray(GFXColor)
+IMPL_CStaticArray(GFXTexCoord)
+IMPL_CStaticArray(GFXVertex4)
 
 #undef IMPL_CStaticArray
 

@@ -34,6 +34,9 @@ DECLARE_CStaticArray(ModelPolygonVertex)
 DECLARE_CStaticArray(PIX2D)
 DECLARE_CStaticArray(FLOAT2D)
 DECLARE_CStaticArray(FLOAT3D)
+DECLARE_CStaticArray(GFXColor)
+DECLARE_CStaticArray(GFXTexCoord)
+DECLARE_CStaticArray(GFXVertex4)
 
 #undef DECLARE_CStaticArray
 
