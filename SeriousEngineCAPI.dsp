@@ -503,6 +503,14 @@ SOURCE=.\Graphics\Texture.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Graphics\Vertex.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\Vertex.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Graphics\ViewPort.cpp
 # End Source File
 # Begin Source File

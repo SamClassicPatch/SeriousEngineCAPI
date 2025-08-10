@@ -110,6 +110,14 @@ typedef struct SBYTE3D_ SBYTE3D_;
 typedef SWORD3D_ SWPOINT3D_;
 typedef SBYTE3D_ SBPOINT3D_;
 
+typedef struct GFXTexCoord_ GFXTexCoord_;
+typedef struct GFXTexCoord4_ GFXTexCoord4_;
+typedef struct GFXColor_ GFXColor_;
+typedef struct GFXVertex3_ GFXVertex3_;
+typedef struct GFXVertex4_ GFXVertex4_;
+typedef struct GFXNormal3_ GFXNormal3_;
+typedef struct GFXNormal4_ GFXNormal4_;
+
 typedef struct FLOATmatrix2D_ FLOATmatrix2D_;
 typedef struct FLOATmatrix3D_ FLOATmatrix3D_;
 typedef struct FLOATmatrix4D_ FLOATmatrix4D_;
