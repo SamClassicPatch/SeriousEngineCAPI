@@ -273,6 +273,7 @@ typedef struct CTerrainLayer_ CTerrainLayer_;
 typedef struct TileLayer_ TileLayer_;
 typedef struct TileArrays_ TileArrays_;
 typedef struct CArrayHolder_ CArrayHolder_;
+typedef struct CTerrainTile_ CTerrainTile_;
 typedef struct CTerrain_ CTerrain_;
 
 SECAPI BOOL HasException();
