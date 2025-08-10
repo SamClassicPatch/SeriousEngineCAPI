@@ -603,6 +603,14 @@ SOURCE=.\Sound\SoundObject.h
 # PROP Default_Filter ""
 # Begin Source File
 
+SOURCE=.\Terrain\ArrayHolder.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Terrain\ArrayHolder.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Terrain\TerrainLayer.cpp
 # End Source File
 # Begin Source File

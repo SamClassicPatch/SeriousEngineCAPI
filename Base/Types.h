@@ -215,6 +215,8 @@ typedef struct CStaticArray_PIX2D_ CStaticArray_PIX2D_;
 typedef struct CStaticArray_GFXColor_ CStaticArray_GFXColor_;
 typedef struct CStaticArray_GFXTexCoord_ CStaticArray_GFXTexCoord_;
 typedef struct CStaticArray_GFXVertex4_ CStaticArray_GFXVertex4_;
+typedef struct CStaticArray_TileLayer_ CStaticArray_TileLayer_;
+typedef struct CStaticArray_TileArrays_ CStaticArray_TileArrays_;
 
 typedef struct CStaticStackArray_PIX2D_ CStaticStackArray_PIX2D_;
 typedef struct CStaticStackArray_FLOAT3D_ CStaticStackArray_FLOAT3D_;
@@ -223,6 +225,8 @@ typedef struct CStaticStackArray_INDEX_ CStaticStackArray_INDEX_;
 typedef struct CStaticStackArray_GFXColor_ CStaticStackArray_GFXColor_;
 typedef struct CStaticStackArray_GFXTexCoord_ CStaticStackArray_GFXTexCoord_;
 typedef struct CStaticStackArray_GFXVertex4_ CStaticStackArray_GFXVertex4_;
+typedef struct CStaticStackArray_TileLayer_ CStaticStackArray_TileLayer_;
+typedef struct CStaticStackArray_TileArrays_ CStaticStackArray_TileArrays_;
 
 typedef struct CImageInfo_ CImageInfo_;
 typedef struct CTextureData_ CTextureData_;
@@ -266,6 +270,10 @@ typedef struct CEntity_ CEntity_;
 typedef struct GameGUI_interface_ GameGUI_interface_;
 
 typedef struct CTerrainLayer_ CTerrainLayer_;
+typedef struct TileLayer_ TileLayer_;
+typedef struct TileArrays_ TileArrays_;
+typedef struct CArrayHolder_ CArrayHolder_;
+typedef struct CTerrain_ CTerrain_;
 
 SECAPI BOOL HasException();
 SECAPI char* GrabException();

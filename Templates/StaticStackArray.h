@@ -30,6 +30,8 @@ DECLARE_CStaticStackArray(FLOAT3D)
 DECLARE_CStaticStackArray(GFXColor)
 DECLARE_CStaticStackArray(GFXTexCoord)
 DECLARE_CStaticStackArray(GFXVertex4)
+DECLARE_CStaticStackArray(TileLayer)
+DECLARE_CStaticStackArray(TileArrays)
 
 #undef DECLARE_CStaticStackArray
 

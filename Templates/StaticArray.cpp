@@ -1,4 +1,5 @@
 #include "StaticArray.h"
+#include <Engine/Terrain/ArrayHolder.h>
 
 #define IMPL_CStaticArray(TYPE)\
   CStaticArray_##TYPE##_* CStaticArray_##TYPE##_new()\
@@ -77,6 +78,8 @@ IMPL_CStaticArray(FLOAT3D)
 IMPL_CStaticArray(GFXColor)
 IMPL_CStaticArray(GFXTexCoord)
 IMPL_CStaticArray(GFXVertex4)
+IMPL_CStaticArray(TileLayer)
+IMPL_CStaticArray(TileArrays)
 
 #undef IMPL_CStaticArray
 
