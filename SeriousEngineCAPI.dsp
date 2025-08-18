@@ -635,6 +635,14 @@ SOURCE=.\Terrain\TerrainLayer.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Terrain\TerrainMisc.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Terrain\TerrainMisc.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Terrain\TerrainTile.cpp
 # End Source File
 # Begin Source File
