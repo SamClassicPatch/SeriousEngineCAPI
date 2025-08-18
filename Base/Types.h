@@ -217,6 +217,12 @@ typedef struct CStaticArray_GFXTexCoord_ CStaticArray_GFXTexCoord_;
 typedef struct CStaticArray_GFXVertex4_ CStaticArray_GFXVertex4_;
 typedef struct CStaticArray_TileLayer_ CStaticArray_TileLayer_;
 typedef struct CStaticArray_TileArrays_ CStaticArray_TileArrays_;
+typedef struct CStaticArray_CTextureData_ CStaticArray_CTextureData_;
+typedef struct CStaticArray_QuadTreeNode_ CStaticArray_QuadTreeNode_;
+typedef struct CStaticArray_QuadTreeLevel_ CStaticArray_QuadTreeLevel_;
+typedef struct CStaticArray_CTerrainTile_ CStaticArray_CTerrainTile_;
+typedef struct CStaticArray_CArrayHolder_ CStaticArray_CArrayHolder_;
+typedef struct CStaticArray_CTerrainLayer_ CStaticArray_CTerrainLayer_;
 
 typedef struct CStaticStackArray_PIX2D_ CStaticStackArray_PIX2D_;
 typedef struct CStaticStackArray_FLOAT3D_ CStaticStackArray_FLOAT3D_;
@@ -227,6 +233,12 @@ typedef struct CStaticStackArray_GFXTexCoord_ CStaticStackArray_GFXTexCoord_;
 typedef struct CStaticStackArray_GFXVertex4_ CStaticStackArray_GFXVertex4_;
 typedef struct CStaticStackArray_TileLayer_ CStaticStackArray_TileLayer_;
 typedef struct CStaticStackArray_TileArrays_ CStaticStackArray_TileArrays_;
+typedef struct CStaticStackArray_CTextureData_ CStaticStackArray_CTextureData_;
+typedef struct CStaticStackArray_QuadTreeNode_ CStaticStackArray_QuadTreeNode_;
+typedef struct CStaticStackArray_QuadTreeLevel_ CStaticStackArray_QuadTreeLevel_;
+typedef struct CStaticStackArray_CTerrainLayer_ CStaticStackArray_CTerrainLayer_;
+
+typedef struct CDynamicContainer_CTextureData_ CDynamicContainer_CTextureData_;
 
 typedef struct CImageInfo_ CImageInfo_;
 typedef struct CTextureData_ CTextureData_;
@@ -266,6 +278,7 @@ typedef struct CSoundObject_ CSoundObject_;
 typedef struct CSoundListener_ CSoundListener_;
 
 typedef struct CEntity_ CEntity_;
+typedef struct CShadingInfo_ CShadingInfo_;
 
 typedef struct GameGUI_interface_ GameGUI_interface_;
 
@@ -275,6 +288,11 @@ typedef struct TileArrays_ TileArrays_;
 typedef struct CArrayHolder_ CArrayHolder_;
 typedef struct CTerrainTile_ CTerrainTile_;
 typedef struct CTerrain_ CTerrain_;
+typedef struct QuadTreeNode_ QuadTreeNode_;
+typedef struct QuadTreeLevel_ QuadTreeLevel_;
+typedef struct Rect_ Rect_;
+
+typedef struct CBrushPolygon_ CBrushPolygon_;
 
 SECAPI BOOL HasException();
 SECAPI char* GrabException();

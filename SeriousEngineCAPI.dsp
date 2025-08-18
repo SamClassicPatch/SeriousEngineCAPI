@@ -379,6 +379,14 @@ SOURCE=.\Templates\DynamicArray.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Templates\DynamicContainer.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\DynamicContainer.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Templates\DynamicStackArray.cpp
 # End Source File
 # Begin Source File
@@ -611,6 +619,14 @@ SOURCE=.\Terrain\ArrayHolder.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Terrain\Terrain.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Terrain\Terrain.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Terrain\TerrainLayer.cpp
 # End Source File
 # Begin Source File
@@ -624,6 +640,18 @@ SOURCE=.\Terrain\TerrainTile.cpp
 # Begin Source File
 
 SOURCE=.\Terrain\TerrainTile.h
+# End Source File
+# End Group
+# Begin Group "Entities"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Entities\ShadingInfo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Entities\ShadingInfo.h
 # End Source File
 # End Group
 # Begin Source File

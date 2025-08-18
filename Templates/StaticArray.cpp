@@ -1,5 +1,6 @@
 #include "StaticArray.h"
 #include <Engine/Terrain/ArrayHolder.h>
+#include <Engine/Terrain/Terrain.h>
 
 #define IMPL_CStaticArray(TYPE)\
   CStaticArray_##TYPE##_* CStaticArray_##TYPE##_new()\
@@ -80,6 +81,12 @@ IMPL_CStaticArray(GFXTexCoord)
 IMPL_CStaticArray(GFXVertex4)
 IMPL_CStaticArray(TileLayer)
 IMPL_CStaticArray(TileArrays)
+IMPL_CStaticArray(CTextureData)
+IMPL_CStaticArray(QuadTreeNode)
+IMPL_CStaticArray(QuadTreeLevel)
+IMPL_CStaticArray(CTerrainTile)
+IMPL_CStaticArray(CArrayHolder)
+IMPL_CStaticArray(CTerrainLayer)
 
 #undef IMPL_CStaticArray
 
