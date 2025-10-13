@@ -315,6 +315,10 @@ SOURCE=.\Math\OBBox.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Math\Object3D.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\Math\Object3D.h
 # End Source File
 # Begin Source File
@@ -340,6 +344,14 @@ SOURCE=.\Math\Projection.cpp
 # Begin Source File
 
 SOURCE=.\Math\Projection.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Math\Projection_DOUBLE.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Math\Projection_DOUBLE.h
 # End Source File
 # Begin Source File
 

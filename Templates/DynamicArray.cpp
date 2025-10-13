@@ -69,6 +69,12 @@ IMPL_CDynamicArray(CTFileName)
 IMPL_CDynamicArray(CTranslationPair)
 IMPL_CDynamicArray(CModelCollisionBox)
 IMPL_CDynamicArray(CAttachedModelPosition)
+IMPL_CDynamicArray(CObjectPolygonEdge)
+IMPL_CDynamicArray(CObjectEdge)
+IMPL_CDynamicArray(CObjectVertex)
+IMPL_CDynamicArray(CObjectPlane)
+IMPL_CDynamicArray(CObjectMaterial)
+IMPL_CDynamicArray(CObjectPolygon)
 
 #undef IMPL_CDynamicArray
 
@@ -136,3 +142,44 @@ IMPL_CDynamicArray(CAttachedModelPosition)
 
 
 IMPL_CDynamicArray(FLOAT)
+
+// stupid workaround when Clear member function is not available
+#define IMPL_CDynamicArray_NoClear(TYPE)\
+  void CDynamicArray_##TYPE##_GrowPointers(CDynamicArray_##TYPE##_* p, INDEX count)\
+  {\
+    ((CDynamicArray<TYPE>*)p)->GrowPointers(count);\
+  }\
+  void CDynamicArray_##TYPE##_ShrinkPointers(CDynamicArray_##TYPE##_* p, INDEX count)\
+  {\
+    ((CDynamicArray<TYPE>*)p)->ShrinkPointers(count);\
+  }\
+  TYPE##_* CDynamicArray_##TYPE##_AllocBlock(CDynamicArray_##TYPE##_* p, INDEX count)\
+  {\
+    return (TYPE##_*)(((CDynamicArray<TYPE>*)p)->AllocBlock(count));\
+  }\
+  INDEX CDynamicArray_##TYPE##_GetIndex(CDynamicArray_##TYPE##_* p, TYPE##_* o)\
+  {\
+    return ((CDynamicArray<TYPE>*)p)->GetIndex((TYPE*)o);\
+  }\
+  TYPE##_* CDynamicArray_##TYPE##_New(CDynamicArray_##TYPE##_* p, INDEX i)\
+  {\
+    return (TYPE##_*)(((CDynamicArray<TYPE>*)p)->New(i));\
+  }\
+  TYPE##_* CDynamicArray_##TYPE##_Element(CDynamicArray_##TYPE##_* p, INDEX i)\
+  {\
+    return (TYPE##_*)(((CDynamicArray<TYPE>*)p)->Pointer(i));\
+  }\
+  const TYPE##_* CDynamicArray_##TYPE##_Element_const(const CDynamicArray_##TYPE##_* p, INDEX i)\
+  {\
+    return (const TYPE##_*)(((const CDynamicArray<TYPE>*)p)->Pointer(i));\
+  }\
+  void CDynamicArray_##TYPE##_MoveArray(CDynamicArray_##TYPE##_* a, CDynamicArray_##TYPE##_* b)\
+  {\
+    ((CDynamicArray<TYPE>*)a)->MoveArray(*((CDynamicArray<TYPE>*)b));\
+  }\
+  INDEX CDynamicArray_##TYPE##_Count(const CDynamicArray_##TYPE##_* p)\
+  {\
+    return ((CDynamicArray<TYPE>*)p)->Count();\
+  }
+
+IMPL_CDynamicArray_NoClear(CObjectSector)

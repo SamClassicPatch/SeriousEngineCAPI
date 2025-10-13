@@ -156,6 +156,7 @@ typedef struct CIsometricProjection3D_ CIsometricProjection3D_;
 typedef struct CParallelProjection3D_ CParallelProjection3D_;
 typedef struct CSimpleProjection3D_ CSimpleProjection3D_;
 typedef struct CAnyProjection3D_ CAnyProjection3D_;
+typedef struct CSimpleProjection3D_DOUBLE_ CSimpleProjection3D_DOUBLE_;
 
 typedef struct CPlanarGradients_ CPlanarGradients_;
 typedef struct CMappingDefinitionUI_ CMappingDefinitionUI_;
@@ -191,6 +192,13 @@ typedef struct CDynamicArray_CTFileName_ CDynamicArray_CTFileName_;
 typedef struct CDynamicArray_CTranslationPair_ CDynamicArray_CTranslationPair_;
 typedef struct CDynamicArray_CModelCollisionBox_ CDynamicArray_CModelCollisionBox_;
 typedef struct CDynamicArray_CAttachedModelPosition_ CDynamicArray_CAttachedModelPosition_;
+typedef struct CDynamicArray_CObjectPolygonEdge_ CDynamicArray_CObjectPolygonEdge_;
+typedef struct CDynamicArray_CObjectEdge_ CDynamicArray_CObjectEdge_;
+typedef struct CDynamicArray_CObjectVertex_ CDynamicArray_CObjectVertex_;
+typedef struct CDynamicArray_CObjectPlane_ CDynamicArray_CObjectPlane_;
+typedef struct CDynamicArray_CObjectMaterial_ CDynamicArray_CObjectMaterial_;
+typedef struct CDynamicArray_CObjectPolygon_ CDynamicArray_CObjectPolygon_;
+typedef struct CDynamicArray_CObjectSector_ CDynamicArray_CObjectSector_;
 
 typedef struct CDynamicStackArray_FLOAT_ CDynamicStackArray_FLOAT_;
 typedef struct CDynamicStackArray_CTString_ CDynamicStackArray_CTString_;
@@ -291,6 +299,16 @@ typedef struct CTerrain_ CTerrain_;
 typedef struct QuadTreeNode_ QuadTreeNode_;
 typedef struct QuadTreeLevel_ QuadTreeLevel_;
 typedef struct Rect_ Rect_;
+
+typedef struct CObjectVertex_ CObjectVertex_;
+typedef struct CObjectPlane_ CObjectPlane_;
+typedef struct CObjectEdge_ CObjectEdge_;
+typedef struct CObjectMaterial_ CObjectMaterial_;
+typedef struct CObjectPolygonEdge_ CObjectPolygonEdge_;
+typedef struct CObjectPolygon_ CObjectPolygon_;
+typedef struct CObjectSector_ CObjectSector_;
+typedef struct CEdgeEx_ CEdgeEx_;
+typedef struct CObject3D_ CObject3D_;
 
 typedef struct CBrushPolygon_ CBrushPolygon_;
 
