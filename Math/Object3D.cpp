@@ -188,6 +188,11 @@ CObjectMaterial_* CObjectMaterial_new()
   return (CObjectMaterial_*)(new CObjectMaterial());
 }
 
+CObjectMaterial_* CObjectMaterial_new_s(const CTString_* n)
+{
+  return (CObjectMaterial_*)(new CObjectMaterial(*((CTString*)n)));
+}
+
 CObjectMaterial_* CObjectMaterial_clone(const CObjectMaterial_* p)
 {
   return (CObjectMaterial_*)(new CObjectMaterial(*((const CObjectMaterial*)p)));
@@ -274,10 +279,10 @@ void CObjectPolygonEdge_GetVertices(CObjectPolygonEdge_* p, CObjectVertex_** pov
   ((CObjectPolygonEdge*)p)->GetVertices(*((CObjectVertex**)povxStart), *((CObjectVertex**)povxEnd));
 }
 
-CObjectEdge_* CObjectPolygonEdge_ope_Edge(CObjectPolygonEdge_* p)
+CObjectEdge_** CObjectPolygonEdge_ope_Edge(CObjectPolygonEdge_* p)
 {
   CObjectPolygonEdge& o = *((CObjectPolygonEdge*)p);
-  return (CObjectEdge_*)(&o.ope_Edge);
+  return (CObjectEdge_**)(&o.ope_Edge);
 }
 
 BOOL* CObjectPolygonEdge_ope_Backward(CObjectPolygonEdge_* p)
@@ -384,6 +389,11 @@ void CObjectSector_delete(CObjectSector_* p)
   delete ((CObjectSector*)p);
 }
 
+void CObjectSector_copy(CObjectSector_* a, CObjectSector_* b)
+{
+  *((CObjectSector*)a) = *((CObjectSector*)b);
+}
+
 CObjectPolygon_* CObjectSector_CreatePolygon_i(CObjectSector_* p, INDEX ctVertices, INDEX* aivVertices, CObjectMaterial_* omaMaterial, ULONG ulFlags, BOOL bReverse)
 {
   return (CObjectPolygon_*)(((CObjectSector*)p)->CreatePolygon(ctVertices, aivVertices, *((CObjectMaterial*)omaMaterial), ulFlags, bReverse));
@@ -480,10 +490,10 @@ void CEdgeEx_copy(CEdgeEx_* a, const CEdgeEx_* b)
   *((CEdgeEx*)a) = *((const CEdgeEx*)b);
 }
 
-CObjectEdge_* CEdgeEx_edx_poedEdge(CEdgeEx_* p)
+CObjectEdge_** CEdgeEx_edx_poedEdge(CEdgeEx_* p)
 {
   CEdgeEx& o = *((CEdgeEx*)p);
-  return (CObjectEdge_*)(&o.edx_poedEdge);
+  return (CObjectEdge_**)(&o.edx_poedEdge);
 }
 
 DOUBLE3D_* CEdgeEx_edx_vDirection(CEdgeEx_* p)

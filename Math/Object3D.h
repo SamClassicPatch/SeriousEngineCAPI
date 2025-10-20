@@ -43,7 +43,7 @@ SECAPI CObjectVertex_** CObjectEdge_oed_Vertex0(CObjectEdge_* p);
 SECAPI CObjectVertex_** CObjectEdge_oed_Vertex1(CObjectEdge_* p);
 
 SECAPI CObjectMaterial_* CObjectMaterial_new();
-SECAPI CObjectMaterial_* CObjectMaterial_new_s(const CTString* n);
+SECAPI CObjectMaterial_* CObjectMaterial_new_s(const CTString_* n);
 SECAPI CObjectMaterial_* CObjectMaterial_clone(const CObjectMaterial_* p);
 SECAPI void CObjectMaterial_delete(CObjectMaterial_* p);
 SECAPI void CObjectMaterial_copy(CObjectMaterial_* a, const CObjectMaterial_* b);
@@ -61,7 +61,7 @@ SECAPI CObjectPolygonEdge_* CObjectPolygonEdge_clone(const CObjectPolygonEdge_* 
 SECAPI void CObjectPolygonEdge_delete(CObjectPolygonEdge_* p);
 SECAPI void CObjectPolygonEdge_copy(CObjectPolygonEdge_* a, const CObjectPolygonEdge_* b);
 SECAPI void CObjectPolygonEdge_GetVertices(CObjectPolygonEdge_* p, CObjectVertex_** povxStart, CObjectVertex_** povxEnd);
-SECAPI CObjectEdge_* CObjectPolygonEdge_ope_Edge(CObjectPolygonEdge_* p);
+SECAPI CObjectEdge_** CObjectPolygonEdge_ope_Edge(CObjectPolygonEdge_* p);
 SECAPI BOOL* CObjectPolygonEdge_ope_Backward(CObjectPolygonEdge_* p);
 
 #ifndef SERIOUSENGINECAPI_EXPORTS
@@ -90,6 +90,7 @@ SECAPI void CObjectPolygon_RemoveDummyEdgeReferences(CObjectPolygon_* p);
 SECAPI CObjectSector_* CObjectSector_new();
 SECAPI CObjectSector_* CObjectSector_clone(CObjectSector_* p);
 SECAPI void CObjectSector_delete(CObjectSector_* p);
+SECAPI void CObjectSector_copy(CObjectSector_* a, CObjectSector_* b);
 SECAPI CObjectPolygon_* CObjectSector_CreatePolygon_i(CObjectSector_* p, INDEX ctVertices, INDEX* aivVertices, CObjectMaterial_* omaMaterial, ULONG ulFlags, BOOL bReverse);
 SECAPI CObjectPolygon_* CObjectSector_CreatePolygon(CObjectSector_* p, INDEX ctVertices, DOUBLE3D_* avVertices, CObjectMaterial_* omaMaterial, ULONG ulFlags, BOOL bReverse);
 SECAPI CDynamicArray_CObjectVertex_* CObjectSector_osc_aovxVertices(CObjectSector_* p);
@@ -108,7 +109,7 @@ SECAPI CEdgeEx_* CEdgeEx_new();
 SECAPI CEdgeEx_* CEdgeEx_clone(const CEdgeEx_* p);
 SECAPI void CEdgeEx_delete(CEdgeEx_* p);
 SECAPI void CEdgeEx_copy(CEdgeEx_* a, const CEdgeEx_* b);
-SECAPI CObjectEdge_* CEdgeEx_edx_poedEdge(CEdgeEx_* p);
+SECAPI CObjectEdge_** CEdgeEx_edx_poedEdge(CEdgeEx_* p);
 SECAPI DOUBLE3D_* CEdgeEx_edx_vDirection(CEdgeEx_* p);
 SECAPI DOUBLE3D_* CEdgeEx_edx_vReferencePoint(CEdgeEx_* p);
 SECAPI BOOL* CEdgeEx_edx_bReverse(CEdgeEx_* p);

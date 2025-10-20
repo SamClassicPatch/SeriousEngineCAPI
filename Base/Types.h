@@ -219,6 +219,7 @@ typedef struct CStaticArray_SLONG_ CStaticArray_SLONG_;
 typedef struct CStaticArray_INDEX_ CStaticArray_INDEX_;
 typedef struct CStaticArray_FLOAT2D_ CStaticArray_FLOAT2D_;
 typedef struct CStaticArray_FLOAT3D_ CStaticArray_FLOAT3D_;
+typedef struct CStaticArray_DOUBLE3D_ CStaticArray_DOUBLE3D_;
 typedef struct CStaticArray_PIX2D_ CStaticArray_PIX2D_;
 typedef struct CStaticArray_GFXColor_ CStaticArray_GFXColor_;
 typedef struct CStaticArray_GFXTexCoord_ CStaticArray_GFXTexCoord_;
