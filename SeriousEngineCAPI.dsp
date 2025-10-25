@@ -674,6 +674,18 @@ SOURCE=.\Entities\ShadingInfo.cpp
 SOURCE=.\Entities\ShadingInfo.h
 # End Source File
 # End Group
+# Begin Group "Rendering"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Rendering\Render.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Rendering\Render.h
+# End Source File
+# End Group
 # Begin Source File
 
 SOURCE=.\Engine.cpp

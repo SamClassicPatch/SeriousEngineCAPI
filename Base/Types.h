@@ -92,6 +92,10 @@ typedef INDEX GfxAPIType_;
 typedef INDEX DisplayDepth_;
 typedef INDEX SoundFormat_;
 typedef INDEX LayerType_;
+typedef INDEX FillType_;
+typedef INDEX SelectionType_;
+typedef INDEX ShadowsType_;
+typedef INDEX LensFlaresType_;
 
 typedef struct FLOAT2D_ FLOAT2D_;
 typedef struct FLOAT3D_ FLOAT3D_;
@@ -312,6 +316,8 @@ typedef struct CEdgeEx_ CEdgeEx_;
 typedef struct CObject3D_ CObject3D_;
 
 typedef struct CBrushPolygon_ CBrushPolygon_;
+
+typedef struct CWorldRenderPrefs_ CWorldRenderPrefs_;
 
 SECAPI BOOL HasException();
 SECAPI char* GrabException();
