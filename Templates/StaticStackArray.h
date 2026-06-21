@@ -36,6 +36,7 @@ DECLARE_CStaticStackArray(CTextureData)
 DECLARE_CStaticStackArray(QuadTreeNode)
 DECLARE_CStaticStackArray(QuadTreeLevel)
 DECLARE_CStaticStackArray(CTerrainLayer)
+DECLARE_CStaticStackArray(CBrushVertex)
 
 #undef DECLARE_CStaticStackArray
 

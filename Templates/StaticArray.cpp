@@ -88,6 +88,7 @@ IMPL_CStaticArray(QuadTreeLevel)
 IMPL_CStaticArray(CTerrainTile)
 IMPL_CStaticArray(CArrayHolder)
 IMPL_CStaticArray(CTerrainLayer)
+IMPL_CStaticArray(CBrushVertex)
 
 #undef IMPL_CStaticArray
 

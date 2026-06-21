@@ -236,6 +236,7 @@ typedef struct CStaticArray_QuadTreeLevel_ CStaticArray_QuadTreeLevel_;
 typedef struct CStaticArray_CTerrainTile_ CStaticArray_CTerrainTile_;
 typedef struct CStaticArray_CArrayHolder_ CStaticArray_CArrayHolder_;
 typedef struct CStaticArray_CTerrainLayer_ CStaticArray_CTerrainLayer_;
+typedef struct CStaticArray_CBrushVertex_ CStaticArray_CBrushVertex_;
 
 typedef struct CStaticStackArray_PIX2D_ CStaticStackArray_PIX2D_;
 typedef struct CStaticStackArray_FLOAT3D_ CStaticStackArray_FLOAT3D_;
@@ -250,8 +251,13 @@ typedef struct CStaticStackArray_CTextureData_ CStaticStackArray_CTextureData_;
 typedef struct CStaticStackArray_QuadTreeNode_ CStaticStackArray_QuadTreeNode_;
 typedef struct CStaticStackArray_QuadTreeLevel_ CStaticStackArray_QuadTreeLevel_;
 typedef struct CStaticStackArray_CTerrainLayer_ CStaticStackArray_CTerrainLayer_;
+typedef struct CStaticStackArray_CBrushVertex_ CStaticStackArray_CBrushVertex_;
 
 typedef struct CDynamicContainer_CTextureData_ CDynamicContainer_CTextureData_;
+typedef struct CDynamicContainer_CBrushVertex_ CDynamicContainer_CBrushVertex_;
+
+typedef struct CSelection_CBrushVertex_ CSelection_CBrushVertex_;
+typedef CSelection_CBrushVertex_ CBrushVertexSelection_;
 
 typedef struct CImageInfo_ CImageInfo_;
 typedef struct CTextureData_ CTextureData_;
@@ -315,7 +321,21 @@ typedef struct CObjectSector_ CObjectSector_;
 typedef struct CEdgeEx_ CEdgeEx_;
 typedef struct CObject3D_ CObject3D_;
 
+typedef struct CWorkingVertex_ CWorkingVertex_;
+typedef struct CWorkingPlane_ CWorkingPlane_;
+typedef struct CWorkingEdge_ CWorkingEdge_;
+typedef struct CBrushVertex_ CBrushVertex_;
+typedef struct CBrushPlane_ CBrushPlane_;
+typedef struct CBrushEdge_ CBrushEdge_;
+typedef struct CBrushPolygonEdge_ CBrushPolygonEdge_;
+typedef struct CBrushShadowLayer_ CBrushShadowLayer_;
+typedef struct CBrushShadowMap_ CBrushShadowMap_;
+typedef struct CBrushPolygonTexture_ CBrushPolygonTexture_;
+typedef struct CBrushPolygonProperties_ CBrushPolygonProperties_;
 typedef struct CBrushPolygon_ CBrushPolygon_;
+typedef struct CBrushSector_ CBrushSector_;
+
+typedef struct CLightSource_ CLightSource_;
 
 typedef struct CWorldRenderPrefs_ CWorldRenderPrefs_;
 

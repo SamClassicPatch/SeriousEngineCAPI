@@ -91,6 +91,7 @@ IMPL_CStaticStackArray(CTextureData)
 IMPL_CStaticStackArray(QuadTreeNode)
 IMPL_CStaticStackArray(QuadTreeLevel)
 IMPL_CStaticStackArray(CTerrainLayer)
+IMPL_CStaticStackArray(CBrushVertex)
 
 #undef IMPL_CStaticStackArray
 

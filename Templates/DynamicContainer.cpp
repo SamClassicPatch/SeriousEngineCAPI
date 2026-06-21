@@ -55,6 +55,7 @@
   }
 
 IMPL_CDynamicContainer(CTextureData)
+IMPL_CDynamicContainer(CBrushVertex)
 
 #undef IMPL_CDynamicContainer
 

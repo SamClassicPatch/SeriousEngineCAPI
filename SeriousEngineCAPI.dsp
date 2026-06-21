@@ -407,6 +407,14 @@ SOURCE=.\Templates\DynamicStackArray.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Templates\Selection.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\Selection.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Templates\StaticArray.cpp
 # End Source File
 # Begin Source File
@@ -684,6 +692,26 @@ SOURCE=.\Rendering\Render.cpp
 # Begin Source File
 
 SOURCE=.\Rendering\Render.h
+# End Source File
+# End Group
+# Begin Group "Brushes"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Brushes\Brush.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Brushes\Brush.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Brushes\BrushTransformed.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Brushes\BrushTransformed.h
 # End Source File
 # End Group
 # Begin Source File

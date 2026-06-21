@@ -46,6 +46,7 @@ DECLARE_CStaticArray(QuadTreeLevel)
 DECLARE_CStaticArray(CTerrainTile)
 DECLARE_CStaticArray(CArrayHolder)
 DECLARE_CStaticArray(CTerrainLayer)
+DECLARE_CStaticArray(CBrushVertex)
 
 #undef DECLARE_CStaticArray
 

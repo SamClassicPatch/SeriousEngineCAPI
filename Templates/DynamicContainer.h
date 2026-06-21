@@ -24,6 +24,7 @@ extern "C" {
   SECAPI TYPE##_* CDynamicContainer_##TYPE##_GetFirst(CDynamicContainer_##TYPE##_* p);
 
 DECLARE_CDynamicContainer(CTextureData)
+DECLARE_CDynamicContainer(CBrushVertex)
 
 #undef DECLARE_CDynamicContainer
 
@@ -36,8 +37,6 @@ DECLARE_CDynamicContainer(CTextureData)
   SECAPI void CDynamicContainer_##TYPE##_copy(CDynamicContainer_##TYPE##_* a, CDynamicContainer_##TYPE##_* b);\
   SECAPI INDEX CDynamicContainer_##TYPE##_GetIndex(CDynamicContainer_##TYPE##_* p, TYPE* ptMember);\
   SECAPI void CDynamicContainer_##TYPE##_Add(CDynamicContainer_##TYPE##_* p, TYPE* ptNewObject);\
-  SECAPI void CDynamicContainer_##TYPE##_Insert(CDynamicContainer_##TYPE##_* p, TYPE* ptNewObject);\
-  SECAPI void CDynamicContainer_##TYPE##_Insert_i(CDynamicContainer_##TYPE##_* p, TYPE* ptNewObject, const INDEX iPos);\
   SECAPI void CDynamicContainer_##TYPE##_Remove(CDynamicContainer_##TYPE##_* p, TYPE* ptOldObject);\
   SECAPI void CDynamicContainer_##TYPE##_Clear(CDynamicContainer_##TYPE##_* p);\
   SECAPI BOOL CDynamicContainer_##TYPE##_IsMember(CDynamicContainer_##TYPE##_* p, TYPE* ptOldObject);\
