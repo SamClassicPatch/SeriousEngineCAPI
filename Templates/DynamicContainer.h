@@ -25,6 +25,8 @@ extern "C" {
 
 DECLARE_CDynamicContainer(CTextureData)
 DECLARE_CDynamicContainer(CBrushVertex)
+DECLARE_CDynamicContainer(CBrushPolygon)
+DECLARE_CDynamicContainer(CBrushSector)
 
 #undef DECLARE_CDynamicContainer
 

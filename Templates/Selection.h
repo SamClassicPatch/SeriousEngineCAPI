@@ -18,6 +18,8 @@ extern "C" {
   SECAPI TYPE##_* CSelection_##TYPE##_GetFirstInSelection(CSelection_##TYPE##_* p);
 
 DECLARE_CSelection(CBrushVertex)
+DECLARE_CSelection(CBrushPolygon)
+DECLARE_CSelection(CBrushSector)
 
 #undef DECLARE_CSelection
 #ifdef __cplusplus

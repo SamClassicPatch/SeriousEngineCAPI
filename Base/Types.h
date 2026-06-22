@@ -183,6 +183,7 @@ typedef struct CAnimObject_ CAnimObject_;
 typedef struct CChunkID_ CChunkID_;
 typedef struct CListNode_ CListNode_;
 typedef struct CListHead_ CListHead_;
+typedef struct CRelationLnk_ CRelationLnk_;
 typedef struct CTStream_ CTStream_;
 typedef struct CTFileStream_ CTFileStream_;
 typedef struct CTMemoryStream_ CTMemoryStream_;
@@ -237,6 +238,12 @@ typedef struct CStaticArray_CTerrainTile_ CStaticArray_CTerrainTile_;
 typedef struct CStaticArray_CArrayHolder_ CStaticArray_CArrayHolder_;
 typedef struct CStaticArray_CTerrainLayer_ CStaticArray_CTerrainLayer_;
 typedef struct CStaticArray_CBrushVertex_ CStaticArray_CBrushVertex_;
+typedef struct CStaticArray_CBrushPolygon_ CStaticArray_CBrushPolygon_;
+typedef struct CStaticArray_CBrushPolygonEdge_ CStaticArray_CBrushPolygonEdge_;
+typedef struct CStaticArray_CBrushVertexPtr__ CStaticArray_CBrushVertexPtr__;
+typedef struct CStaticArray_CBrushEdge_ CStaticArray_CBrushEdge_;
+typedef struct CStaticArray_CBrushPlane_ CStaticArray_CBrushPlane_;
+typedef struct CStaticArray_CBrushSector_ CStaticArray_CBrushSector_;
 
 typedef struct CStaticStackArray_PIX2D_ CStaticStackArray_PIX2D_;
 typedef struct CStaticStackArray_FLOAT3D_ CStaticStackArray_FLOAT3D_;
@@ -252,12 +259,20 @@ typedef struct CStaticStackArray_QuadTreeNode_ CStaticStackArray_QuadTreeNode_;
 typedef struct CStaticStackArray_QuadTreeLevel_ CStaticStackArray_QuadTreeLevel_;
 typedef struct CStaticStackArray_CTerrainLayer_ CStaticStackArray_CTerrainLayer_;
 typedef struct CStaticStackArray_CBrushVertex_ CStaticStackArray_CBrushVertex_;
+typedef struct CStaticStackArray_CBrushPolygon_ CStaticStackArray_CBrushPolygon_;
+typedef struct CStaticStackArray_CBrushSector_ CStaticStackArray_CBrushSector_;
 
 typedef struct CDynamicContainer_CTextureData_ CDynamicContainer_CTextureData_;
 typedef struct CDynamicContainer_CBrushVertex_ CDynamicContainer_CBrushVertex_;
+typedef struct CDynamicContainer_CBrushPolygon_ CDynamicContainer_CBrushPolygon_;
+typedef struct CDynamicContainer_CBrushSector_ CDynamicContainer_CBrushSector_;
 
 typedef struct CSelection_CBrushVertex_ CSelection_CBrushVertex_;
 typedef CSelection_CBrushVertex_ CBrushVertexSelection_;
+typedef struct CSelection_CBrushPolygon_ CSelection_CBrushPolygon_;
+typedef CSelection_CBrushPolygon_ CBrushPolygonSelection_;
+typedef struct CSelection_CBrushSector_ CSelection_CBrushSector_;
+typedef CSelection_CBrushSector_ CBrushSectorSelection_;
 
 typedef struct CImageInfo_ CImageInfo_;
 typedef struct CTextureData_ CTextureData_;
@@ -325,6 +340,7 @@ typedef struct CWorkingVertex_ CWorkingVertex_;
 typedef struct CWorkingPlane_ CWorkingPlane_;
 typedef struct CWorkingEdge_ CWorkingEdge_;
 typedef struct CBrushVertex_ CBrushVertex_;
+typedef struct CBrushVertex_ *CBrushVertexPtr_;
 typedef struct CBrushPlane_ CBrushPlane_;
 typedef struct CBrushEdge_ CBrushEdge_;
 typedef struct CBrushPolygonEdge_ CBrushPolygonEdge_;
@@ -334,10 +350,40 @@ typedef struct CBrushPolygonTexture_ CBrushPolygonTexture_;
 typedef struct CBrushPolygonProperties_ CBrushPolygonProperties_;
 typedef struct CBrushPolygon_ CBrushPolygon_;
 typedef struct CBrushSector_ CBrushSector_;
+typedef struct CBrushMip_ CBrushMip_;
 
 typedef struct CLightSource_ CLightSource_;
 
 typedef struct CWorldRenderPrefs_ CWorldRenderPrefs_;
+
+#define MEMBER_VAL_DECL(baseclass, member_type, member_var) member_type* baseclass##_##member_var(baseclass##_* p);
+#define MEMBER_PTR_DECL(baseclass, member_type, member_var) member_type** baseclass##_##member_var(baseclass##_* p);
+#define MEMBER_ARR_DECL(baseclass, member_type, member_var) member_type* baseclass##_##member_var(baseclass##_* p, INDEX i);
+
+#ifdef SERIOUSENGINECAPI_EXPORTS
+
+#define MEMBER_VAL_IMPL(baseclass, member_type, member_var) \
+member_type* baseclass##_##member_var(baseclass##_* p) \
+{ \
+  baseclass& bc = *((baseclass*)p); \
+  return (member_type*)(&(bc.member_var)); \
+}
+
+#define MEMBER_PTR_IMPL(baseclass, member_type, member_var) \
+member_type** baseclass##_##member_var(baseclass##_* p) \
+{ \
+  baseclass& bc = *((baseclass*)p); \
+  return (member_type**)(&(bc.member_var)); \
+}
+
+#define MEMBER_ARR_IMPL(baseclass, member_type, member_var) \
+member_type* baseclass##_##member_var(baseclass##_* p, INDEX i) \
+{ \
+  baseclass& bc = *((baseclass*)p); \
+  return (member_type*)(&(bc.member_var[i])); \
+}
+
+#endif
 
 SECAPI BOOL HasException();
 SECAPI char* GrabException();

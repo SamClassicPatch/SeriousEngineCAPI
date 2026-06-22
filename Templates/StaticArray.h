@@ -47,6 +47,11 @@ DECLARE_CStaticArray(CTerrainTile)
 DECLARE_CStaticArray(CArrayHolder)
 DECLARE_CStaticArray(CTerrainLayer)
 DECLARE_CStaticArray(CBrushVertex)
+DECLARE_CStaticArray(CBrushPolygon)
+DECLARE_CStaticArray(CBrushPolygonEdge)
+DECLARE_CStaticArray(CBrushEdge)
+DECLARE_CStaticArray(CBrushPlane)
+DECLARE_CStaticArray(CBrushSector)
 
 #undef DECLARE_CStaticArray
 
@@ -70,6 +75,7 @@ DECLARE_CStaticArray(UWORD)
 DECLARE_CStaticArray(ULONG)
 DECLARE_CStaticArray(INDEX)
 DECLARE_CStaticArray(SLONG)
+DECLARE_CStaticArray(CBrushVertexPtr_)
 
 #undef DECLARE_CStaticArray
 

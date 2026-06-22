@@ -385,3 +385,257 @@ UWORD* CBrushPolygonProperties_bpp_uwPretenderDistance(CBrushPolygonProperties_*
   CBrushPolygonProperties& m = *((CBrushPolygonProperties*)p);
   return (UWORD*)(&(m.bpp_uwPretenderDistance));
 }
+
+
+CBrushPolygon_* CBrushPolygon_new()
+{
+  return (CBrushPolygon_*)(new CBrushPolygon());
+}
+
+CBrushPolygon_* CBrushPolygon_clone(const CBrushPolygon_* p)
+{
+  return (CBrushPolygon_*)(new CBrushPolygon(*((const CBrushPolygon*)p)));
+}
+
+void CBrushPolygon_delete(CBrushPolygon_* p)
+{
+  delete ((CBrushPolygon*)p);
+}
+
+void CBrushPolygon_copy(CBrushPolygon_* a, const CBrushPolygon_* b)
+{
+  *((CBrushPolygon*)a) = *((const CBrushPolygon*)b);
+}
+
+void CBrushPolygon_InitializeShadowMap(CBrushPolygon_* p)
+{
+  ((CBrushPolygon*)p)->InitializeShadowMap();
+}
+
+CBrushPolygon_* CBrushPolygon_CopyProperties(CBrushPolygon_* p, CBrushPolygon_* o, BOOL bCopyMapping)
+{
+  return (CBrushPolygon_*)(&(((CBrushPolygon*)p)->CopyProperties(*((CBrushPolygon*)o), bCopyMapping)));
+}
+
+CBrushPolygon_* CBrushPolygon_CopyPropertiesWithoutTexture(CBrushPolygon_* p, CBrushPolygon_* o)
+{
+  return (CBrushPolygon_*)(&(((CBrushPolygon*)p)->CopyPropertiesWithoutTexture(*((CBrushPolygon*)o))));
+}
+
+CBrushPolygon_* CBrushPolygon_CopyTextures(CBrushPolygon_* p, CBrushPolygon_* o)
+{
+  return (CBrushPolygon_*)(&(((CBrushPolygon*)p)->CopyTextures(*((CBrushPolygon*)o))));
+}
+
+BOOL CBrushPolygon_IsSelected(const CBrushPolygon_* p)
+{
+  return ((const CBrushPolygon*)p)->IsSelected(BPOF_SELECTED);
+}
+
+void CBrushPolygon_SelectSimilarByColor(CBrushPolygon_* p, CSelection_CBrushPolygon_* s)
+{
+  ((CBrushPolygon*)p)->SelectSimilarByColor(*((CSelection<CBrushPolygon, BPOF_SELECTED>*)s));
+}
+
+void CBrushPolygon_SelectSimilarByTexture(CBrushPolygon_* p, CSelection_CBrushPolygon_* s, INDEX iTexture)
+{
+  ((CBrushPolygon*)p)->SelectSimilarByTexture(*((CSelection<CBrushPolygon, BPOF_SELECTED>*)s), iTexture);
+}
+
+void CBrushPolygon_SelectByTextureInSector(CBrushPolygon_* p, CSelection_CBrushPolygon_* s, INDEX iTexture)
+{
+  ((CBrushPolygon*)p)->SelectByTextureInSector(*((CSelection<CBrushPolygon, BPOF_SELECTED>*)s), iTexture);
+}
+
+void CBrushPolygon_SelectByColorInSector(CBrushPolygon_* p, CSelection_CBrushPolygon_* s)
+{
+  ((CBrushPolygon*)p)->SelectByColorInSector(*((CSelection<CBrushPolygon, BPOF_SELECTED>*)s));
+}
+
+void CBrushPolygon_DiscardShadows(CBrushPolygon_* p)
+{
+  ((CBrushPolygon*)p)->DiscardShadows();
+}
+
+CBrushPolygon_* CBrushPolygon_from_bpo_rsOtherSideSectors(CListHead_* p)
+{
+  CListHead& node = *((CListHead*)p);
+  CBrushPolygon* res = ((CBrushPolygon*)(((UBYTE*)(&node)) - offsetof(CBrushPolygon, bpo_rsOtherSideSectors)));
+  return (CBrushPolygon_*)res;
+}
+
+MEMBER_PTR_IMPL(CBrushPolygon, CBrushPlane_, bpo_pbplPlane)
+MEMBER_VAL_IMPL(CBrushPolygon, CStaticArray_CBrushPolygonEdge_, bpo_abpePolygonEdges)
+MEMBER_VAL_IMPL(CBrushPolygon, CStaticArray_CBrushVertexPtr__, bpo_apbvxTriangleVertices)
+MEMBER_VAL_IMPL(CBrushPolygon, CStaticArray_INDEX_, bpo_aiTriangleElements)
+MEMBER_ARR_IMPL(CBrushPolygon, CBrushPolygonTexture_, bpo_abptTextures)
+MEMBER_VAL_IMPL(CBrushPolygon, COLOR, bpo_colColor)
+MEMBER_VAL_IMPL(CBrushPolygon, ULONG, bpo_ulFlags)
+MEMBER_VAL_IMPL(CBrushPolygon, COLOR, bpo_colShadow)
+MEMBER_VAL_IMPL(CBrushPolygon, CBrushShadowMap_, bpo_smShadowMap)
+MEMBER_VAL_IMPL(CBrushPolygon, CMappingDefinition_, bpo_mdShadow)
+MEMBER_VAL_IMPL(CBrushPolygon, CBrushPolygonProperties_, bpo_bppProperties)
+MEMBER_VAL_IMPL(CBrushPolygon, FLOATaabbox3D_, bpo_boxBoundingBox)
+MEMBER_PTR_IMPL(CBrushPolygon, CBrushSector_, bpo_pbscSector)
+MEMBER_VAL_IMPL(CBrushPolygon, CListHead_, bpo_rsOtherSideSectors)
+
+CBrushSector_* CBrushSector_new()
+{
+  return (CBrushSector_*)(new CBrushSector());
+}
+
+void CBrushSector_delete(CBrushSector_* p)
+{
+  delete ((CBrushSector*)p);
+}
+void CBrushSector_UpdateSector(CBrushSector_* p)
+{
+  ((CBrushSector*)p)->UpdateSector();
+}
+
+void CBrushSector_Clear(CBrushSector_* p)
+{
+  ((CBrushSector*)p)->Clear();
+}
+
+void CBrushSector_TriangularizePolygon(CBrushSector_* p, CBrushPolygon_* pbpo)
+{
+  ((CBrushSector*)p)->TriangularizePolygon((CBrushPolygon*)pbpo);
+}
+
+void CBrushSector_TriangularizeForVertices(CBrushSector_* p, CBrushVertexSelection_* selVertex)
+{
+  ((CBrushSector*)p)->TriangularizeForVertices(*((CBrushVertexSelection*)selVertex));
+}
+
+void CBrushSector_InsertVertexIntoTriangle(CBrushSector_* p, CBrushPolygonSelection_* selPolygon, FLOAT3D_* v)
+{
+  ((CBrushSector*)p)->InsertVertexIntoTriangle(*((CBrushPolygonSelection*)selPolygon), *((FLOAT3D*)v));
+}
+
+BOOL CBrushSector_IsReTripleAvailable(CBrushSector_* p, CBrushPolygonSelection_* selPolygon)
+{
+  return ((CBrushSector*)p)->IsReTripleAvailable(*((CBrushPolygonSelection*)selPolygon));
+}
+
+void CBrushSector_ReTriple(CBrushSector_* p, CBrushPolygonSelection_* selPolygon)
+{
+  ((CBrushSector*)p)->ReTriple(*((CBrushPolygonSelection*)selPolygon));
+}
+
+BOOL CBrushSector_IsSelected(const CBrushSector_* p)
+{
+  return ((const CBrushSector*)p)->IsSelected(BSCF_SELECTED);
+}
+
+static void sehCBrushSector_Read_t(CBrushSector_* p, CTStream_* s)
+{
+  SECAPI_TRY
+  ((CBrushSector*)p)->Read_t((CTStream*)s);
+  SECAPI_CATCH
+}
+
+void CBrushSector_Read_t(CBrushSector_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCBrushSector_Read_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehCBrushSector_Write_t(CBrushSector_* p, CTStream_* s)
+{
+  SECAPI_TRY
+  ((CBrushSector*)p)->Write_t((CTStream*)s);
+  SECAPI_CATCH
+}
+
+void CBrushSector_Write_t(CBrushSector_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCBrushSector_Write_t(p, s);
+  STREAM_CATCH
+}
+
+void CBrushSector_UncacheLightMaps(CBrushSector_* p)
+{
+  ((CBrushSector*)p)->UncacheLightMaps();
+}
+
+INDEX CBrushSector_GetContentType(CBrushSector_* p)
+{
+  return ((CBrushSector*)p)->GetContentType();
+}
+
+void CBrushSector_SetContentType(CBrushSector_* p, INDEX i)
+{
+  ((CBrushSector*)p)->SetContentType(i);
+}
+
+INDEX CBrushSector_GetForceType(CBrushSector_* p)
+{
+  return ((CBrushSector*)p)->GetForceType();
+}
+
+void CBrushSector_SetForceType(CBrushSector_* p, INDEX i)
+{
+  ((CBrushSector*)p)->SetForceType(i);
+}
+
+INDEX CBrushSector_GetFogType(CBrushSector_* p)
+{
+  return ((CBrushSector*)p)->GetFogType();
+}
+
+void CBrushSector_SetFogType(CBrushSector_* p, INDEX i)
+{
+  ((CBrushSector*)p)->SetFogType(i);
+}
+
+INDEX CBrushSector_GetHazeType(CBrushSector_* p)
+{
+  return ((CBrushSector*)p)->GetHazeType();
+}
+
+void CBrushSector_SetHazeType(CBrushSector_* p, INDEX i)
+{
+  ((CBrushSector*)p)->SetHazeType(i);
+}
+
+INDEX CBrushSector_GetEnvironmentType(CBrushSector_* p)
+{
+  return ((CBrushSector*)p)->GetEnvironmentType();
+}
+
+void CBrushSector_SetEnvironmentType(CBrushSector_* p, INDEX i)
+{
+  ((CBrushSector*)p)->SetEnvironmentType(i);
+}
+
+CBrushSector_* CBrushSector_from_bsc_rdOtherSidePortals(CListHead_* p)
+{
+  CListHead& node = *((CListHead*)p);
+  CBrushSector* res = ((CBrushSector*)(((UBYTE*)(&node)) - offsetof(CBrushSector, bsc_rdOtherSidePortals)));
+  return (CBrushSector_*)res;
+}
+
+CBrushSector_* CBrushSector_from_bsc_rsEntities(CListHead_* p)
+{
+  CListHead& node = *((CListHead*)p);
+  CBrushSector* res = ((CBrushSector*)(((UBYTE*)(&node)) - offsetof(CBrushSector, bsc_rsEntities)));
+  return (CBrushSector_*)res;
+}
+
+MEMBER_VAL_IMPL(CBrushSector, CStaticArray_CBrushVertex_, bsc_abvxVertices)
+MEMBER_VAL_IMPL(CBrushSector, CStaticArray_CBrushEdge_, bsc_abedEdges)
+MEMBER_VAL_IMPL(CBrushSector, CStaticArray_CBrushPlane_, bsc_abplPlanes)
+MEMBER_VAL_IMPL(CBrushSector, CStaticArray_CBrushPolygon_, bsc_abpoPolygons)
+MEMBER_PTR_IMPL(CBrushSector, CBrushMip_, bsc_pbmBrushMip)
+MEMBER_VAL_IMPL(CBrushSector, COLOR, bsc_colColor)
+MEMBER_VAL_IMPL(CBrushSector, COLOR, bsc_colAmbient)
+MEMBER_VAL_IMPL(CBrushSector, ULONG, bsc_ulFlags)
+MEMBER_VAL_IMPL(CBrushSector, ULONG, bsc_ulFlags2)
+MEMBER_VAL_IMPL(CBrushSector, ULONG, bsc_ulVisFlags)
+MEMBER_VAL_IMPL(CBrushSector, FLOATaabbox3D_, bsc_boxBoundingBox)
+MEMBER_VAL_IMPL(CBrushSector, CListHead_, bsc_rdOtherSidePortals)
+MEMBER_VAL_IMPL(CBrushSector, CListHead_, bsc_rsEntities)
+MEMBER_VAL_IMPL(CBrushSector, CTString_, bsc_strName)

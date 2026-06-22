@@ -89,6 +89,11 @@ IMPL_CStaticArray(CTerrainTile)
 IMPL_CStaticArray(CArrayHolder)
 IMPL_CStaticArray(CTerrainLayer)
 IMPL_CStaticArray(CBrushVertex)
+IMPL_CStaticArray(CBrushPolygon)
+IMPL_CStaticArray(CBrushPolygonEdge)
+IMPL_CStaticArray(CBrushEdge)
+IMPL_CStaticArray(CBrushPlane)
+IMPL_CStaticArray(CBrushSector)
 
 #undef IMPL_CStaticArray
 
@@ -158,3 +163,4 @@ IMPL_CStaticArray(UWORD)
 IMPL_CStaticArray(ULONG)
 IMPL_CStaticArray(INDEX)
 IMPL_CStaticArray(SLONG)
+IMPL_CStaticArray(CBrushVertexPtr_)

@@ -31,3 +31,5 @@
   }
 
 IMPL_CSelection(CBrushVertex, BVXF_SELECTED)
+IMPL_CSelection(CBrushPolygon, BPOF_SELECTED)
+IMPL_CSelection(CBrushSector, BSCF_SELECTED)

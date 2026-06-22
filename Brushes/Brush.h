@@ -126,6 +126,99 @@ SECAPI UBYTE* CBrushPolygonProperties_bpp_ubGradientType(CBrushPolygonProperties
 SECAPI SBYTE* CBrushPolygonProperties_bpp_sbShadowClusterSize(CBrushPolygonProperties_* p);
 SECAPI UWORD* CBrushPolygonProperties_bpp_uwPretenderDistance(CBrushPolygonProperties_* p);
 
+SECAPI CBrushPolygon_* CBrushPolygon_new();
+SECAPI CBrushPolygon_* CBrushPolygon_clone(const CBrushPolygon_* p);
+SECAPI void CBrushPolygon_delete(CBrushPolygon_* p);
+SECAPI void CBrushPolygon_copy(CBrushPolygon_* a, const CBrushPolygon_* b);
+SECAPI void CBrushPolygon_InitializeShadowMap(CBrushPolygon_* p);
+SECAPI CBrushPolygon_* CBrushPolygon_CopyProperties(CBrushPolygon_* p, CBrushPolygon_* o, BOOL bCopyMapping);
+SECAPI CBrushPolygon_* CBrushPolygon_CopyPropertiesWithoutTexture(CBrushPolygon_* p, CBrushPolygon_* o);
+SECAPI CBrushPolygon_* CBrushPolygon_CopyTextures(CBrushPolygon_* p, CBrushPolygon_* o);
+SECAPI BOOL CBrushVertex_IsSelected(const CBrushVertex_* p);
+SECAPI void CBrushPolygon_SelectSimilarByColor(CBrushPolygon_* p, CSelection_CBrushPolygon_* s);
+SECAPI void CBrushPolygon_SelectSimilarByTexture(CBrushPolygon_* p, CSelection_CBrushPolygon_* s, INDEX iTexture);
+SECAPI void CBrushPolygon_SelectByTextureInSector(CBrushPolygon_* p, CSelection_CBrushPolygon_* s, INDEX iTexture);
+SECAPI void CBrushPolygon_SelectByColorInSector(CBrushPolygon_* p, CSelection_CBrushPolygon_* s);
+SECAPI void CBrushPolygon_DiscardShadows(CBrushPolygon_* p);
+SECAPI CBrushPolygon_* CBrushPolygon_from_bpo_rsOtherSideSectors(CListHead_* p);
+SECAPI MEMBER_PTR_DECL(CBrushPolygon, CBrushPlane_, bpo_pbplPlane)
+SECAPI MEMBER_VAL_DECL(CBrushPolygon, CStaticArray_CBrushPolygonEdge_, bpo_abpePolygonEdges)
+SECAPI MEMBER_VAL_DECL(CBrushPolygon, CStaticArray_CBrushVertexPtr__, bpo_apbvxTriangleVertices)
+SECAPI MEMBER_VAL_DECL(CBrushPolygon, CStaticArray_INDEX_, bpo_aiTriangleElements)
+SECAPI MEMBER_ARR_DECL(CBrushPolygon, CBrushPolygonTexture_, bpo_abptTextures)
+SECAPI MEMBER_VAL_DECL(CBrushPolygon, COLOR, bpo_colColor)
+SECAPI MEMBER_VAL_DECL(CBrushPolygon, ULONG, bpo_ulFlags)
+SECAPI MEMBER_VAL_DECL(CBrushPolygon, COLOR, bpo_colShadow)
+SECAPI MEMBER_VAL_DECL(CBrushPolygon, CBrushShadowMap_, bpo_smShadowMap)
+SECAPI MEMBER_VAL_DECL(CBrushPolygon, CMappingDefinition_, bpo_mdShadow)
+SECAPI MEMBER_VAL_DECL(CBrushPolygon, CBrushPolygonProperties_, bpo_bppProperties)
+SECAPI MEMBER_VAL_DECL(CBrushPolygon, FLOATaabbox3D_, bpo_boxBoundingBox)
+SECAPI MEMBER_PTR_DECL(CBrushPolygon, CBrushSector_, bpo_pbscSector)
+SECAPI MEMBER_VAL_DECL(CBrushPolygon, CListHead_, bpo_rsOtherSideSectors)
+
+#ifndef SERIOUSENGINECAPI_EXPORTS
+// sector flags
+#define BSCF_SELECTED           (1L<<0)   // set if the sector is selected
+#define BSCF_HIDDEN             (1L<<1)   // set if the sector is hidden (for editing)
+#define BSCF_SELECTEDFORCSG     (1L<<2)   // set if the sector is selected for CSG
+#define BSCF_OPENSECTOR         (1L<<3)   // set if the sector polygons are facing outwards
+#define BSCF_NEARTESTED         (1L<<4)   // already tested for near polygon
+#define BSCF_INVISIBLE          (1L<<5)   // active, but not visible
+#define BSCF_RAYTESTED          (1L<<6)   // already tested by ray
+#define BSCF_NEEDSCLIPPING      (1L<<7)   // set if its polygons needs clipping
+#define BSCB_CONTENTTYPE  24      // upper 8 bits are used for sector content type
+#define BSCB_FORCETYPE    16      // next 8 bits are used for sector gravity type
+#define BSCB_FOGTYPE      12      // 4 bits for fog
+#define BSCB_HAZETYPE      8      // 4 bits for haze
+
+#define BSCB2_ENVIRONMENTTYPE      0      // 8 bits for environment sound effects (EAX and similar)
+#define BSCF2_VISIBILITYINCLUDE (1<<8)    // toggle include/exclude for visibility (exclude is default)
+
+// vis flags
+#define VISM_INCLUDEEXCLUDE   (0x0000FFFF)  // for visibility include/exclude
+#define VISM_DONTCLASSIFY     (0xFFFF0000)  // to disable classification in certain sectors
+#endif
+
+SECAPI CBrushSector_* CBrushSector_new();
+SECAPI void CBrushSector_delete(CBrushSector_* p);
+SECAPI void CBrushSector_UpdateSector(CBrushSector_* p);
+SECAPI void CBrushSector_Clear(CBrushSector_* p);
+SECAPI void CBrushSector_TriangularizePolygon(CBrushSector_* p, CBrushPolygon_* pbpo);
+SECAPI void CBrushSector_TriangularizeForVertices(CBrushSector_* p, CBrushVertexSelection_* selVertex);
+SECAPI void CBrushSector_InsertVertexIntoTriangle(CBrushSector_* p, CBrushPolygonSelection_* selPolygon, FLOAT3D_* v);
+SECAPI BOOL CBrushSector_IsReTripleAvailable(CBrushSector_* p, CBrushPolygonSelection_* selPolygon);
+SECAPI void CBrushSector_ReTriple(CBrushSector_* p, CBrushPolygonSelection_* selPolygon);
+SECAPI BOOL CBrushSector_IsSelected(const CBrushSector_* p);
+SECAPI void CBrushSector_Read_t(CBrushSector_* p, CTStream_* s);
+SECAPI void CBrushSector_Write_t(CBrushSector_* p, CTStream_* s);
+SECAPI void CBrushSector_UncacheLightMaps(CBrushSector_* p);
+SECAPI INDEX CBrushSector_GetContentType(CBrushSector_* p);
+SECAPI void CBrushSector_SetContentType(CBrushSector_* p, INDEX i);
+SECAPI INDEX CBrushSector_GetForceType(CBrushSector_* p);
+SECAPI void CBrushSector_SetForceType(CBrushSector_* p, INDEX i);
+SECAPI INDEX CBrushSector_GetFogType(CBrushSector_* p);
+SECAPI void CBrushSector_SetFogType(CBrushSector_* p, INDEX i);
+SECAPI INDEX CBrushSector_GetHazeType(CBrushSector_* p);
+SECAPI void CBrushSector_SetHazeType(CBrushSector_* p, INDEX i);
+SECAPI INDEX CBrushSector_GetEnvironmentType(CBrushSector_* p);
+SECAPI void CBrushSector_SetEnvironmentType(CBrushSector_* p, INDEX i);
+SECAPI CBrushSector_* CBrushSector_from_bsc_rdOtherSidePortals(CListHead_* p);
+SECAPI CBrushSector_* CBrushSector_from_bsc_rsEntities(CListHead_* p);
+SECAPI MEMBER_VAL_DECL(CBrushSector, CStaticArray_CBrushVertex_, bsc_abvxVertices)
+SECAPI MEMBER_VAL_DECL(CBrushSector, CStaticArray_CBrushEdge_, bsc_abedEdges)
+SECAPI MEMBER_VAL_DECL(CBrushSector, CStaticArray_CBrushPlane_, bsc_abplPlanes)
+SECAPI MEMBER_VAL_DECL(CBrushSector, CStaticArray_CBrushPolygon_, bsc_abpoPolygons)
+SECAPI MEMBER_PTR_DECL(CBrushSector, CBrushMip_, bsc_pbmBrushMip)
+SECAPI MEMBER_VAL_DECL(CBrushSector, COLOR, bsc_colColor)
+SECAPI MEMBER_VAL_DECL(CBrushSector, COLOR, bsc_colAmbient)
+SECAPI MEMBER_VAL_DECL(CBrushSector, ULONG, bsc_ulFlags)
+SECAPI MEMBER_VAL_DECL(CBrushSector, ULONG, bsc_ulFlags2)
+SECAPI MEMBER_VAL_DECL(CBrushSector, ULONG, bsc_ulVisFlags)
+SECAPI MEMBER_VAL_DECL(CBrushSector, FLOATaabbox3D_, bsc_boxBoundingBox)
+SECAPI MEMBER_VAL_DECL(CBrushSector, CListHead_, bsc_rdOtherSidePortals)
+SECAPI MEMBER_VAL_DECL(CBrushSector, CListHead_, bsc_rsEntities)
+SECAPI MEMBER_VAL_DECL(CBrushSector, CTString_, bsc_strName)
+
 #ifdef __cplusplus
 }
 #endif

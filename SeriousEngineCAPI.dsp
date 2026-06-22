@@ -183,6 +183,14 @@ SOURCE=.\Base\OneAnim.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\Relations.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Relations.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\Serial.cpp
 # End Source File
 # Begin Source File
