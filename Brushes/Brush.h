@@ -219,6 +219,42 @@ SECAPI MEMBER_VAL_DECL(CBrushSector, CListHead_, bsc_rdOtherSidePortals)
 SECAPI MEMBER_VAL_DECL(CBrushSector, CListHead_, bsc_rsEntities)
 SECAPI MEMBER_VAL_DECL(CBrushSector, CTString_, bsc_strName)
 
+SECAPI CBrushMip_* CBrushMip_new();
+SECAPI void CBrushMip_delete(CBrushMip_* p);
+SECAPI void CBrushMip_Reoptimize(CBrushMip_* p);
+SECAPI void CBrushMip_Clear(CBrushMip_* p);
+SECAPI void CBrushMip_Copy(CBrushMip_* p, CBrushMip_* o, FLOAT fStretch, BOOL bMirrorX);
+SECAPI void CBrushMip_SetMipDistance(CBrushMip_* p, FLOAT fMipDistance);
+SECAPI FLOAT CBrushMip_GetMipDistance(CBrushMip_* p);
+SECAPI INDEX CBrushMip_GetMipIndex(CBrushMip_* p);
+SECAPI CBrushMip_* CBrushMip_GetNext(CBrushMip_* p);
+SECAPI CBrushMip_* CBrushMip_GetPrev(CBrushMip_* p);
+SECAPI CBrushMip_* CBrushMip_from_bm_lnInBrush(CListNode_* p);
+SECAPI MEMBER_VAL_DECL(CBrushMip, CDynamicArray_CBrushSector_, bm_abscSectors)
+SECAPI MEMBER_PTR_DECL(CBrushMip, CBrush3D_, bm_pbrBrush)
+SECAPI MEMBER_VAL_DECL(CBrushMip, CListNode_, bm_lnInBrush)
+SECAPI MEMBER_VAL_DECL(CBrushMip, FLOATaabbox3D_, bm_boxBoundingBox)
+
+SECAPI CBrush3D_* CBrush3D_new();
+SECAPI void CBrush3D_delete(CBrush3D_* p);
+SECAPI void CBrush3D_CalculateBoundingBoxes(CBrush3D_* p);
+SECAPI void CBrush3D_Clear(CBrush3D_* p);
+SECAPI void CBrush3D_FromObject3D_t(CBrush3D_* p, CObject3D_* ob);
+SECAPI void CBrush3D_AddMipBrushFromObject3D_t(CBrush3D_* p, CObject3D_* ob, FLOAT fSwitchDistance);
+SECAPI void CBrush3D_Copy(CBrush3D_* p, CBrush3D_* o, FLOAT fStretch, BOOL bMirrorX);
+SECAPI void CBrush3D_DeleteBrushMip(CBrush3D_* p, CBrushMip_* pbmToDelete);
+SECAPI CBrushMip_* CBrush3D_NewBrushMipAfter(CBrush3D_* p, CBrushMip_* pbm, BOOL bCopy);
+SECAPI CBrushMip_* CBrush3D_NewBrushMipBefore(CBrush3D_* p, CBrushMip_* pbm, BOOL bCopy);
+SECAPI CBrushMip_* CBrush3D_GetBrushMipByDistance(CBrush3D_* p, FLOAT fDistance);
+SECAPI CBrushMip_* CBrush3D_GetFirstMip(CBrush3D_* p);
+SECAPI CBrushMip_* CBrush3D_GetLastMip(CBrush3D_* p);
+SECAPI void CBrush3D_SwitchToNonZoning(CBrush3D_* p);
+SECAPI void CBrush3D_SwitchToZoning(CBrush3D_* p);
+SECAPI void CBrush3D_Read_t(CBrush3D_* p, CTStream_* s);
+SECAPI void CBrush3D_Write_t(CBrush3D_* p, CTStream_* s);
+SECAPI MEMBER_PTR_DECL(CBrush3D, CEntity_, br_penEntity)
+SECAPI MEMBER_VAL_DECL(CBrush3D, CListHead_, br_lhBrushMips)
+
 #ifdef __cplusplus
 }
 #endif

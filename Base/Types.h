@@ -204,6 +204,7 @@ typedef struct CDynamicArray_CObjectPlane_ CDynamicArray_CObjectPlane_;
 typedef struct CDynamicArray_CObjectMaterial_ CDynamicArray_CObjectMaterial_;
 typedef struct CDynamicArray_CObjectPolygon_ CDynamicArray_CObjectPolygon_;
 typedef struct CDynamicArray_CObjectSector_ CDynamicArray_CObjectSector_;
+typedef struct CDynamicArray_CBrushSector_ CDynamicArray_CBrushSector_;
 
 typedef struct CDynamicStackArray_FLOAT_ CDynamicStackArray_FLOAT_;
 typedef struct CDynamicStackArray_CTString_ CDynamicStackArray_CTString_;
@@ -351,6 +352,7 @@ typedef struct CBrushPolygonProperties_ CBrushPolygonProperties_;
 typedef struct CBrushPolygon_ CBrushPolygon_;
 typedef struct CBrushSector_ CBrushSector_;
 typedef struct CBrushMip_ CBrushMip_;
+typedef struct CBrush3D_ CBrush3D_;
 
 typedef struct CLightSource_ CLightSource_;
 

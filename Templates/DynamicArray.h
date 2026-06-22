@@ -34,6 +34,7 @@ DECLARE_CDynamicArray(CObjectVertex)
 DECLARE_CDynamicArray(CObjectPlane)
 DECLARE_CDynamicArray(CObjectMaterial)
 DECLARE_CDynamicArray(CObjectPolygon)
+DECLARE_CDynamicArray(CBrushSector)
 
 #undef DECLARE_CDynamicArray
 

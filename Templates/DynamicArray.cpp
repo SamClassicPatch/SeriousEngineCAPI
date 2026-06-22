@@ -75,6 +75,7 @@ IMPL_CDynamicArray(CObjectVertex)
 IMPL_CDynamicArray(CObjectPlane)
 IMPL_CDynamicArray(CObjectMaterial)
 IMPL_CDynamicArray(CObjectPolygon)
+IMPL_CDynamicArray(CBrushSector)
 
 #undef IMPL_CDynamicArray
 

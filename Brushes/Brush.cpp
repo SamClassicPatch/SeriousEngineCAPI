@@ -639,3 +639,174 @@ MEMBER_VAL_IMPL(CBrushSector, FLOATaabbox3D_, bsc_boxBoundingBox)
 MEMBER_VAL_IMPL(CBrushSector, CListHead_, bsc_rdOtherSidePortals)
 MEMBER_VAL_IMPL(CBrushSector, CListHead_, bsc_rsEntities)
 MEMBER_VAL_IMPL(CBrushSector, CTString_, bsc_strName)
+
+CBrushMip_* CBrushMip_new()
+{
+  return (CBrushMip_*)(new CBrushMip());
+}
+
+void CBrushMip_delete(CBrushMip_* p)
+{
+  delete ((CBrushMip*)p);
+}
+
+void CBrushMip_Reoptimize(CBrushMip_* p)
+{
+  ((CBrushMip*)p)->Reoptimize();
+}
+
+void CBrushMip_Clear(CBrushMip_* p)
+{
+  ((CBrushMip*)p)->Clear();
+}
+
+void CBrushMip_Copy(CBrushMip_* p, CBrushMip_* o, FLOAT fStretch, BOOL bMirrorX)
+{
+  ((CBrushMip*)p)->Copy(*((CBrushMip*)o), fStretch, bMirrorX);
+}
+
+void CBrushMip_SetMipDistance(CBrushMip_* p, FLOAT fMipDistance)
+{
+  ((CBrushMip*)p)->SetMipDistance(fMipDistance);
+}
+
+FLOAT CBrushMip_GetMipDistance(CBrushMip_* p)
+{
+  return ((CBrushMip*)p)->GetMipDistance();
+}
+
+INDEX CBrushMip_GetMipIndex(CBrushMip_* p)
+{
+  return ((CBrushMip*)p)->GetMipIndex();
+}
+
+CBrushMip_* CBrushMip_GetNext(CBrushMip_* p)
+{
+  return (CBrushMip_*)(((CBrushMip*)p)->GetNext());
+}
+
+CBrushMip_* CBrushMip_GetPrev(CBrushMip_* p)
+{
+  return (CBrushMip_*)(((CBrushMip*)p)->GetPrev());
+}
+
+CBrushMip_* CBrushMip_from_bm_lnInBrush(CListNode_* p)
+{
+  CListNode& node = *((CListNode*)p);
+  CBrushMip* res = ((CBrushMip*)(((UBYTE*)(&node)) - offsetof(CBrushMip, bm_lnInBrush)));
+  return (CBrushMip_*)res;
+}
+
+MEMBER_VAL_IMPL(CBrushMip, CDynamicArray_CBrushSector_, bm_abscSectors)
+MEMBER_PTR_IMPL(CBrushMip, CBrush3D_, bm_pbrBrush)
+MEMBER_VAL_IMPL(CBrushMip, CListNode_, bm_lnInBrush)
+MEMBER_VAL_IMPL(CBrushMip, FLOATaabbox3D_, bm_boxBoundingBox)
+
+CBrush3D_* CBrush3D_new()
+{
+  return (CBrush3D_*)(new CBrush3D());
+}
+
+void CBrush3D_delete(CBrush3D_* p)
+{
+  delete ((CBrush3D*)p);
+}
+void CBrush3D_CalculateBoundingBoxes(CBrush3D_* p)
+{
+  ((CBrush3D*)p)->CalculateBoundingBoxes();
+}
+
+void CBrush3D_Clear(CBrush3D_* p)
+{
+  ((CBrush3D*)p)->Clear();
+}
+
+void CBrush3D_FromObject3D_t(CBrush3D_* p, CObject3D_* ob)
+{
+  SECAPI_TRY
+  ((CBrush3D*)p)->FromObject3D_t(*((CObject3D*)ob));
+  SECAPI_CATCH
+}
+
+void CBrush3D_AddMipBrushFromObject3D_t(CBrush3D_* p, CObject3D_* ob, FLOAT fSwitchDistance)
+{
+  SECAPI_TRY
+  ((CBrush3D*)p)->AddMipBrushFromObject3D_t(*((CObject3D*)ob), fSwitchDistance);
+  SECAPI_CATCH
+}
+
+void CBrush3D_Copy(CBrush3D_* p, CBrush3D_* o, FLOAT fStretch, BOOL bMirrorX)
+{
+  ((CBrush3D*)p)->Copy(*((CBrush3D*)o), fStretch, bMirrorX);
+}
+
+void CBrush3D_DeleteBrushMip(CBrush3D_* p, CBrushMip_* pbmToDelete)
+{
+  ((CBrush3D*)p)->DeleteBrushMip((CBrushMip*)pbmToDelete);
+}
+
+CBrushMip_* CBrush3D_NewBrushMipAfter(CBrush3D_* p, CBrushMip_* pbm, BOOL bCopy)
+{
+  return (CBrushMip_*)(((CBrush3D*)p)->NewBrushMipAfter((CBrushMip*)pbm, bCopy));
+}
+
+CBrushMip_* CBrush3D_NewBrushMipBefore(CBrush3D_* p, CBrushMip_* pbm, BOOL bCopy)
+{
+  return (CBrushMip_*)(((CBrush3D*)p)->NewBrushMipBefore((CBrushMip*)pbm, bCopy));
+}
+
+CBrushMip_* CBrush3D_GetBrushMipByDistance(CBrush3D_* p, FLOAT fDistance)
+{
+  return (CBrushMip_*)(((CBrush3D*)p)->GetBrushMipByDistance(fDistance));
+}
+
+CBrushMip_* CBrush3D_GetFirstMip(CBrush3D_* p)
+{
+  return (CBrushMip_*)(((CBrush3D*)p)->GetFirstMip());
+}
+
+CBrushMip_* CBrush3D_GetLastMip(CBrush3D_* p)
+{
+  return (CBrushMip_*)(((CBrush3D*)p)->GetLastMip());
+}
+
+void CBrush3D_SwitchToNonZoning(CBrush3D_* p)
+{
+  ((CBrush3D*)p)->SwitchToNonZoning();
+}
+
+void CBrush3D_SwitchToZoning(CBrush3D_* p)
+{
+  ((CBrush3D*)p)->SwitchToZoning();
+}
+
+static void sehCBrush3D_Read_t(CBrush3D_* p, CTStream_* s)
+{
+  SECAPI_TRY
+  ((CBrush3D*)p)->Read_t((CTStream*)s);
+  SECAPI_CATCH
+}
+
+void CBrush3D_Read_t(CBrush3D_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCBrush3D_Read_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehCBrush3D_Write_t(CBrush3D_* p, CTStream_* s)
+{
+  SECAPI_TRY
+  ((CBrush3D*)p)->Write_t((CTStream*)s);
+  SECAPI_CATCH
+}
+
+void CBrush3D_Write_t(CBrush3D_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCBrush3D_Write_t(p, s);
+  STREAM_CATCH
+}
+
+MEMBER_PTR_IMPL(CBrush3D, CEntity_, br_penEntity)
+MEMBER_VAL_IMPL(CBrush3D, CListHead_, br_lhBrushMips)
