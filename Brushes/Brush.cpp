@@ -20,10 +20,10 @@ void CBrushVertex_copy(CBrushVertex_* a, const CBrushVertex_* b)
   *((CBrushVertex*)a) = *((const CBrushVertex*)b);
 }
 
-CWorkingVertex_* CBrushVertex_bvx_pwvxWorking(CBrushVertex_* p)
+CWorkingVertex_** CBrushVertex_bvx_pwvxWorking(CBrushVertex_* p)
 {
   CBrushVertex& m = *((CBrushVertex*)p);
-  return (CWorkingVertex_*)(m.bvx_pwvxWorking);
+  return (CWorkingVertex_**)(&(m.bvx_pwvxWorking));
 }
 
 FLOAT3D_* CBrushVertex_bvx_vAbsolute(CBrushVertex_* p)
@@ -80,10 +80,10 @@ void CBrushPlane_copy(CBrushPlane_* a, const CBrushPlane_* b)
   *((CBrushPlane*)a) = *((const CBrushPlane*)b);
 }
 
-CWorkingPlane_* CBrushPlane_bpl_pwplWorking(CBrushPlane_* p)
+CWorkingPlane_** CBrushPlane_bpl_pwplWorking(CBrushPlane_* p)
 {
   CBrushPlane& m = *((CBrushPlane*)p);
-  return (CWorkingPlane_*)(&(m.bpl_pwplWorking));
+  return (CWorkingPlane_**)(&(m.bpl_pwplWorking));
 }
 
 FLOATplane3D_* CBrushPlane_bpl_plAbsolute(CBrushPlane_* p)
@@ -181,12 +181,6 @@ void CBrushPolygonEdge_copy(CBrushPolygonEdge_* a, const CBrushPolygonEdge_* b)
   *((CBrushPolygonEdge*)a) = *((const CBrushPolygonEdge*)b);
 }
 
-void CBrushPolygonEdge_GetVertices(CBrushPolygonEdge_* p, CBrushVertex_** v0, CBrushVertex_** v1)
-{
-  CBrushPolygonEdge& e = *((CBrushPolygonEdge*)p);
-  e.GetVertices(*((CBrushVertex**)v0), *((CBrushVertex**)v1));
-}
-
 void CBrushPolygonEdge_GetVertexCoordinatesAbsolute(CBrushPolygonEdge_* p, FLOAT3D_* v0, FLOAT3D_* v1)
 {
   CBrushPolygonEdge& e = *((CBrushPolygonEdge*)p);
@@ -252,6 +246,7 @@ SLONG CBrushShadowMap_Uncache(CBrushShadowMap_* p)
   return ((CBrushShadowMap*)p)->Uncache();
 }
 
+MEMBER_VAL_IMPL(CBrushShadowMap, CListHead_, bsm_lhLayers)
 
 CBrushPolygonTexture_* CBrushPolygonTexture_new()
 {
@@ -272,9 +267,9 @@ void CBrushPolygonTexture_copy(CBrushPolygonTexture_* a, const CBrushPolygonText
 {
   *((CBrushPolygonTexture*)a) = *((const CBrushPolygonTexture*)b);
 }
-CBrushPolygonTexture_* CBrushPolygonTexture_CopyTextureProperties(CBrushPolygonTexture_* p, CBrushPolygonTexture_* o, BOOL bCopyMapping)
+void CBrushPolygonTexture_CopyTextureProperties(CBrushPolygonTexture_* p, CBrushPolygonTexture_* o, BOOL bCopyMapping)
 {
-  return (CBrushPolygonTexture_*)(&(((CBrushPolygonTexture*)p)->CopyTextureProperties(*((CBrushPolygonTexture*)o), bCopyMapping)));
+  ((CBrushPolygonTexture*)p)->CopyTextureProperties(*((CBrushPolygonTexture*)o), bCopyMapping);
 }
 
 void CBrushPolygonTexture_Clear(CBrushPolygonTexture_* p)
@@ -344,6 +339,7 @@ void CBrushPolygonProperties_copy(CBrushPolygonProperties_* a, const CBrushPolyg
 {
   *((CBrushPolygonProperties*)a) = *((const CBrushPolygonProperties*)b);
 }
+
 UBYTE* CBrushPolygonProperties_bpp_ubSurfaceType(CBrushPolygonProperties_* p)
 {
   CBrushPolygonProperties& m = *((CBrushPolygonProperties*)p);
@@ -412,19 +408,19 @@ void CBrushPolygon_InitializeShadowMap(CBrushPolygon_* p)
   ((CBrushPolygon*)p)->InitializeShadowMap();
 }
 
-CBrushPolygon_* CBrushPolygon_CopyProperties(CBrushPolygon_* p, CBrushPolygon_* o, BOOL bCopyMapping)
+void CBrushPolygon_CopyProperties(CBrushPolygon_* p, CBrushPolygon_* o, BOOL bCopyMapping)
 {
-  return (CBrushPolygon_*)(&(((CBrushPolygon*)p)->CopyProperties(*((CBrushPolygon*)o), bCopyMapping)));
+  ((CBrushPolygon*)p)->CopyProperties(*((CBrushPolygon*)o), bCopyMapping);
 }
 
-CBrushPolygon_* CBrushPolygon_CopyPropertiesWithoutTexture(CBrushPolygon_* p, CBrushPolygon_* o)
+void CBrushPolygon_CopyPropertiesWithoutTexture(CBrushPolygon_* p, CBrushPolygon_* o)
 {
-  return (CBrushPolygon_*)(&(((CBrushPolygon*)p)->CopyPropertiesWithoutTexture(*((CBrushPolygon*)o))));
+  ((CBrushPolygon*)p)->CopyPropertiesWithoutTexture(*((CBrushPolygon*)o));
 }
 
-CBrushPolygon_* CBrushPolygon_CopyTextures(CBrushPolygon_* p, CBrushPolygon_* o)
+void CBrushPolygon_CopyTextures(CBrushPolygon_* p, CBrushPolygon_* o)
 {
-  return (CBrushPolygon_*)(&(((CBrushPolygon*)p)->CopyTextures(*((CBrushPolygon*)o))));
+  ((CBrushPolygon*)p)->CopyTextures(*((CBrushPolygon*)o));
 }
 
 BOOL CBrushPolygon_IsSelected(const CBrushPolygon_* p)
