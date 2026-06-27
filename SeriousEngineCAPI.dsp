@@ -683,6 +683,14 @@ SOURCE=.\Terrain\TerrainTile.h
 # PROP Default_Filter ""
 # Begin Source File
 
+SOURCE=.\Entities\EntityProperties.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Entities\EntityProperties.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Entities\ShadingInfo.cpp
 # End Source File
 # Begin Source File

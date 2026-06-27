@@ -96,6 +96,7 @@ typedef INDEX FillType_;
 typedef INDEX SelectionType_;
 typedef INDEX ShadowsType_;
 typedef INDEX LensFlaresType_;
+typedef INDEX PropertyType_;
 
 typedef struct FLOAT2D_ FLOAT2D_;
 typedef struct FLOAT3D_ FLOAT3D_;
@@ -312,6 +313,10 @@ typedef struct CSoundData_ CSoundData_;
 typedef struct CSoundObject_ CSoundObject_;
 typedef struct CSoundListener_ CSoundListener_;
 
+typedef struct CEntityPropertyEnumValue_ CEntityPropertyEnumValue_;
+typedef struct CEntityPropertyEnumType_ CEntityPropertyEnumType_;
+typedef struct CEntityProperty_ CEntityProperty_;
+typedef struct CDLLEntityClass_ CDLLEntityClass_;
 typedef struct CEntity_ CEntity_;
 typedef struct CShadingInfo_ CShadingInfo_;
 
