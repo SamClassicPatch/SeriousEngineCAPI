@@ -96,6 +96,13 @@ SECAPI CWorldRenderPrefs_* _wrpWorldRenderPrefs_();
 SECAPI void SetLassoSelectionCallback(void (*c)(CEntity_*));
 SECAPI void SetLassoDeselectionCallback(void (*c)(CEntity_*));
 
+SECAPI CBrushVertexSelection_** _pselbvxtSelectOnRender_();
+SECAPI CStaticStackArray_PIX2D_** _pavpixSelectLasso_();
+SECAPI PIX2D_* _vpixSelectNearPoint_();
+SECAPI BOOL* _bSelectAlternative_();
+SECAPI PIX* _pixDeltaAroundVertex_();
+SECAPI CBrushSectorSelection_** _pselbscVisTweaks_();
+
 #ifdef __cplusplus
 }
 #endif

@@ -390,3 +390,33 @@ void SetLassoDeselectionCallback(void (*c)(CEntity_*))
   pLassoDeselectionCallback = c;
   PatchSelection();
 }
+
+CBrushVertexSelection_** _pselbvxtSelectOnRender_()
+{
+  return (CBrushVertexSelection_**)(&_pselbvxtSelectOnRender);
+}
+
+CStaticStackArray_PIX2D_** _pavpixSelectLasso_()
+{
+  return (CStaticStackArray_PIX2D_**)(&_pavpixSelectLasso);
+}
+
+PIX2D_* _vpixSelectNearPoint_()
+{
+  return (PIX2D_*)(&_vpixSelectNearPoint);
+}
+
+BOOL* _bSelectAlternative_()
+{
+  return (BOOL*)(&_bSelectAlternative);
+}
+
+PIX* _pixDeltaAroundVertex_()
+{
+  return (PIX*)(&_pixDeltaAroundVertex);
+}
+
+CBrushSectorSelection_** _pselbscVisTweaks_()
+{
+  return (CBrushSectorSelection_**)(&_pselbscVisTweaks);
+}
