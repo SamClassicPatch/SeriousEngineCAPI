@@ -93,6 +93,9 @@ SECAPI BOOL CWorldRenderPrefs_IsFarClipPlaneInIsometricProjectionOn(CWorldRender
 
 SECAPI CWorldRenderPrefs_* _wrpWorldRenderPrefs_();
 
+SECAPI void SetLassoSelectionCallback(void (*c)(CEntity_*));
+SECAPI void SetLassoDeselectionCallback(void (*c)(CEntity_*));
+
 #ifdef __cplusplus
 }
 #endif

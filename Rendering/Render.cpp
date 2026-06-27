@@ -319,3 +319,74 @@ CWorldRenderPrefs_* _wrpWorldRenderPrefs_()
 {
   return (CWorldRenderPrefs_*)(&_wrpWorldRenderPrefs);
 }
+
+static void (*pLassoSelectionCallback)(CEntity_*) = NULL;
+static void (*pLassoDeselectionCallback)(CEntity_*) = NULL;
+
+static void OnLassoSelection(CEntity& en)
+{
+  if (pLassoSelectionCallback)
+    pLassoSelectionCallback((CEntity_*)(&en));
+}
+
+static void OnLassoDeselection(CEntity& en)
+{
+  if (pLassoDeselectionCallback)
+    pLassoDeselectionCallback((CEntity_*)(&en));
+}
+
+static bool g_selectionPatched = false;
+static void PatchSelection()
+{
+  if (g_selectionPatched)
+    return;
+  g_selectionPatched = true;
+
+  const int enginedll_base_address = reinterpret_cast<int>(&CEntity::HandleSentEvents) - 0xFEC80;
+
+  const int deselect_injection_address = enginedll_base_address + 0xF968A;
+  UBYTE deselect_call_bytes[14] = {
+    UBYTE(0x53), // push entity address in ebx to stack
+    UBYTE(0xE8), UBYTE(0x0), UBYTE(0x0), UBYTE(0x0), UBYTE(0x0), // call OnLassoDeselection
+    UBYTE(0x83), UBYTE(0xC4), UBYTE(0x04), // add esp 4, pop stack
+    UBYTE(0xE9), UBYTE(0xCE), UBYTE(0x0), UBYTE(0x0), UBYTE(0x0) // jump to exit from SelectEntityOnRender
+  };
+  const int OnLassoDeselection_offset = reinterpret_cast<int>(&OnLassoDeselection) - (deselect_injection_address + 1) - 5;
+  memcpy(deselect_call_bytes + 2, &OnLassoDeselection_offset, sizeof(int));
+  
+  DWORD old_page_mode, dummy;
+  if (::VirtualProtect(reinterpret_cast<void*>(deselect_injection_address), sizeof(deselect_call_bytes), PAGE_EXECUTE_READWRITE, &old_page_mode) == 0)
+    throw "Failed to patch selection";
+  memcpy(reinterpret_cast<void*>(deselect_injection_address), deselect_call_bytes, sizeof(deselect_call_bytes));
+  if (::VirtualProtect(reinterpret_cast<void*>(deselect_injection_address), sizeof(deselect_call_bytes), old_page_mode, &dummy) == 0)
+    throw "Failed to patch selection";
+
+
+  const int select_injection_address = enginedll_base_address + 0xF96CF;
+  UBYTE select_call_bytes[14] = {
+    UBYTE(0x53), // push entity address in ebx to stack
+    UBYTE(0xE8), UBYTE(0x0), UBYTE(0x0), UBYTE(0x0), UBYTE(0x0), // call OnLassoSelection
+    UBYTE(0x83), UBYTE(0xC4), UBYTE(0x04), // add esp 4, pop stack
+    UBYTE(0xE9), UBYTE(0x89), UBYTE(0x0), UBYTE(0x0), UBYTE(0x0) // jump to exit from SelectEntityOnRender
+  };
+  const int OnLassoSelection_offset = reinterpret_cast<int>(&OnLassoSelection) - (select_injection_address + 1) - 5;
+  memcpy(select_call_bytes + 2, &OnLassoSelection_offset, sizeof(int));
+
+  if (::VirtualProtect(reinterpret_cast<void*>(select_injection_address), sizeof(select_call_bytes), PAGE_EXECUTE_READWRITE, &old_page_mode) == 0)
+    throw "Failed to patch selection";
+  memcpy(reinterpret_cast<void*>(select_injection_address), select_call_bytes, sizeof(select_call_bytes));
+  if (::VirtualProtect(reinterpret_cast<void*>(select_injection_address), sizeof(select_call_bytes), old_page_mode, &dummy) == 0)
+    throw "Failed to patch selection";
+}
+
+void SetLassoSelectionCallback(void (*c)(CEntity_*))
+{
+  pLassoSelectionCallback = c;
+  PatchSelection();
+}
+
+void SetLassoDeselectionCallback(void (*c)(CEntity_*))
+{
+  pLassoDeselectionCallback = c;
+  PatchSelection();
+}

@@ -25,11 +25,11 @@ static void sehSE_InitEngineAtDirectory_(CTString_* strGameID, const CTFileName_
   }
 
   // skip routine that calculates _fnmApplicationPath and _fnmApplicationExe from GetModuleFileNameA
-  char jump_instruction[sizeof(int) + 1] = { char(0xE9), 0, 0, 0, 0 };
+  UBYTE jump_instruction[sizeof(int) + 1] = { UBYTE(0xE9), 0, 0, 0, 0 };
   int offset = 0x191 - sizeof(jump_instruction);
   memcpy(jump_instruction + 1, &offset, sizeof(int));
   void* instruction_addr = reinterpret_cast<void*>(reinterpret_cast<int>(&SE_InitEngine) + 0x44);
-  char orig_instruction[sizeof(jump_instruction)] = { 0, 0, 0, 0, 0 };
+  UBYTE orig_instruction[sizeof(jump_instruction)] = { 0, 0, 0, 0, 0 };
   memcpy(orig_instruction, instruction_addr, sizeof(orig_instruction));
   
   DWORD old_page_mode, dummy;
