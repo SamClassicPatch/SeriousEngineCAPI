@@ -691,6 +691,14 @@ SOURCE=.\Terrain\TerrainTile.h
 # PROP Default_Filter ""
 # Begin Source File
 
+SOURCE=.\Entities\Entity.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Entities\Entity.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Entities\EntityClass.cpp
 # End Source File
 # Begin Source File
@@ -752,6 +760,18 @@ SOURCE=.\Brushes\BrushTransformed.cpp
 # Begin Source File
 
 SOURCE=.\Brushes\BrushTransformed.h
+# End Source File
+# End Group
+# Begin Group "Classes"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Classes\BaseEvents.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Classes\BaseEvents.h
 # End Source File
 # End Group
 # Begin Source File

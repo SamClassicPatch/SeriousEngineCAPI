@@ -25,6 +25,7 @@ DECLARE_CDynamicContainer(CTextureData)
 DECLARE_CDynamicContainer(CBrushVertex)
 DECLARE_CDynamicContainer(CBrushPolygon)
 DECLARE_CDynamicContainer(CBrushSector)
+DECLARE_CDynamicContainer(CEntity)
 
 #undef DECLARE_CDynamicContainer
 

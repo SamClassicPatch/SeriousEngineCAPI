@@ -97,6 +97,7 @@ typedef INDEX SelectionType_;
 typedef INDEX ShadowsType_;
 typedef INDEX LensFlaresType_;
 typedef INDEX PropertyType_;
+typedef INDEX RenderType_;
 
 typedef struct FLOAT2D_ FLOAT2D_;
 typedef struct FLOAT3D_ FLOAT3D_;
@@ -262,6 +263,7 @@ typedef struct CDynamicContainer_CTextureData_ CDynamicContainer_CTextureData_;
 typedef struct CDynamicContainer_CBrushVertex_ CDynamicContainer_CBrushVertex_;
 typedef struct CDynamicContainer_CBrushPolygon_ CDynamicContainer_CBrushPolygon_;
 typedef struct CDynamicContainer_CBrushSector_ CDynamicContainer_CBrushSector_;
+typedef struct CDynamicContainer_CEntity_ CDynamicContainer_CEntity_;
 
 typedef struct CSelection_CBrushVertex_ CSelection_CBrushVertex_;
 typedef CSelection_CBrushVertex_ CBrushVertexSelection_;
@@ -269,6 +271,8 @@ typedef struct CSelection_CBrushPolygon_ CSelection_CBrushPolygon_;
 typedef CSelection_CBrushPolygon_ CBrushPolygonSelection_;
 typedef struct CSelection_CBrushSector_ CSelection_CBrushSector_;
 typedef CSelection_CBrushSector_ CBrushSectorSelection_;
+typedef struct CSelection_CEntity_ CSelection_CEntity_;
+typedef CSelection_CEntity_ CEntitySelection_;
 
 typedef struct CImageInfo_ CImageInfo_;
 typedef struct CTextureData_ CTextureData_;
@@ -314,6 +318,7 @@ typedef struct CDLLEntityClass_ CDLLEntityClass_;
 typedef struct CEntityClass_ CEntityClass_;
 typedef struct CEntityPointer_ CEntityPointer_;
 typedef struct CEntity_ CEntity_;
+typedef struct CEntityEvent_ CEntityEvent_;
 typedef struct CShadingInfo_ CShadingInfo_;
 
 typedef struct GameGUI_interface_ GameGUI_interface_;
@@ -358,6 +363,8 @@ typedef struct CBrush3D_ CBrush3D_;
 typedef struct CLightSource_ CLightSource_;
 
 typedef struct CWorldRenderPrefs_ CWorldRenderPrefs_;
+
+typedef struct CWorld_ CWorld_;
 
 #define MEMBER_VAL_DECL(baseclass, member_type, member_var) member_type* baseclass##_##member_var(baseclass##_* p);
 #define MEMBER_PTR_DECL(baseclass, member_type, member_var) member_type** baseclass##_##member_var(baseclass##_* p);

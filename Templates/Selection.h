@@ -20,6 +20,7 @@ extern "C" {
 DECLARE_CSelection(CBrushVertex)
 DECLARE_CSelection(CBrushPolygon)
 DECLARE_CSelection(CBrushSector)
+DECLARE_CSelection(CEntity)
 
 #undef DECLARE_CSelection
 #ifdef __cplusplus
