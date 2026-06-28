@@ -447,6 +447,14 @@ SOURCE=.\Templates\Stock_CAnimData.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Templates\Stock_CEntityClass.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Templates\Stock_CEntityClass.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Templates\Stock_CModelData.cpp
 # End Source File
 # Begin Source File
@@ -681,6 +689,14 @@ SOURCE=.\Terrain\TerrainTile.h
 # Begin Group "Entities"
 
 # PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Entities\EntityClass.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Entities\EntityClass.h
+# End Source File
 # Begin Source File
 
 SOURCE=.\Entities\EntityProperties.cpp
