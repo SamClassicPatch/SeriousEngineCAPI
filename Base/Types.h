@@ -318,6 +318,7 @@ typedef struct CEntityPropertyEnumType_ CEntityPropertyEnumType_;
 typedef struct CEntityProperty_ CEntityProperty_;
 typedef struct CDLLEntityClass_ CDLLEntityClass_;
 typedef struct CEntityClass_ CEntityClass_;
+typedef struct CEntityPointer_ CEntityPointer_;
 typedef struct CEntity_ CEntity_;
 typedef struct CShadingInfo_ CShadingInfo_;
 

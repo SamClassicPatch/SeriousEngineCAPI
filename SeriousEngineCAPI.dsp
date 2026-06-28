@@ -699,6 +699,14 @@ SOURCE=.\Entities\EntityClass.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Entities\EntityPointer.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Entities\EntityPointer.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Entities\EntityProperties.cpp
 # End Source File
 # Begin Source File
