@@ -32,13 +32,9 @@ DECLARE_CStaticStackArray(GFXTexCoord)
 DECLARE_CStaticStackArray(GFXVertex4)
 DECLARE_CStaticStackArray(TileLayer)
 DECLARE_CStaticStackArray(TileArrays)
-DECLARE_CStaticStackArray(CTextureData)
 DECLARE_CStaticStackArray(QuadTreeNode)
 DECLARE_CStaticStackArray(QuadTreeLevel)
 DECLARE_CStaticStackArray(CTerrainLayer)
-DECLARE_CStaticStackArray(CBrushVertex)
-DECLARE_CStaticStackArray(CBrushPolygon)
-DECLARE_CStaticStackArray(CBrushSector)
 
 #undef DECLARE_CStaticStackArray
 

@@ -7,8 +7,6 @@ extern "C" {
 #endif
 
 #define DECLARE_CDynamicContainer(TYPE)\
-  inline CStaticStackArray_##TYPE##_* CDynamicContainer_##TYPE##_ToStackArray(CDynamicContainer_##TYPE##_* p) { return (CStaticStackArray_##TYPE##_*)p; }\
-  inline const CStaticStackArray_##TYPE##_* CDynamicContainer_##TYPE##_ToStackArray_const(const CDynamicContainer_##TYPE##_* p) { return (const CStaticStackArray_##TYPE##_*)p; }\
   SECAPI CDynamicContainer_##TYPE##_* CDynamicContainer_##TYPE##_new();\
   SECAPI CDynamicContainer_##TYPE##_* CDynamicContainer_##TYPE##_clone(const CDynamicContainer_##TYPE##_* p);\
   SECAPI void CDynamicContainer_##TYPE##_delete(CDynamicContainer_##TYPE##_* p);\
@@ -31,8 +29,6 @@ DECLARE_CDynamicContainer(CBrushSector)
 #undef DECLARE_CDynamicContainer
 
 #define DECLARE_CDynamicContainer(TYPE)\
-  inline CStaticStackArray_##TYPE##_* CDynamicContainer_##TYPE##_ToStackArray(CDynamicContainer_##TYPE##_* p) { return (CStaticStackArray_##TYPE##_*)p; }\
-  inline const CStaticStackArray_##TYPE##_* CDynamicContainer_##TYPE##_ToStackArray_const(const CDynamicContainer_##TYPE##_* p) { return (const CStaticStackArray_##TYPE##_*)p; }\
   SECAPI CDynamicContainer_##TYPE##_* CDynamicContainer_##TYPE##_new();\
   SECAPI CDynamicContainer_##TYPE##_* CDynamicContainer_##TYPE##_clone(const CDynamicContainer_##TYPE##_* p);\
   SECAPI void CDynamicContainer_##TYPE##_delete(CDynamicContainer_##TYPE##_* p);\

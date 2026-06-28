@@ -40,7 +40,6 @@ DECLARE_CStaticArray(GFXTexCoord)
 DECLARE_CStaticArray(GFXVertex4)
 DECLARE_CStaticArray(TileLayer)
 DECLARE_CStaticArray(TileArrays)
-DECLARE_CStaticArray(CTextureData)
 DECLARE_CStaticArray(QuadTreeNode)
 DECLARE_CStaticArray(QuadTreeLevel)
 DECLARE_CStaticArray(CTerrainTile)
@@ -51,7 +50,6 @@ DECLARE_CStaticArray(CBrushPolygon)
 DECLARE_CStaticArray(CBrushPolygonEdge)
 DECLARE_CStaticArray(CBrushEdge)
 DECLARE_CStaticArray(CBrushPlane)
-DECLARE_CStaticArray(CBrushSector)
 
 #undef DECLARE_CStaticArray
 

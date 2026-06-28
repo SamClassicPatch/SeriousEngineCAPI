@@ -87,13 +87,9 @@ IMPL_CStaticStackArray(GFXTexCoord)
 IMPL_CStaticStackArray(GFXVertex4)
 IMPL_CStaticStackArray(TileLayer)
 IMPL_CStaticStackArray(TileArrays)
-IMPL_CStaticStackArray(CTextureData)
 IMPL_CStaticStackArray(QuadTreeNode)
 IMPL_CStaticStackArray(QuadTreeLevel)
 IMPL_CStaticStackArray(CTerrainLayer)
-IMPL_CStaticStackArray(CBrushVertex)
-IMPL_CStaticStackArray(CBrushPolygon)
-IMPL_CStaticStackArray(CBrushSector)
 
 #undef IMPL_CStaticStackArray
 

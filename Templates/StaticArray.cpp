@@ -82,7 +82,6 @@ IMPL_CStaticArray(GFXTexCoord)
 IMPL_CStaticArray(GFXVertex4)
 IMPL_CStaticArray(TileLayer)
 IMPL_CStaticArray(TileArrays)
-IMPL_CStaticArray(CTextureData)
 IMPL_CStaticArray(QuadTreeNode)
 IMPL_CStaticArray(QuadTreeLevel)
 IMPL_CStaticArray(CTerrainTile)
@@ -93,7 +92,6 @@ IMPL_CStaticArray(CBrushPolygon)
 IMPL_CStaticArray(CBrushPolygonEdge)
 IMPL_CStaticArray(CBrushEdge)
 IMPL_CStaticArray(CBrushPlane)
-IMPL_CStaticArray(CBrushSector)
 
 #undef IMPL_CStaticArray
 
