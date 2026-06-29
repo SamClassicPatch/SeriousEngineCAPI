@@ -774,6 +774,30 @@ SOURCE=.\Classes\BaseEvents.cpp
 SOURCE=.\Classes\BaseEvents.h
 # End Source File
 # End Group
+# Begin Group "World"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\World\World.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\World\World.h
+# End Source File
+# End Group
+# Begin Group "Light"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Light\LightSource.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Light\LightSource.h
+# End Source File
+# End Group
 # Begin Source File
 
 SOURCE=.\Engine.cpp
