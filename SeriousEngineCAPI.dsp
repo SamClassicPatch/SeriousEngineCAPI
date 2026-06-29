@@ -785,6 +785,22 @@ SOURCE=.\World\World.cpp
 
 SOURCE=.\World\World.h
 # End Source File
+# Begin Source File
+
+SOURCE=.\World\WorldRayCasting.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\World\WorldRayCasting.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\World\WorldSettings.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\World\WorldSettings.h
+# End Source File
 # End Group
 # Begin Group "Light"
 

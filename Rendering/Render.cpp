@@ -420,3 +420,8 @@ CBrushSectorSelection_** _pselbscVisTweaks_()
 {
   return (CBrushSectorSelection_**)(&_pselbscVisTweaks);
 }
+
+void RenderView_(CWorld_* woWorld, CEntity_* enViewer, CAnyProjection3D_* prProjection, CDrawPort_* dpDrawport)
+{
+  RenderView(*((CWorld*)woWorld), *((CEntity*)enViewer), *((CAnyProjection3D*)prProjection), *((CDrawPort*)dpDrawport));
+}

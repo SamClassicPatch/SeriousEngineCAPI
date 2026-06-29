@@ -103,6 +103,8 @@ SECAPI BOOL* _bSelectAlternative_();
 SECAPI PIX* _pixDeltaAroundVertex_();
 SECAPI CBrushSectorSelection_** _pselbscVisTweaks_();
 
+SECAPI void RenderView_(CWorld_* woWorld, CEntity_* enViewer, CAnyProjection3D_* prProjection, CDrawPort_* dpDrawport);
+
 #ifdef __cplusplus
 }
 #endif

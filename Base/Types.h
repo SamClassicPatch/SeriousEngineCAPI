@@ -98,6 +98,7 @@ typedef INDEX ShadowsType_;
 typedef INDEX LensFlaresType_;
 typedef INDEX PropertyType_;
 typedef INDEX RenderType_;
+typedef INDEX TestType_;
 
 typedef struct FLOAT2D_ FLOAT2D_;
 typedef struct FLOAT3D_ FLOAT3D_;
@@ -364,6 +365,13 @@ typedef struct CLightSource_ CLightSource_;
 
 typedef struct CWorldRenderPrefs_ CWorldRenderPrefs_;
 
+typedef struct CTextureTransformation_ CTextureTransformation_;
+typedef struct CTextureBlending_ CTextureBlending_;
+typedef struct CSurfaceType_ CSurfaceType_;
+typedef struct CContentType_ CContentType_;
+typedef struct CEnvironmentType_ CEnvironmentType_;
+typedef struct CIlluminationType_ CIlluminationType_;
+typedef struct CCastRay_ CCastRay_;
 typedef struct CWorld_ CWorld_;
 
 #define MEMBER_VAL_DECL(baseclass, member_type, member_var) member_type* baseclass##_##member_var(baseclass##_* p);
