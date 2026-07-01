@@ -663,6 +663,14 @@ SOURCE=.\Terrain\Terrain.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Terrain\TerrainEditing.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Terrain\TerrainEditing.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Terrain\TerrainLayer.cpp
 # End Source File
 # Begin Source File

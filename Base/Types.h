@@ -43,6 +43,14 @@ typedef double DOUBLE;
 #define MAX_UWORD ((UWORD)0xFFFF)
 #define MAX_UBYTE ((UBYTE)0xFF)
 
+// macros for windows/croteam true color conversion
+#define CLRF_CLR(clr) ( ((clr & 0xff000000) >> 24) | \
+                        ((clr & 0x00ff0000) >>  8) | \
+                        ((clr & 0x0000ff00) <<  8))
+#define CLR_CLRF(clrref) ( ((clrref & 0x000000ff) << 24) | \
+                           ((clrref & 0x0000ff00) <<  8) | \
+                           ((clrref & 0x00ff0000) >>  8))
+
 // z-buffer depth constants
 #define ZBUF_FRONT  (0.0f)
 #define ZBUF_BACK   (1.0f)
@@ -100,6 +108,9 @@ typedef INDEX PropertyType_;
 typedef INDEX RenderType_;
 typedef INDEX TestType_;
 typedef INDEX WorldMirrorType_;
+typedef INDEX EEditingTool_;
+typedef INDEX BufferType_;
+typedef INDEX SelectionFill_;
 
 typedef struct FLOAT2D_ FLOAT2D_;
 typedef struct FLOAT3D_ FLOAT3D_;
