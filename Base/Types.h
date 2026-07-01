@@ -99,6 +99,7 @@ typedef INDEX LensFlaresType_;
 typedef INDEX PropertyType_;
 typedef INDEX RenderType_;
 typedef INDEX TestType_;
+typedef INDEX WorldMirrorType_;
 
 typedef struct FLOAT2D_ FLOAT2D_;
 typedef struct FLOAT3D_ FLOAT3D_;
@@ -246,6 +247,12 @@ typedef struct CStaticArray_CBrushPolygonEdge_ CStaticArray_CBrushPolygonEdge_;
 typedef struct CStaticArray_CBrushVertexPtr__ CStaticArray_CBrushVertexPtr__;
 typedef struct CStaticArray_CBrushEdge_ CStaticArray_CBrushEdge_;
 typedef struct CStaticArray_CBrushPlane_ CStaticArray_CBrushPlane_;
+typedef struct CStaticArray_CTextureTransformation_ CStaticArray_CTextureTransformation_;
+typedef struct CStaticArray_CTextureBlending_ CStaticArray_CTextureBlending_;
+typedef struct CStaticArray_CSurfaceType_ CStaticArray_CSurfaceType_;
+typedef struct CStaticArray_CContentType_ CStaticArray_CContentType_;
+typedef struct CStaticArray_CEnvironmentType_ CStaticArray_CEnvironmentType_;
+typedef struct CStaticArray_CIlluminationType_ CStaticArray_CIlluminationType_;
 
 typedef struct CStaticStackArray_PIX2D_ CStaticStackArray_PIX2D_;
 typedef struct CStaticStackArray_FLOAT3D_ CStaticStackArray_FLOAT3D_;

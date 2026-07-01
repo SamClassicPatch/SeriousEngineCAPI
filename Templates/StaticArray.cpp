@@ -92,6 +92,12 @@ IMPL_CStaticArray(CBrushPolygon)
 IMPL_CStaticArray(CBrushPolygonEdge)
 IMPL_CStaticArray(CBrushEdge)
 IMPL_CStaticArray(CBrushPlane)
+IMPL_CStaticArray(CTextureTransformation)
+IMPL_CStaticArray(CTextureBlending)
+IMPL_CStaticArray(CSurfaceType)
+IMPL_CStaticArray(CContentType)
+IMPL_CStaticArray(CEnvironmentType)
+IMPL_CStaticArray(CIlluminationType)
 
 #undef IMPL_CStaticArray
 

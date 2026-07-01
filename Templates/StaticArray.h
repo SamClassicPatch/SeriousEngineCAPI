@@ -50,6 +50,12 @@ DECLARE_CStaticArray(CBrushPolygon)
 DECLARE_CStaticArray(CBrushPolygonEdge)
 DECLARE_CStaticArray(CBrushEdge)
 DECLARE_CStaticArray(CBrushPlane)
+DECLARE_CStaticArray(CTextureTransformation)
+DECLARE_CStaticArray(CTextureBlending)
+DECLARE_CStaticArray(CSurfaceType)
+DECLARE_CStaticArray(CContentType)
+DECLARE_CStaticArray(CEnvironmentType)
+DECLARE_CStaticArray(CIlluminationType)
 
 #undef DECLARE_CStaticArray
 
