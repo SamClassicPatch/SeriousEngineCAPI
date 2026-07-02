@@ -49,6 +49,10 @@
   {\
     ((CDynamicContainer<TYPE>*)p)->MoveContainer(*((CDynamicContainer<TYPE>*)coOther));\
   }\
+  INDEX CDynamicContainer_##TYPE##_Count(const CDynamicContainer_##TYPE##_* p)\
+  {\
+    return ((CDynamicContainer<TYPE>*)p)->Count();\
+  }\
   TYPE##_* CDynamicContainer_##TYPE##_GetFirst(CDynamicContainer_##TYPE##_* p)\
   {\
     return (TYPE##_*)(&((CDynamicContainer<TYPE>*)p)->GetFirst());\
@@ -110,6 +114,10 @@ IMPL_CDynamicContainer(CEntity)
   void CDynamicContainer_##TYPE##_MoveContainer(CDynamicContainer_##TYPE##_* p, CDynamicContainer_##TYPE##_* coOther)\
   {\
     ((CDynamicContainer<TYPE>*)p)->MoveContainer(*((CDynamicContainer<TYPE>*)coOther));\
+  }\
+  INDEX CDynamicContainer_##TYPE##_Count(const CDynamicContainer_##TYPE##_* p)\
+  {\
+    return ((CDynamicContainer<TYPE>*)p)->Count();\
   }\
   TYPE* CDynamicContainer_##TYPE##_GetFirst(CDynamicContainer_##TYPE##_* p)\
   {\

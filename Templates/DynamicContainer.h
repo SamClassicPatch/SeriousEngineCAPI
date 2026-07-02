@@ -19,6 +19,7 @@ extern "C" {
   SECAPI TYPE##_* CDynamicContainer_##TYPE##_Element(CDynamicContainer_##TYPE##_* p, INDEX iObject);\
   SECAPI const TYPE##_* CDynamicContainer_##TYPE##_Element_const(const CDynamicContainer_##TYPE##_* p, INDEX iObject);\
   SECAPI void CDynamicContainer_##TYPE##_MoveContainer(CDynamicContainer_##TYPE##_* p, CDynamicContainer_##TYPE##_* coOther);\
+  SECAPI INDEX CDynamicContainer_##TYPE##_Count(const CDynamicContainer_##TYPE##_* p);\
   SECAPI TYPE##_* CDynamicContainer_##TYPE##_GetFirst(CDynamicContainer_##TYPE##_* p);
 
 DECLARE_CDynamicContainer(CTextureData)
@@ -42,6 +43,7 @@ DECLARE_CDynamicContainer(CEntity)
   SECAPI TYPE* CDynamicContainer_##TYPE##_Element(CDynamicContainer_##TYPE##_* p, INDEX iObject);\
   SECAPI const TYPE* CDynamicContainer_##TYPE##_Element_const(const CDynamicContainer_##TYPE##_* p, INDEX iObject);\
   SECAPI void CDynamicContainer_##TYPE##_MoveContainer(CDynamicContainer_##TYPE##_* p, CDynamicContainer_##TYPE##_* coOther);\
+  SECAPI INDEX CDynamicContainer_##TYPE##_Count(const CDynamicContainer_##TYPE##_* p);\
   SECAPI TYPE_* CDynamicContainer_##TYPE##_GetFirst(CDynamicContainer_##TYPE##_* p);
 
 #undef DECLARE_CDynamicContainer

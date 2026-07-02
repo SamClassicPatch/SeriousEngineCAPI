@@ -111,6 +111,7 @@ typedef INDEX WorldMirrorType_;
 typedef INDEX EEditingTool_;
 typedef INDEX BufferType_;
 typedef INDEX SelectionFill_;
+typedef INDEX FPUPrecisionType_;
 
 typedef struct FLOAT2D_ FLOAT2D_;
 typedef struct FLOAT3D_ FLOAT3D_;

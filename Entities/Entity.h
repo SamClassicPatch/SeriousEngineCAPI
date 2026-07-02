@@ -124,6 +124,7 @@ SECAPI MEMBER_PTR_DECL(CEntity, CEntityClass_, en_pecClass)
 SECAPI MEMBER_PTR_DECL(CEntity, CBrush3D_, en_pbrBrush)
 SECAPI MEMBER_PTR_DECL(CEntity, CTerrain_, en_ptrTerrain)
 SECAPI MEMBER_PTR_DECL(CEntity, CWorld_, en_pwoWorld)
+SECAPI MEMBER_PTR_DECL(CEntity, CEntity_, en_penParent)
 SECAPI MEMBER_VAL_DECL(CEntity, CListHead_, en_rdSectors)
 SECAPI CEntity_* CEntity_from_en_rdSectors(CListHead_* p);
 SECAPI MEMBER_VAL_DECL(CEntity, CListNode_, en_lnInParent)
@@ -131,6 +132,8 @@ SECAPI MEMBER_VAL_DECL(CEntity, CListHead_, en_lhChildren)
 SECAPI CEntity_* CEntity_from_en_lnInParent(CListNode_* p);
 SECAPI CEntityProperty_* CEntity_PropertyForName(CEntity_* p, const CTString_* s);
 SECAPI BOOL CEntity_IsSelected(const CEntity_* p);
+SECAPI void CEntity_Select(CEntity_* p);
+SECAPI void CEntity_Deselect(CEntity_* p);
 SECAPI void CEntity_CopyOneProperty(CEntity_* p, CEntityProperty_* epPropertySrc, CEntityProperty_* epPropertyDest, CEntity_* enOther, ULONG ulFlags);
 SECAPI void CEntity_Reinitialize(CEntity_* p);
 SECAPI void CEntity_HandleSentEvents();

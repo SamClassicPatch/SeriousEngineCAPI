@@ -291,6 +291,14 @@ SOURCE=.\Math\Clipping.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Math\Float.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Math\Float.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Math\Functions.cpp
 # End Source File
 # Begin Source File

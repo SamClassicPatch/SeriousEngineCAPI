@@ -11,6 +11,7 @@ MEMBER_VAL_IMPL(CEntity, FLOATmatrix3D_, en_mRotation)
 MEMBER_PTR_IMPL(CEntity, CEntityClass_, en_pecClass)
 MEMBER_PTR_IMPL(CEntity, CBrush3D_, en_pbrBrush)
 MEMBER_PTR_IMPL(CEntity, CWorld_, en_pwoWorld)
+MEMBER_PTR_IMPL(CEntity, CEntity_, en_penParent)
 MEMBER_VAL_IMPL(CEntity, CListHead_, en_rdSectors)
 
 CEntity_* CEntity_from_en_rdSectors(CListHead_* p)
@@ -38,6 +39,16 @@ CEntityProperty_* CEntity_PropertyForName(CEntity_* p, const CTString_* s)
 BOOL CEntity_IsSelected(const CEntity_* p)
 {
   return ((const CEntity*)p)->IsSelected(ENF_SELECTED);
+}
+
+void CEntity_Select(CEntity_* p)
+{
+  ((CEntity*)p)->Select(ENF_SELECTED);
+}
+
+void CEntity_Deselect(CEntity_* p)
+{
+  ((CEntity*)p)->Deselect(ENF_SELECTED);
 }
 
 void CEntity_CopyOneProperty(CEntity_* p, CEntityProperty_* epPropertySrc, CEntityProperty_* epPropertyDest, CEntity_* enOther, ULONG ulFlags)
