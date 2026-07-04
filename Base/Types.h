@@ -91,6 +91,13 @@ typedef double DOUBLE;
 #define SL_VOLUME_MIN (0.0f)
 #define SL_VOLUME_MAX (4.0f)
 
+// standard angles
+#define ANGLE_0    (  0.0f)
+#define ANGLE_90   ( 90.0f)
+#define ANGLE_180  (180.0f)
+#define ANGLE_270  (270.0f)
+#define ANGLE_360  (360.0f)
+
 #endif
 
 typedef INDEX SurfaceShadingType_;

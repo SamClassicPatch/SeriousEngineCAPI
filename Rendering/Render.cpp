@@ -320,6 +320,9 @@ CWorldRenderPrefs_* _wrpWorldRenderPrefs_()
   return (CWorldRenderPrefs_*)(&_wrpWorldRenderPrefs);
 }
 
+MEMBER_VAL_IMPL(CWorldRenderPrefs, FLOAT, wrp_fFarClipPlane)
+MEMBER_VAL_IMPL(CWorldRenderPrefs, BOOL, wrp_bApplyFarClipPlaneInIsometricProjection)
+
 static void (*pLassoSelectionCallback)(CEntity_*) = NULL;
 static void (*pLassoDeselectionCallback)(CEntity_*) = NULL;
 
