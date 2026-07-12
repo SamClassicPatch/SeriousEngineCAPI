@@ -143,3 +143,8 @@ ANGLE3D_* CPlacement3D_pl_OrientationAngle(CPlacement3D_* p)
 {
   return (ANGLE3D_*)(&(((CPlacement3D*)p)->pl_OrientationAngle));
 }
+
+CPlacement3D_* _plOrigin_()
+{
+  return (CPlacement3D_*)(&_plOrigin);
+}

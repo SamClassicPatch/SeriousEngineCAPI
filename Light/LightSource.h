@@ -22,6 +22,7 @@ extern "C" {
 #endif
 
 SECAPI MEMBER_VAL_DECL(CLightSource, ULONG, ls_ulFlags)
+SECAPI MEMBER_PTR_DECL(CLightSource, CEntity_, ls_penEntity)
 
 #ifdef __cplusplus
 }

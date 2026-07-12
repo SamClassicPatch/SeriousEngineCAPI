@@ -104,6 +104,15 @@ typedef double DOUBLE;
 #define _SE_BUILD_EXTRA    ""   // extra version with minor code changes
 #define _SE_VER_STRING  "1.07"  // usually shown in server browser, etc
 
+inline float UpperLimit(float x) { return +3E38f; }
+inline float LowerLimit(float x) { return -3E38f; }
+inline double UpperLimit(double x) { return +1E308; }
+inline double LowerLimit(double x) { return -1E308; }
+inline SLONG UpperLimit(SLONG x) { return MAX_SLONG; }
+inline SLONG LowerLimit(SLONG x) { return MIN_SLONG; }
+inline SWORD UpperLimit(SWORD x) { return MAX_SWORD; }
+inline SWORD LowerLimit(SWORD x) { return MIN_SWORD; }
+
 #endif
 
 typedef INDEX SurfaceShadingType_;

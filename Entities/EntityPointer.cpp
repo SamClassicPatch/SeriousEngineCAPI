@@ -35,4 +35,8 @@ BOOL CEntityPointer_equal(const CEntityPointer_* a, const CEntityPointer_* b)
   return (*((const CEntityPointer*)a)) == (*((const CEntityPointer*)b));
 }
 
-MEMBER_PTR_IMPL(CEntityPointer, CEntity_, ep_pen)
+CEntity_** CEntityPointer_ep_pen(const CEntityPointer_* p)
+{
+  const CEntityPointer& bc = *((const CEntityPointer*)p);
+  return (CEntity_**)(&(bc.ep_pen));
+}

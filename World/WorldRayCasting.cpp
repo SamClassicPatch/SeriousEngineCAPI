@@ -25,6 +25,16 @@ CCastRay_* CCastRay_new_vv(CEntity_* o, const FLOAT3D_* vo, const FLOAT3D_* vt)
   return (CCastRay_*)(new CCastRay((CEntity*)o, *((FLOAT3D*)vo), *((FLOAT3D*)vt)));
 }
 
+CCastRay_* CCastRay_clone(const CCastRay_* p)
+{
+  return (CCastRay_*)(new CCastRay(*((const CCastRay*)p)));
+}
+
+void CCastRay_copy(CCastRay_* a, const CCastRay_* b)
+{
+  *((CCastRay*)a) = *((const CCastRay*)b);
+}
+
 void CCastRay_delete(CCastRay_* p)
 {
   delete ((CCastRay*)p);

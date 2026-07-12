@@ -31,6 +31,8 @@ SECAPI void CPlacement3D_insert(CTStream_* s, const CPlacement3D_* p);
 SECAPI FLOAT3D_* CPlacement3D_pl_PositionVector(CPlacement3D_* p);
 SECAPI ANGLE3D_* CPlacement3D_pl_OrientationAngle(CPlacement3D_* p);
 
+SECAPI CPlacement3D_* _plOrigin_();
+
 #ifdef __cplusplus
 }
 #endif

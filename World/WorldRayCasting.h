@@ -25,6 +25,8 @@ SECAPI MEMBER_PTR_DECL(CCastRay, CBrushSector_, cr_pbscBrushSector)
 SECAPI CCastRay_* CCastRay_new_pl(CEntity_* o, const CPlacement3D_* pl);
 SECAPI CCastRay_* CCastRay_new_plf(CEntity_* o, const CPlacement3D_* pl, FLOAT f);
 SECAPI CCastRay_* CCastRay_new_vv(CEntity_* o, const FLOAT3D_* vo, const FLOAT3D_* vt);
+SECAPI CCastRay_* CCastRay_clone(const CCastRay_* p);
+SECAPI void CCastRay_copy(CCastRay_* a, const CCastRay_* b);
 SECAPI void CCastRay_delete(CCastRay_* p);
 SECAPI void CCastRay_Cast(CCastRay_* p, CWorld_* w);
 SECAPI void CCastRay_ContinueCast(CCastRay_* p, CWorld_* w);

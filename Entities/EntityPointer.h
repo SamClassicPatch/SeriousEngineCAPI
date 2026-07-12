@@ -13,7 +13,7 @@ SECAPI void CEntityPointer_delete(CEntityPointer_* p);
 SECAPI void CEntityPointer_copy(CEntityPointer_* a, const CEntityPointer_* b);
 SECAPI void CEntityPointer_copy_e(CEntityPointer_* a, CEntity_* b);
 SECAPI BOOL CEntityPointer_equal(const CEntityPointer_* a, const CEntityPointer_* b);
-SECAPI MEMBER_PTR_DECL(CEntityPointer, CEntity_, ep_pen)
+SECAPI CEntity_** CEntityPointer_ep_pen(const CEntityPointer_* p);
 
 #ifdef __cplusplus
 }

@@ -19,9 +19,18 @@ CEntityClass_* _pEntityClassStock_Obtain_t_(const CTFileName_* f)
   return res;
 }
 
-void _pEntityClassStock_Release(CEntityClass_* p)
+static void seh_pEntityClassStock_Release_(CEntityClass_* p)
 {
+  SECAPI_TRY
   _pEntityClassStock->Release((CEntityClass*)p);
+  SECAPI_CATCH
+}
+
+void _pEntityClassStock_Release_(CEntityClass_* p)
+{
+  STREAM_TRY
+  seh_pEntityClassStock_Release_(p);
+  STREAM_CATCH
 }
 
 void _pEntityClassStock_FreeUnused()
