@@ -49,3 +49,18 @@ void UpVectorToAngles_(const FLOAT3D_* vUp, ANGLE3D_* a3dAngles)
 {
   UpVectorToAngles(*((const FLOAT3D*)vUp), *((ANGLE3D*)a3dAngles));
 }
+
+void MakeRotationMatrixDOUBLE_(DOUBLEmatrix3D_* t3dRotation, const ANGLE3D_* a3dAngles)
+{
+  (*((DOUBLEmatrix3D*)t3dRotation)) ^= (*((const ANGLE3D*)a3dAngles));
+}
+
+void MakeInverseRotationMatrixDOUBLE_(DOUBLEmatrix3D_* t3dRotation, const ANGLE3D_* a3dAngles)
+{
+  (*((DOUBLEmatrix3D*)t3dRotation)) != (*((const ANGLE3D*)a3dAngles));
+}
+
+void DecomposeRotationMatrixDOUBLE_(ANGLE3D_* a3dAngles, const DOUBLEmatrix3D_* t3dRotation)
+{
+  (*((ANGLE3D*)a3dAngles)) ^= (*((const DOUBLEmatrix3D*)t3dRotation));
+}

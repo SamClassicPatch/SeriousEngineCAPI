@@ -98,6 +98,12 @@ typedef double DOUBLE;
 #define ANGLE_270  (270.0f)
 #define ANGLE_360  (360.0f)
 
+#define _SE_DEMO            0   // set for demo versions
+#define _SE_BUILD_MAJOR 10000   // use new number for each released version
+#define _SE_BUILD_MINOR     7   // minor versions that are data-compatibile, but are not netgame-compatibile
+#define _SE_BUILD_EXTRA    ""   // extra version with minor code changes
+#define _SE_VER_STRING  "1.07"  // usually shown in server browser, etc
+
 #endif
 
 typedef INDEX SurfaceShadingType_;
@@ -399,6 +405,8 @@ typedef struct CEnvironmentType_ CEnvironmentType_;
 typedef struct CIlluminationType_ CIlluminationType_;
 typedef struct CCastRay_ CCastRay_;
 typedef struct CWorld_ CWorld_;
+
+typedef struct CProfileForm_ CProfileForm_;
 
 #define MEMBER_VAL_DECL(baseclass, member_type, member_var) member_type* baseclass##_##member_var(baseclass##_* p);
 #define MEMBER_PTR_DECL(baseclass, member_type, member_var) member_type** baseclass##_##member_var(baseclass##_* p);

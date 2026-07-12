@@ -123,6 +123,14 @@ SOURCE=.\Base\ChangeableRT.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Base\Console.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Console.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Base\CTString.cpp
 # End Source File
 # Begin Source File
@@ -180,6 +188,14 @@ SOURCE=.\Base\Memory.h
 # Begin Source File
 
 SOURCE=.\Base\OneAnim.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Profiling.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Base\Profiling.h
 # End Source File
 # Begin Source File
 
