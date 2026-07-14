@@ -90,6 +90,8 @@ SECAPI void CWorldRenderPrefs_SetFarClipPlane(CWorldRenderPrefs_* p, FLOAT f);
 SECAPI FLOAT CWorldRenderPrefs_GetFarClipPlane(CWorldRenderPrefs_* p);
 SECAPI void CWorldRenderPrefs_EnableFarClipPlaneInIsometricProjection(CWorldRenderPrefs_* p, BOOL bOn);
 SECAPI BOOL CWorldRenderPrefs_IsFarClipPlaneInIsometricProjectionOn(CWorldRenderPrefs_* p);
+SECAPI void CWorldRenderPrefs_Read_t(CWorldRenderPrefs_* p, CTStream_* s);
+SECAPI void CWorldRenderPrefs_Write_t(CWorldRenderPrefs_* p, CTStream_* s);
 SECAPI MEMBER_VAL_DECL(CWorldRenderPrefs, FLOAT, wrp_fFarClipPlane)
 SECAPI MEMBER_VAL_DECL(CWorldRenderPrefs, BOOL, wrp_bApplyFarClipPlaneInIsometricProjection)
 

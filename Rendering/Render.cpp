@@ -320,6 +320,95 @@ CWorldRenderPrefs_* _wrpWorldRenderPrefs_()
   return (CWorldRenderPrefs_*)(&_wrpWorldRenderPrefs);
 }
 
+static void sehCWorldRenderPrefs_Read_t(CWorldRenderPrefs_* p, CTStream_* s)
+{
+  SECAPI_TRY
+  CWorldRenderPrefs& d = *(CWorldRenderPrefs*)p;
+  CTStream& ss = *(CTStream*)s;
+  ss >> d.wrp_bHiddenLinesOn;
+  ss >> d.wrp_bShowTargetsOn;
+  ss >> d.wrp_bShowEntityNames;
+  ss >> d.wrp_bEditorModelsOn;
+  ss >> d.wrp_bFieldBrushesOn;
+  ss >> d.wrp_bBackgroundTextureOn;
+  ss >> d.wrp_bShowVisTweaksOn;
+  ss >> d.wrp_bDisableVisTweaks;
+  ss >> d.wrp_bAutoMipBrushingOn;
+  ss >> d.wrp_fManualMipBrushingFactor;
+  ss >> d.wrp_fFarClipPlane;
+  ss >> d.wrp_bApplyFarClipPlaneInIsometricProjection;
+  ss >> (INDEX&)d.wrp_ftVertices;
+  ss >> d.wrp_colVertices;
+  ss >> (INDEX&)d.wrp_ftEdges;
+  ss >> d.wrp_colEdges;
+  ss >> (INDEX&)d.wrp_ftPolygons;
+  ss >> d.wrp_colPolygons;
+  ss >> (INDEX&)d.wrp_shtShadows;
+  ss >> (INDEX&)d.wrp_lftLensFlares;
+  ss >> d.wrp_abTextureLayers[0];
+  ss >> d.wrp_abTextureLayers[1];
+  ss >> d.wrp_abTextureLayers[2];
+  ss >> d.wrp_bFogOn;
+  ss >> d.wrp_bHazeOn;
+  ss >> d.wrp_bMirrorsOn;
+  ss >> d.wrp_fMinimumRenderRange;
+  ss >> (INDEX&)d.wrp_stSelection;
+  d.wrp_pmoSelectedEntity = NULL;
+  d.wrp_pmoSelectedPortal = NULL;
+  d.wrp_pmoEmptyBrush = NULL;
+  SECAPI_CATCH
+}
+
+void CWorldRenderPrefs_Read_t(CWorldRenderPrefs_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCWorldRenderPrefs_Read_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehCWorldRenderPrefs_Write_t(CWorldRenderPrefs_* p, CTStream_* s)
+{
+  SECAPI_TRY
+  CWorldRenderPrefs& d = *(CWorldRenderPrefs*)p;
+  CTStream& ss = *(CTStream*)s;
+  ss << d.wrp_bHiddenLinesOn;
+  ss << d.wrp_bShowTargetsOn;
+  ss << d.wrp_bShowEntityNames;
+  ss << d.wrp_bEditorModelsOn;
+  ss << d.wrp_bFieldBrushesOn;
+  ss << d.wrp_bBackgroundTextureOn;
+  ss << d.wrp_bShowVisTweaksOn;
+  ss << d.wrp_bDisableVisTweaks;
+  ss << d.wrp_bAutoMipBrushingOn;
+  ss << d.wrp_fManualMipBrushingFactor;
+  ss << d.wrp_fFarClipPlane;
+  ss << d.wrp_bApplyFarClipPlaneInIsometricProjection;
+  ss << (INDEX)d.wrp_ftVertices;
+  ss << d.wrp_colVertices;
+  ss << (INDEX)d.wrp_ftEdges;
+  ss << d.wrp_colEdges;
+  ss << (INDEX)d.wrp_ftPolygons;
+  ss << d.wrp_colPolygons;
+  ss << (INDEX)d.wrp_shtShadows;
+  ss << (INDEX)d.wrp_lftLensFlares;
+  ss << d.wrp_abTextureLayers[0];
+  ss << d.wrp_abTextureLayers[1];
+  ss << d.wrp_abTextureLayers[2];
+  ss << d.wrp_bFogOn;
+  ss << d.wrp_bHazeOn;
+  ss << d.wrp_bMirrorsOn;
+  ss << d.wrp_fMinimumRenderRange;
+  ss << (INDEX)d.wrp_stSelection;
+  SECAPI_CATCH
+}
+
+void CWorldRenderPrefs_Write_t(CWorldRenderPrefs_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCWorldRenderPrefs_Write_t(p, s);
+  STREAM_CATCH
+}
+
 MEMBER_VAL_IMPL(CWorldRenderPrefs, FLOAT, wrp_fFarClipPlane)
 MEMBER_VAL_IMPL(CWorldRenderPrefs, BOOL, wrp_bApplyFarClipPlaneInIsometricProjection)
 
@@ -382,15 +471,29 @@ static void PatchSelection()
     throw "Failed to patch selection";
 }
 
+static CEntitySelection g_dummySelection;
+
 void SetLassoSelectionCallback(void (*c)(CEntity_*))
 {
   pLassoSelectionCallback = c;
+
+  if (pLassoSelectionCallback && pLassoDeselectionCallback)
+    _pselenSelectOnRender = &g_dummySelection;
+  else
+    _pselenSelectOnRender = NULL;
+
   PatchSelection();
 }
 
 void SetLassoDeselectionCallback(void (*c)(CEntity_*))
 {
   pLassoDeselectionCallback = c;
+
+  if (pLassoSelectionCallback && pLassoDeselectionCallback)
+    _pselenSelectOnRender = &g_dummySelection;
+  else
+    _pselenSelectOnRender = NULL;
+
   PatchSelection();
 }
 

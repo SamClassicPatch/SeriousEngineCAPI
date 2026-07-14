@@ -120,6 +120,60 @@ INDEX CModelRenderPrefs_GetShadowQuality(CModelRenderPrefs_* p)
   return ((CModelRenderPrefs*)p)->GetShadowQuality();
 }
 
+static void sehCModelRenderPrefs_Read_t(CModelRenderPrefs_* p, CTStream_* s)
+{
+  SECAPI_TRY
+  CModelRenderPrefs& d = *(CModelRenderPrefs*)p;
+  CTStream& ss = *(CTStream*)s;
+	BOOL rp_BBoxFrameVisible;
+	BOOL rp_BBoxAllVisible;
+  COLOR rp_InkColor;
+  COLOR rp_PaperColor;
+  ULONG rp_RenderType;
+	INDEX rp_ShadowQuality;
+  ss >> rp_BBoxFrameVisible;
+  ss >> rp_BBoxAllVisible;
+  ss >> rp_InkColor;
+  ss >> rp_PaperColor;
+  ss >> rp_RenderType;
+  ss >> rp_ShadowQuality;
+  d.BBoxFrameShow(rp_BBoxFrameVisible);
+  d.BBoxAllShow(rp_BBoxAllVisible);
+  d.SetInkColor(rp_InkColor);
+  d.SetPaperColor(rp_PaperColor);
+  d.SetRenderType(rp_RenderType);
+  d.SetShadowQuality(rp_ShadowQuality);
+  SECAPI_CATCH
+}
+
+void CModelRenderPrefs_Read_t(CModelRenderPrefs_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCModelRenderPrefs_Read_t(p, s);
+  STREAM_CATCH
+}
+
+static void sehCModelRenderPrefs_Write_t(CModelRenderPrefs_* p, CTStream_* s)
+{
+  SECAPI_TRY
+  CModelRenderPrefs& d = *(CModelRenderPrefs*)p;
+  CTStream& ss = *(CTStream*)s;
+  ss << d.BBoxFrameVisible();
+  ss << d.BBoxAllVisible();
+  ss << d.GetInkColor();
+  ss << d.GetPaperColor();
+  ss << d.GetRenderType();
+  ss << d.GetShadowQuality();
+  SECAPI_CATCH
+}
+
+void CModelRenderPrefs_Write_t(CModelRenderPrefs_* p, CTStream_* s)
+{
+  STREAM_TRY
+  sehCModelRenderPrefs_Write_t(p, s);
+  STREAM_CATCH
+}
+
 CModelRenderPrefs_* _mrpModelRenderPrefs_()
 {
   return (CModelRenderPrefs_*)(&_mrpModelRenderPrefs);

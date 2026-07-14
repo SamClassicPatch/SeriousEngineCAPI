@@ -30,6 +30,8 @@ SECAPI void CModelRenderPrefs_BBoxFrameShow(CModelRenderPrefs_* p, BOOL bShow);
 SECAPI void CModelRenderPrefs_BBoxAllShow(CModelRenderPrefs_* p, BOOL bShow);
 SECAPI ULONG CModelRenderPrefs_GetRenderType(CModelRenderPrefs_* p);
 SECAPI INDEX CModelRenderPrefs_GetShadowQuality(CModelRenderPrefs_* p);
+SECAPI void CModelRenderPrefs_Read_t(CModelRenderPrefs_* p, CTStream_* s);
+SECAPI void CModelRenderPrefs_Write_t(CModelRenderPrefs_* p, CTStream_* s);
 
 SECAPI CModelRenderPrefs_* _mrpModelRenderPrefs_();
 SECAPI CTextureObject_* _toSimpleModelShadow_();
