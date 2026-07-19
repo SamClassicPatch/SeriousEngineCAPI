@@ -564,27 +564,72 @@ void CWorld_ShowAllSectors(CWorld_* p)
   ((CWorld*)p)->ShowAllSectors();
 }
 
+static void sehCWorld_CalculateDirectionalShadows(CWorld_* p)
+{
+  SECAPI_TRY
+  ((CWorld*)p)->CalculateDirectionalShadows();
+  SECAPI_CATCH
+}
+
 void CWorld_CalculateDirectionalShadows(CWorld_* p)
 {
-  ((CWorld*)p)->CalculateDirectionalShadows();
+  STREAM_TRY
+  sehCWorld_CalculateDirectionalShadows(p);
+  STREAM_CATCH
+}
+
+static void sehCWorld_CalculateNonDirectionalShadows(CWorld_* p)
+{
+  SECAPI_TRY
+  ((CWorld*)p)->CalculateNonDirectionalShadows();
+  SECAPI_CATCH
 }
 
 void CWorld_CalculateNonDirectionalShadows(CWorld_* p)
 {
-  ((CWorld*)p)->CalculateNonDirectionalShadows();
+  STREAM_TRY
+  sehCWorld_CalculateNonDirectionalShadows(p);
+  STREAM_CATCH
+}
+
+static void sehCWorld_FindShadowLayers(CWorld_* p, const FLOATaabbox3D_* boxNear, BOOL bSelectedOnly, BOOL bDirectional)
+{
+  SECAPI_TRY
+  ((CWorld*)p)->FindShadowLayers(*((const FLOATaabbox3D*)boxNear), bSelectedOnly, bDirectional);
+  SECAPI_CATCH
 }
 
 void CWorld_FindShadowLayers(CWorld_* p, const FLOATaabbox3D_* boxNear, BOOL bSelectedOnly, BOOL bDirectional)
 {
-  ((CWorld*)p)->FindShadowLayers(*((const FLOATaabbox3D*)boxNear), bSelectedOnly, bDirectional);
+  STREAM_TRY
+  sehCWorld_FindShadowLayers(p, boxNear, bSelectedOnly, bDirectional);
+  STREAM_CATCH
+}
+
+static void sehCWorld_DiscardAllShadows(CWorld_* p)
+{
+  SECAPI_TRY
+  ((CWorld*)p)->DiscardAllShadows();
+  SECAPI_CATCH
 }
 
 void CWorld_DiscardAllShadows(CWorld_* p)
 {
-  ((CWorld*)p)->DiscardAllShadows();
+  STREAM_TRY
+  sehCWorld_DiscardAllShadows(p);
+  STREAM_CATCH
+}
+
+static void sehCWorld_RebuildLinks(CWorld_* p)
+{
+  SECAPI_TRY
+  ((CWorld*)p)->RebuildLinks();
+  SECAPI_CATCH
 }
 
 void CWorld_RebuildLinks(CWorld_* p)
 {
-  ((CWorld*)p)->RebuildLinks();
+  STREAM_TRY
+  sehCWorld_RebuildLinks(p);
+  STREAM_CATCH
 }

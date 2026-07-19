@@ -527,7 +527,17 @@ CBrushSectorSelection_** _pselbscVisTweaks_()
   return (CBrushSectorSelection_**)(&_pselbscVisTweaks);
 }
 
+static void sehRenderView_(CWorld_* woWorld, CEntity_* enViewer, CAnyProjection3D_* prProjection, CDrawPort_* dpDrawport)
+{
+  SECAPI_TRY
+  RenderView(*((CWorld*)woWorld), *((CEntity*)enViewer), *((CAnyProjection3D*)prProjection), *((CDrawPort*)dpDrawport));
+  SECAPI_CATCH
+}
+
+
 void RenderView_(CWorld_* woWorld, CEntity_* enViewer, CAnyProjection3D_* prProjection, CDrawPort_* dpDrawport)
 {
-  RenderView(*((CWorld*)woWorld), *((CEntity*)enViewer), *((CAnyProjection3D*)prProjection), *((CDrawPort*)dpDrawport));
+  STREAM_TRY
+  sehRenderView_(woWorld, enViewer, prProjection, dpDrawport);
+  STREAM_CATCH
 }
