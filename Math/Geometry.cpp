@@ -1,5 +1,42 @@
 #include "Geometry.h"
 
+static void DirectionVectorToAnglesNoSnap_Precise(const FLOAT3D &vDirection, ANGLE3D &a3dAngles)
+{
+  // now calculate the angles
+  ANGLE &h = a3dAngles(1);
+  ANGLE &p = a3dAngles(2);
+  ANGLE &b = a3dAngles(3);
+
+  const FLOAT &x = vDirection(1);
+  const FLOAT &y = vDirection(2);
+  const FLOAT &z = vDirection(3);
+
+  // banking is always irrelevant
+  b = 0;
+  // calculate pitch
+  p = ASin(y);
+
+  // if y is near +1 or -1
+  if (y>0.9999 || y<-0.9999) {
+    // heading is irrelevant
+    h = 0;
+  // otherwise
+  } else {
+    // calculate heading
+    h = ATan2(-x, -z);
+  }
+}
+
+static void DirectionVectorToAngles_Precise(const FLOAT3D &vDirection, ANGLE3D &a3dAngles)
+{
+  DirectionVectorToAnglesNoSnap_Precise(vDirection, a3dAngles);
+
+  // snap angles to compensate for errors when converting to and from vector notation
+  Snap(a3dAngles(1), ANGLE_SNAP);
+  Snap(a3dAngles(2), ANGLE_SNAP);
+  Snap(a3dAngles(3), ANGLE_SNAP);
+}
+
 void MakeRotationMatrix_(FLOATmatrix3D_* t3dRotation, const ANGLE3D_* a3dAngles)
 {
   MakeRotationMatrix(*((FLOATmatrix3D*)t3dRotation), *((const ANGLE3D*)a3dAngles));
@@ -37,12 +74,12 @@ void AnglesToDirectionVector_(const ANGLE3D_* a3dAngles, FLOAT3D_* vDirection)
 
 void DirectionVectorToAngles_(const FLOAT3D_* vDirection, ANGLE3D_* a3dAngles)
 {
-  DirectionVectorToAngles(*((const FLOAT3D*)vDirection), *((ANGLE3D*)a3dAngles));
+  DirectionVectorToAngles_Precise(*((const FLOAT3D*)vDirection), *((ANGLE3D*)a3dAngles));
 }
 
 void DirectionVectorToAnglesNoSnap_(const FLOAT3D_* vDirection, ANGLE3D_* a3dAngles)
 {
-  DirectionVectorToAnglesNoSnap(*((const FLOAT3D*)vDirection), *((ANGLE3D*)a3dAngles));
+  DirectionVectorToAnglesNoSnap_Precise(*((const FLOAT3D*)vDirection), *((ANGLE3D*)a3dAngles));
 }
 
 void UpVectorToAngles_(const FLOAT3D_* vUp, ANGLE3D_* a3dAngles)
