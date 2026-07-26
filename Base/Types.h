@@ -416,6 +416,7 @@ typedef struct CCastRay_ CCastRay_;
 typedef struct CWorld_ CWorld_;
 
 typedef struct CProfileForm_ CProfileForm_;
+typedef struct CShellSymbol_ CShellSymbol_;
 
 #define MEMBER_VAL_DECL(baseclass, member_type, member_var) member_type* baseclass##_##member_var(baseclass##_* p);
 #define MEMBER_PTR_DECL(baseclass, member_type, member_var) member_type** baseclass##_##member_var(baseclass##_* p);

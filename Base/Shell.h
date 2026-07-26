@@ -18,6 +18,20 @@ SECAPI void _pShell_SetString_(const CTString_* strName, const CTString_* strVal
 SECAPI CTString_* _pShell_GetValue_(const CTString_* strName);
 SECAPI void _pShell_SetValue_(const CTString_* strName, const CTString_* strValue);
 
+SECAPI INDEX _pShell_sh_assSymbols_Count();
+SECAPI CShellSymbol_* _pShell_sh_assSymbols_Get(INDEX i);
+SECAPI ULONG* CShellSymbol_ss_ulFlags(CShellSymbol_* p);
+SECAPI CTString_* CShellSymbol_GetCompletionString(const CShellSymbol_* p);
+
+#ifndef SERIOUSENGINECAPI_EXPORTS
+// symbol flags
+#define SSF_CONSTANT    (1L<<0)   // the symbol cannot be changed
+#define SSF_USER        (1L<<1)   // the symbol is visible to user (with ListSymbols() )
+#define SSF_PERSISTENT  (1L<<2)   // the symbol is saved when exiting
+#define SSF_EXTERNAL    (1L<<3)   // the symbol was declared externally (in a script)
+
+#endif
+
 #ifdef __cplusplus
 }
 #endif

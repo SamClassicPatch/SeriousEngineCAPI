@@ -71,3 +71,25 @@ void _pShell_SetValue_(const CTString_* strName, const CTString_* strValue)
   STREAM_CATCH
 }
 
+INDEX _pShell_sh_assSymbols_Count()
+{
+  return _pShell->sh_assSymbols.Count();
+}
+
+CShellSymbol_* _pShell_sh_assSymbols_Get(INDEX i)
+{
+  return (CShellSymbol_*)(_pShell->sh_assSymbols.Pointer(i));
+}
+
+ULONG* CShellSymbol_ss_ulFlags(CShellSymbol_* p)
+{
+  CShellSymbol& s = *((CShellSymbol*)p);
+  return &(s.ss_ulFlags);
+}
+
+CTString_* CShellSymbol_GetCompletionString(const CShellSymbol_* p)
+{
+  const CShellSymbol& s = *((const CShellSymbol*)p);
+  CTString res = s.GetCompletionString();
+  return (CTString_*)(new CTString(res));
+}
