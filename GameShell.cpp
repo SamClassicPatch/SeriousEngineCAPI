@@ -48,34 +48,77 @@ namespace
   };
 } // anonymous namespace
 
+static GameGUI_interface_* sehGameGUI_interface_new()
+{
+  GameGUI_interface_* res = NULL;
+  SECAPI_TRY
+  res = (GameGUI_interface_*)(new GameGUIinterface());
+  SECAPI_CATCH
+  return res;
+}
+
 GameGUI_interface_* GameGUI_interface_new()
 {
-  return (GameGUI_interface_*)(new GameGUIinterface());
+  GameGUI_interface_* res = NULL;
+  STREAM_TRY
+  res = sehGameGUI_interface_new();
+  STREAM_CATCH
+  return res;
+}
+
+static void sehGameGUI_interface_delete(GameGUI_interface_* p)
+{
+  SECAPI_TRY
+  delete ((GameGUIinterface*)p);
+  SECAPI_CATCH
 }
 
 void GameGUI_interface_delete(GameGUI_interface_* p)
 {
-  delete ((GameGUIinterface*)p);
+  STREAM_TRY
+  sehGameGUI_interface_delete(p);
+  STREAM_CATCH
+}
+
+static void sehGameGUI_interface_Initialize(GameGUI_interface_* p, const CTFileName_* f)
+{
+  SECAPI_TRY
+  ((GameGUIinterface*)p)->Initialize(*((const CTFileName*)f));
+  SECAPI_CATCH
 }
 
 void GameGUI_interface_Initialize(GameGUI_interface_* p, const CTFileName_* f)
 {
   STREAM_TRY
-  ((GameGUIinterface*)p)->Initialize(*((const CTFileName*)f));
+  sehGameGUI_interface_Initialize(p, f);
   STREAM_CATCH
+}
+
+static void sehGameGUI_interface_End(GameGUI_interface_* p)
+{
+  SECAPI_TRY
+  ((GameGUIinterface*)p)->mp_impl->End();
+  SECAPI_CATCH
 }
 
 void GameGUI_interface_End(GameGUI_interface_* p)
 {
   STREAM_TRY
-  ((GameGUIinterface*)p)->mp_impl->End();
+  sehGameGUI_interface_End(p);
   STREAM_CATCH
+}
+
+static void sehGameGUI_interface_QuickTest(GameGUI_interface_* p, const CTFileName_* fnMapName, CDrawPort_* pdp, CViewPort_* pvp)
+{
+  SECAPI_TRY
+  ((GameGUIinterface*)p)->mp_impl->QuickTest(*((const CTFileName*)fnMapName), (CDrawPort*)pdp, (CViewPort*)pvp);
+  SECAPI_CATCH
 }
 
 void GameGUI_interface_QuickTest(GameGUI_interface_* p, const CTFileName_* fnMapName, CDrawPort_* pdp, CViewPort_* pvp)
 {
   STREAM_TRY
-  ((GameGUIinterface*)p)->mp_impl->QuickTest(*((const CTFileName*)fnMapName), (CDrawPort*)pdp, (CViewPort*)pvp);
+  sehGameGUI_interface_QuickTest(p, fnMapName, pdp, pvp);
   STREAM_CATCH
 }
 

@@ -5,9 +5,18 @@ CWorld_* CWorld_new()
   return (CWorld_*)(new CWorld());
 }
 
+static void sehCWorld_delete(CWorld_* p)
+{
+  SECAPI_TRY
+  delete ((CWorld*)p);
+  SECAPI_CATCH
+}
+
 void CWorld_delete(CWorld_* p)
 {
-  delete ((CWorld*)p);
+  STREAM_TRY
+  sehCWorld_delete(p);
+  STREAM_CATCH
 }
 
 MEMBER_VAL_IMPL(CWorld, CStaticArray_CTextureTransformation_, wo_attTextureTransformations)
