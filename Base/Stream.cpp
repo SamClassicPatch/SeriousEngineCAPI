@@ -672,3 +672,20 @@ void IgnoreApplicationPath_()
 {
   IgnoreApplicationPath();
 }
+
+INDEX GetGroFileCount()
+{
+  const int enginedll_base_address = reinterpret_cast<int>(&CEntity::HandleSentEvents) - 0xFEC80;
+  INDEX(*_UNZIPGetFileCount)(void) = reinterpret_cast<INDEX(*)(void)>(enginedll_base_address + 0x2DC30);
+  return _UNZIPGetFileCount();
+}
+
+extern "C" void CTFileName_SetAbsolutePath(CTFileName_* p);
+CTFileName_* _GetGroFileAtIndex(INDEX i)
+{
+  const int enginedll_base_address = reinterpret_cast<int>(&CEntity::HandleSentEvents) - 0xFEC80;
+  const CTFileName&(*_UNZIPGetFileAtIndex)(INDEX) = reinterpret_cast<const CTFileName&(*)(INDEX)>(enginedll_base_address + 0x2DC40);
+  CTFileName* res = new CTFileName(_UNZIPGetFileAtIndex(i));
+  CTFileName_SetAbsolutePath((CTFileName_*)res);
+  return (CTFileName_*)res;
+}

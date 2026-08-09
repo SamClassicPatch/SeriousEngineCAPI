@@ -114,6 +114,9 @@ SECAPI void IgnoreApplicationPath_();
 #define CTStream_DLI_RECURSIVE  (1UL<<0)  // recurse into subdirs
 #define CTStream_DLI_SEARCHCD   (1UL<<1)  // search the CD path also
 
+SECAPI INDEX GetGroFileCount();
+SECAPI CTFileName_* _GetGroFileAtIndex(INDEX i);
+
 #ifdef __cplusplus
 }
 #endif
