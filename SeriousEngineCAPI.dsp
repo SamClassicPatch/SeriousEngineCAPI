@@ -563,6 +563,14 @@ SOURCE=.\Graphics\Raster.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\Graphics\Shader.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Graphics\Shader.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\Graphics\Texture.cpp
 # End Source File
 # Begin Source File
