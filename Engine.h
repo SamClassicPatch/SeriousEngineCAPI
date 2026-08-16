@@ -13,6 +13,9 @@ SECAPI void SE_LoadDefaultFonts_();
 SECAPI void SE_UpdateWindowHandle_(HWND hwndWindowed);
 SECAPI void SE_PretouchIfNeeded_();
 
+// will take ownership of the passed CTFileName
+SECAPI void SetFileRequesterCallback(CTFileName_* (*c)(char* title, char* filters, char* registry, char* selectedByDefault));
+
 #ifdef __cplusplus
 }
 #endif
