@@ -689,3 +689,10 @@ CTFileName_* _GetGroFileAtIndex(INDEX i)
   CTFileName_SetAbsolutePath((CTFileName_*)res);
   return (CTFileName_*)res;
 }
+
+CTFileName_* _GetGroFileArchiveAtIndex(INDEX i)
+{
+  const int enginedll_base_address = reinterpret_cast<int>(&CEntity::HandleSentEvents) - 0xFEC80;
+  const CTFileName&(*_UNZIPGetFileAtIndex)(INDEX) = reinterpret_cast<const CTFileName&(*)(INDEX)>(enginedll_base_address + 0x2DC40);
+  return (CTFileName_*)(*((CTFileName**)(((unsigned char*)&_UNZIPGetFileAtIndex(i)) - 4)));
+}

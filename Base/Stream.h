@@ -116,6 +116,7 @@ SECAPI void IgnoreApplicationPath_();
 
 SECAPI INDEX GetGroFileCount();
 SECAPI CTFileName_* _GetGroFileAtIndex(INDEX i);
+SECAPI CTFileName_* _GetGroFileArchiveAtIndex(INDEX i);
 
 #ifdef __cplusplus
 }
