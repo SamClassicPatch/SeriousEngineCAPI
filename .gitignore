@@ -1,0 +1,59 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*.iobj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+*.p
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Visual Studio
+*.aps
+*.vs
+*.opendb
+*.sdf
+*.map
+*.opensdf
+*.pdb
+*.ipdb
+*.sbr
+*.suo
+*.tlog
+*.ipch
+*.hm
+*.exp
+*.res
+*.vcxproj.user
+*.vcxproj.FileListAbsolute.txt
+*.bsc
+*.cnt
+*.recipe
+*.idb
+*.ncb
+*.opt
+
+# Prebuilt library
+!Release/SeriousEngineCAPI.dll
+!Release/SeriousEngineCAPI.lib

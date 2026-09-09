@@ -87,13 +87,9 @@ LINK32=link.exe
 
 # Name "SeriousEngineCAPI - Win32 Release"
 # Name "SeriousEngineCAPI - Win32 Debug"
-# Begin Group "Source Files"
+# Begin Group "Sources"
 
-# PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
-# End Group
-# Begin Group "Header Files"
-
-# PROP Default_Filter "h;hpp;hxx;hm;inl"
+# PROP Default_Filter "h;hpp;hxx;hm;inl;cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Group "Base"
 
 # PROP Default_Filter "h"
