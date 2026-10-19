@@ -15,6 +15,49 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "Stream.h"
 
+static bool g_streamsPatched = false;
+static void PatchStream()
+{
+  if (g_streamsPatched)
+    return;
+  g_streamsPatched = true;
+
+  const int enginedll_base_address = reinterpret_cast<int>(&CEntity::HandleSentEvents) - 0xFEC80;
+
+  const int enable_patch_address = enginedll_base_address + 0x2749A;
+  const UBYTE enable_patch_bytes[12] = {
+    UBYTE(0xff), UBYTE(0x46), UBYTE(0x08),             // inc DWORD PTR [esi+0x8]         ++_bThreadCanHandleStreams;
+    UBYTE(0x83), UBYTE(0x7e), UBYTE(0x08), UBYTE(0x01),// cmp DWORD PTR [esi+0x8],0x1     if (_bThreadCanHandleStreams != 1)
+    UBYTE(0x75), UBYTE(0x26),                          // jne LAB_600e74c9                  return;
+    UBYTE(0x90),                                       // nop
+    UBYTE(0x6a), UBYTE(0x0c)};                         // push 0xc                        _plhOpenedStreams = new CListHead;
+  
+  DWORD old_page_mode;
+  if (::VirtualProtect(reinterpret_cast<void*>(enable_patch_address), sizeof(enable_patch_bytes), PAGE_EXECUTE_READWRITE, &old_page_mode) != 0)
+  {
+    memcpy(reinterpret_cast<void*>(enable_patch_address), enable_patch_bytes, sizeof(enable_patch_bytes));
+    DWORD dummy;
+    ::VirtualProtect(reinterpret_cast<void*>(enable_patch_address), sizeof(enable_patch_bytes), old_page_mode, &dummy);
+  }
+
+  const int disable_patch_address = enginedll_base_address + 0x27506;
+  const UBYTE disable_patch_bytes[10] = {
+    UBYTE(0xff), UBYTE(0x4e), UBYTE(0x08), // dec DWORD PTR [esi+0x8]     if (--_bThreadCanHandleStreams)
+    UBYTE(0x75), UBYTE(0x18),              // jnz LAB_600e7523              return;
+    UBYTE(0x90),                           // nop
+    UBYTE(0x90),                           // nop
+    UBYTE(0x90),                           // nop
+    UBYTE(0x90),                           // nop
+    UBYTE(0x90)};                          // nop
+    
+  if (::VirtualProtect(reinterpret_cast<void*>(disable_patch_address), sizeof(disable_patch_bytes), PAGE_EXECUTE_READWRITE, &old_page_mode) != 0)
+  {
+    memcpy(reinterpret_cast<void*>(disable_patch_address), disable_patch_bytes, sizeof(disable_patch_bytes));
+    DWORD dummy;
+    ::VirtualProtect(reinterpret_cast<void*>(disable_patch_address), sizeof(disable_patch_bytes), old_page_mode, &dummy);
+  }
+}
+
 CChunkID_* CChunkID_new(const char* s)
 {
   return (CChunkID_*)(new CChunkID(s));
@@ -47,6 +90,7 @@ char* CChunkID_str(CChunkID_* p)
 
 void CTStream_ExecuteWithStreamHandling(void (*func)(void))
 {
+  PatchStream();
   CTSTREAM_BEGIN
   {
     func();
