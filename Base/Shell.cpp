@@ -15,6 +15,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "Shell.h"
 
+CShellSymbol_* _pShell_GetSymbol_(const CTString_* strName, BOOL bDeclaredOnly)
+{
+  return (CShellSymbol_*)_pShell->GetSymbol(*((const CTString*)strName), bDeclaredOnly);
+}
+
 void _pShell_DeclareSymbol_(const CTString_* s, void* val)
 {
   STREAM_TRY
@@ -100,6 +105,12 @@ ULONG* CShellSymbol_ss_ulFlags(CShellSymbol_* p)
 {
   CShellSymbol& s = *((CShellSymbol*)p);
   return &(s.ss_ulFlags);
+}
+
+void** CShellSymbol_ss_pvValue(CShellSymbol_* p)
+{
+  CShellSymbol& s = *((CShellSymbol*)p);
+  return &(s.ss_pvValue);
 }
 
 CTString_* CShellSymbol_GetCompletionString(const CShellSymbol_* p)

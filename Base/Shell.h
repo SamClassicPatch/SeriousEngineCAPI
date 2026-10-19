@@ -21,6 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 extern "C" {
 #endif
 
+SECAPI CShellSymbol_* _pShell_GetSymbol_(const CTString_* strName, BOOL bDeclaredOnly);
 SECAPI void _pShell_DeclareSymbol_(const CTString_* s, void* val);
 SECAPI void _pShell_Execute_(const CTString_* s);
 SECAPI void _pShell_StorePersistentSymbols_(const CTFileName_* f);
@@ -36,6 +37,7 @@ SECAPI void _pShell_SetValue_(const CTString_* strName, const CTString_* strValu
 SECAPI INDEX _pShell_sh_assSymbols_Count();
 SECAPI CShellSymbol_* _pShell_sh_assSymbols_Get(INDEX i);
 SECAPI ULONG* CShellSymbol_ss_ulFlags(CShellSymbol_* p);
+SECAPI void** CShellSymbol_ss_pvValue(CShellSymbol_* p);
 SECAPI CTString_* CShellSymbol_GetCompletionString(const CShellSymbol_* p);
 
 #ifndef SERIOUSENGINECAPI_EXPORTS
