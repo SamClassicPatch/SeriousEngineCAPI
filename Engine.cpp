@@ -182,11 +182,31 @@ static void PatchGFX_SetFunctionPointers()
   PatchGFXFunctionRef(0x65FD7);
 }
 
+static void PatchDecomposeMatrixPrecision()
+{
+  const int enginedll_base_address = reinterpret_cast<int>(&CEntity::HandleSentEvents) - 0xFEC80;
+  const int patch_address = enginedll_base_address + 0x2F275;
+  DWORD old_page_mode;
+  if (::VirtualProtect(reinterpret_cast<void*>(patch_address), 1, PAGE_EXECUTE_READWRITE, &old_page_mode) != 0)
+  {
+    // changes "if (a<0.001) {" condition in DecomposeRotationMatrixNoSnap
+    // to "if (a<0.0001f) {" by using a more precise constant from void operator^=(ANGLE3D &a3dAngles, const DOUBLEmatrix3D &t3dRotation)
+    // 600ef273 dc 1d 68 4b 25 60       FCOMP      double ptr [DAT_60254b68]
+    // will become
+    // 600ef273 dc 1d 90 4b 25 60       FCOMP      double ptr [DAT_60254b90]
+    const UBYTE ref_to_0dot0001 = UBYTE(0x90);
+    memcpy(reinterpret_cast<void*>(patch_address), &ref_to_0dot0001, 1);
+    DWORD dummy;
+    ::VirtualProtect(reinterpret_cast<void*>(patch_address), 1, old_page_mode, &dummy);
+  }
+}
+
 static void sehSE_InitEngine_(CTString_* strGameID)
 {
   SECAPI_TRY
   PatchInitContext_OGL();
   PatchGFX_SetFunctionPointers();
+  PatchDecomposeMatrixPrecision();
   SE_InitEngine(*((CTString*)strGameID));
   SECAPI_CATCH
 }
@@ -203,6 +223,7 @@ static void sehSE_InitEngineAtDirectory_(CTString_* strGameID, const CTFileName_
   SECAPI_TRY
   PatchInitContext_OGL();
   PatchGFX_SetFunctionPointers();
+  PatchDecomposeMatrixPrecision();
   _fnmApplicationPath = *((const CTFileName*)fnAppPath);
   _fnmApplicationExe = *((const CTFileName*)fnExePath);
 
